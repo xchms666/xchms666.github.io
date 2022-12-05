@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>电基_第3章_数据转换电路 | MyUniverse</title><meta name="author" content="Li Chenrui"><meta name="copyright" content="Li Chenrui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="电基_ 第3章 _数据转换电路采样与比较器采样&#x2F;保持电路：开关+电容  栅极G高电平：MOS管导通  栅极G低电平：MOS管截止   采样相开关S接通→导通电阻为零→电路充电时间常数为零，电容上电压VC (即输出电压Vout)跟踪输入电压Vin。即开关导通时，输出波形跟踪输入波形变化； 保持相开关S断开，断开电阻近似为无穷大，输出与输入回路隔离，不管输入波形如何变，输出波形保持不变 优点">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>电基_第3章_数据转换电路 | MyUniverse</title><meta name="author" content="Li Chenrui"><meta name="copyright" content="Li Chenrui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="电基_ 第3章 _数据转换电路 声明：本文图片及内容基本来自浙江大学《电子电路基础》课程课件  采样与比较器采样&#x2F;保持电路：开关+电容理想情况 NMOS晶体管代替理想开关  栅极G高电平：MOS管导通  栅极G低电平：MOS管截止   采样相开关S接通→导通电阻为零→电路充电时间常数为零，电容上电压VC (即输出电压Vout)跟踪输入电压Vin。即开关导通时，输出波形跟踪输入波形变化；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="电基_第3章_数据转换电路">
 <meta property="og:url" content="http://example.com/2022/11/24/%E7%94%B5%E5%9F%BA-%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E7%94%B5%E8%B7%AF/index.html">
 <meta property="og:site_name" content="MyUniverse">
-<meta property="og:description" content="电基_ 第3章 _数据转换电路采样与比较器采样&#x2F;保持电路：开关+电容  栅极G高电平：MOS管导通  栅极G低电平：MOS管截止   采样相开关S接通→导通电阻为零→电路充电时间常数为零，电容上电压VC (即输出电压Vout)跟踪输入电压Vin。即开关导通时，输出波形跟踪输入波形变化； 保持相开关S断开，断开电阻近似为无穷大，输出与输入回路隔离，不管输入波形如何变，输出波形保持不变 优点">
+<meta property="og:description" content="电基_ 第3章 _数据转换电路 声明：本文图片及内容基本来自浙江大学《电子电路基础》课程课件  采样与比较器采样&#x2F;保持电路：开关+电容理想情况 NMOS晶体管代替理想开关  栅极G高电平：MOS管导通  栅极G低电平：MOS管截止   采样相开关S接通→导通电阻为零→电路充电时间常数为零，电容上电压VC (即输出电压Vout)跟踪输入电压Vin。即开关导通时，输出波形跟踪输入波形变化；">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
 <meta property="article:published_time" content="2022-11-24T03:31:00.000Z">
-<meta property="article:modified_time" content="2022-11-24T15:24:27.687Z">
+<meta property="article:modified_time" content="2022-12-05T19:12:24.525Z">
 <meta property="article:author" content="Li Chenrui">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -53,7 +53,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-11-24 23:24:27'
+  postUpdate: '2022-12-06 03:12:24'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -142,7 +142,11 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">11</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MyUniverse</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">电基_第3章_数据转换电路</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-11-24T03:31:00.000Z" title="Created 2022-11-24 11:31:00">2022-11-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-11-24T15:24:27.687Z" title="Updated 2022-11-24 23:24:27">2022-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%B5%E5%9F%BA/">电基</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="电基_第3章_数据转换电路"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="电基-第3章-数据转换电路"><a href="#电基-第3章-数据转换电路" class="headerlink" title="电基_ 第3章 _数据转换电路"></a>电基_ 第3章 _数据转换电路</h1><h2 id="采样与比较器"><a href="#采样与比较器" class="headerlink" title="采样与比较器"></a>采样与比较器</h2><h3 id="采样-x2F-保持电路：开关-电容"><a href="#采样-x2F-保持电路：开关-电容" class="headerlink" title="采样&#x2F;保持电路：开关+电容"></a>采样&#x2F;保持电路：开关+电容</h3><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8g2u3mxlaj308n0710tz.jpg" alt="image.png"></p>
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">54</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">11</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MyUniverse</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">电基_第3章_数据转换电路</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-11-24T03:31:00.000Z" title="Created 2022-11-24 11:31:00">2022-11-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-12-05T19:12:24.525Z" title="Updated 2022-12-06 03:12:24">2022-12-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%B5%E5%9F%BA/">电基</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="电基_第3章_数据转换电路"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="电基-第3章-数据转换电路"><a href="#电基-第3章-数据转换电路" class="headerlink" title="电基_ 第3章 _数据转换电路"></a>电基_ 第3章 _数据转换电路</h1><blockquote>
+<p>声明：本文图片及内容基本来自浙江大学《电子电路基础》课程课件</p>
+</blockquote>
+<h2 id="采样与比较器"><a href="#采样与比较器" class="headerlink" title="采样与比较器"></a>采样与比较器</h2><h3 id="采样-x2F-保持电路：开关-电容"><a href="#采样-x2F-保持电路：开关-电容" class="headerlink" title="采样&#x2F;保持电路：开关+电容"></a>采样&#x2F;保持电路：开关+电容</h3><h4 id="理想情况"><a href="#理想情况" class="headerlink" title="理想情况"></a>理想情况</h4><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tdi3a7ytj30ea05c75h.jpg" alt="image.png"></p>
+<h4 id="NMOS晶体管代替理想开关"><a href="#NMOS晶体管代替理想开关" class="headerlink" title="NMOS晶体管代替理想开关"></a>NMOS晶体管代替理想开关</h4><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8g2u3mxlaj308n0710tz.jpg" alt="image.png"></p>
 <ul>
 <li><p><strong>栅极G高电平：MOS管导通</strong></p>
 </li>
@@ -165,7 +169,7 @@
 <h3 id="奈奎斯特采样原理"><a href="#奈奎斯特采样原理" class="headerlink" title="奈奎斯特采样原理"></a>奈奎斯特采样原理</h3><ul>
 <li>如果要通过采样数据重构一个信号xi，则电路的取样频率f s必须大于该信号最高频率fmax的两倍。<strong>这样的采样称为奈奎斯特采样</strong></li>
 <li>需要指出的是，实际采样电路的采样频率往往远大于奈奎斯特采样值，约为奈奎斯特采样理论值的1.5到10倍，或达到输入信号最高频率的3到20倍。</li>
-<li>而过采样转换电路的取样频率要高出奈奎斯特频率16~512倍。</li>
+<li>而<strong>过采样</strong>转换电路的取样频率要高出奈奎斯特频率16~512倍。</li>
 </ul>
 <h3 id="比较器"><a href="#比较器" class="headerlink" title="比较器"></a>比较器</h3><h4 id="电压比较器-amp-电流比较器"><a href="#电压比较器-amp-电流比较器" class="headerlink" title="电压比较器&amp;电流比较器"></a>电压比较器&amp;电流比较器</h4><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8g343lv0yj30aa05l3yv.jpg" alt="image.png"></p>
 <h4 id="比较器电路"><a href="#比较器电路" class="headerlink" title="比较器电路"></a>比较器电路</h4><ul>
@@ -176,17 +180,272 @@
 <li>过零比较器</li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8g36bnle7j30cm07i3yp.jpg" alt="image.png"></p>
+<ul>
+<li>改变翻转电压</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tdqvh13pj30la0ck0vo.jpg" alt="image.png"></p>
 <h4 id="比较器特性参数"><a href="#比较器特性参数" class="headerlink" title="比较器特性参数"></a>比较器特性参数</h4><ul>
-<li>增益</li>
-<li>精度</li>
-<li>失调电压</li>
+<li><p>增益</p>
+</li>
+<li><p>精度</p>
+<ul>
+<li>实现反转的最小输入电压</li>
+</ul>
+</li>
+<li><p>失调电压</p>
+<ul>
+<li>现实中比较器，输入之差达到某个电压值V<del>OS</del>时，输出才发生变化。这个电压值V<del>OS</del>定义为比较器的失调电压（offset）。</li>
+<li>比较器的失调电压可能为正值，也可能为负值。由于晶体管失配、工艺和输入电压等参数的影响，不同比较器的失调电压随机改变。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tdtblytxj30k50c7tdc.jpg" alt="image.png"></p>
+<ul>
 <li>摆率</li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8g3eccahgj3082081t8y.jpg" alt="image.png"></p>
 <p><strong>压摆率</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8g3eunj2aj303x026t8n.jpg" alt="image.png"></p>
 <h2 id="DAC-数-x2F-模转换器"><a href="#DAC-数-x2F-模转换器" class="headerlink" title="DAC 数&#x2F;模转换器"></a>DAC 数&#x2F;模转换器</h2><h3 id="构建DAC的基本思想"><a href="#构建DAC的基本思想" class="headerlink" title="构建DAC的基本思想"></a>构建DAC的基本思想</h3><ul>
-<li>V<del>ref</del>由带隙基准电压源产生，非常准确</li>
-<li><h2 id="码字"><a href="#码字" class="headerlink" title="码字"></a>码字</h2></li>
+<li>V<del>ref</del>（参考电压，要非常准确）由带隙基准电压源产生，非常准确</li>
+<li>码字<ul>
+<li><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tdye4ha5j30kj0c3wk0.jpg" alt="image.png"></li>
+<li>B的另一种表示<ul>
+<li><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8te0urcohj30d70503zs.jpg" alt="image.png"></li>
 </ul>
-<h2 id="ADC-模-x2F-数转换器"><a href="#ADC-模-x2F-数转换器" class="headerlink" title="ADC 模&#x2F;数转换器"></a>ADC 模&#x2F;数转换器</h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Li Chenrui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/11/24/%E7%94%B5%E5%9F%BA-%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E7%94%B5%E8%B7%AF/">http://example.com/2022/11/24/%E7%94%B5%E5%9F%BA-%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E7%94%B5%E8%B7%AF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/28/DS-01-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">DS_01_最大子列和</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/24/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-%E8%A1%A5%E5%85%85/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">电基_第6章_补充</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/11/19/DS-01-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="DS_01_基本概念"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-19</div><div class="title">DS_01_基本概念</div></div></a></div><div><a href="/2022/11/10/DS-ALGORITHM-ANALYSIS/" title="DS_02_ALGORITHM_ANALYSIS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_02_ALGORITHM_ANALYSIS</div></div></a></div><div><a href="/2022/11/10/DS-03-LINEAR-LISTS/" title="DS_03_LINEAR_LISTS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_03_LINEAR_LISTS</div></div></a></div><div><a href="/2022/11/03/DS-Project2-Hard-VotingTree/" title="DS_Project2_Hard_VotingTree"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-03</div><div class="title">DS_Project2_Hard_VotingTree</div></div></a></div><div><a href="/2022/11/07/DS-GRAPH-ALGORITHMS/" title="DS_GRAPH ALGORITHMS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">DS_GRAPH ALGORITHMS</div></div></a></div><div><a href="/2022/11/07/DS-THE-DISJOINT-SET-ADT/" title="DS_THE DISJOINT SET ADT"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">DS_THE DISJOINT SET ADT</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Li Chenrui</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B5%E5%9F%BA-%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E7%94%B5%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">电基_ 第3章 _数据转换电路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%87%E6%A0%B7%E4%B8%8E%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">采样与比较器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E6%A0%B7-x2F-%E4%BF%9D%E6%8C%81%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%BC%80%E5%85%B3-%E7%94%B5%E5%AE%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text">采样&#x2F;保持电路：开关+电容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%87%E6%A0%B7%E7%9B%B8"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">采样相</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81%E7%9B%B8"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">保持相</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E6%A0%B7-x2F-%E4%BF%9D%E6%8C%81%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%BC%80%E5%85%B3-%E7%94%B5%E5%AE%B9-%E8%BF%90%E6%94%BE"><span class="toc-number">1.1.2.</span> <span class="toc-text">采样&#x2F;保持电路：开关+电容+运放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E9%87%87%E6%A0%B7%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.3.</span> <span class="toc-text">奈奎斯特采样原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">1.1.4.</span> <span class="toc-text">比较器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%B5%E5%8E%8B%E6%AF%94%E8%BE%83%E5%99%A8-amp-%E7%94%B5%E6%B5%81%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">电压比较器&amp;电流比较器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%99%A8%E7%94%B5%E8%B7%AF"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">比较器电路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%99%A8%E7%89%B9%E6%80%A7%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">比较器特性参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAC-%E6%95%B0-x2F-%E6%A8%A1%E8%BD%AC%E6%8D%A2%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">DAC 数&#x2F;模转换器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BADAC%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="toc-number">1.2.1.</span> <span class="toc-text">构建DAC的基本思想</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%81%E5%AD%97"><span class="toc-number">1.3.</span> <span class="toc-text">码字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ADC-%E6%A8%A1-x2F-%E6%95%B0%E8%BD%AC%E6%8D%A2%E5%99%A8"><span class="toc-number">1.4.</span> <span class="toc-text">ADC 模&#x2F;数转换器</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/11/28/DS-01-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C/" title="DS_01_最大子列和"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DS_01_最大子列和"/></a><div class="content"><a class="title" href="/2022/11/28/DS-01-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C/" title="DS_01_最大子列和">DS_01_最大子列和</a><time datetime="2022-11-28T01:05:31.000Z" title="Created 2022-11-28 09:05:31">2022-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/24/%E7%94%B5%E5%9F%BA-%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E7%94%B5%E8%B7%AF/" title="电基_第3章_数据转换电路"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="电基_第3章_数据转换电路"/></a><div class="content"><a class="title" href="/2022/11/24/%E7%94%B5%E5%9F%BA-%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E7%94%B5%E8%B7%AF/" title="电基_第3章_数据转换电路">电基_第3章_数据转换电路</a><time datetime="2022-11-24T03:31:00.000Z" title="Created 2022-11-24 11:31:00">2022-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/24/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-%E8%A1%A5%E5%85%85/" title="电基_第6章_补充"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="电基_第6章_补充"/></a><div class="content"><a class="title" href="/2022/11/24/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-%E8%A1%A5%E5%85%85/" title="电基_第6章_补充">电基_第6章_补充</a><time datetime="2022-11-24T02:04:39.000Z" title="Created 2022-11-24 10:04:39">2022-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/23/%E6%B1%87%E7%BC%96-%E6%AE%B5%E8%A6%86%E7%9B%96/" title="汇编_段覆盖"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编_段覆盖"/></a><div class="content"><a class="title" href="/2022/11/23/%E6%B1%87%E7%BC%96-%E6%AE%B5%E8%A6%86%E7%9B%96/" title="汇编_段覆盖">汇编_段覆盖</a><time datetime="2022-11-23T11:01:26.000Z" title="Created 2022-11-23 19:01:26">2022-11-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/22/%E7%94%B5%E5%9F%BA-%E7%AC%AC8%E7%AB%A0-MOS%E6%99%B6%E4%BD%93%E7%AE%A1%E4%BA%A4%E6%B5%81%E5%B0%8F%E4%BF%A1%E5%8F%B7%E7%89%B9%E5%BE%81/" title="电基_第8章_MOS晶体管交流小信号特征"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="电基_第8章_MOS晶体管交流小信号特征"/></a><div class="content"><a class="title" href="/2022/11/22/%E7%94%B5%E5%9F%BA-%E7%AC%AC8%E7%AB%A0-MOS%E6%99%B6%E4%BD%93%E7%AE%A1%E4%BA%A4%E6%B5%81%E5%B0%8F%E4%BF%A1%E5%8F%B7%E7%89%B9%E5%BE%81/" title="电基_第8章_MOS晶体管交流小信号特征">电基_第8章_MOS晶体管交流小信号特征</a><time datetime="2022-11-22T03:20:10.000Z" title="Created 2022-11-22 11:20:10">2022-11-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Li Chenrui</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="DAC的框图表示"><a href="#DAC的框图表示" class="headerlink" title="DAC的框图表示"></a>DAC的框图表示</h4><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8te694h2qj30lv0fd788.jpg" alt="image.png"></p>
+<h4 id="构建DAC的基本思想-1"><a href="#构建DAC的基本思想-1" class="headerlink" title="构建DAC的基本思想"></a>构建DAC的基本思想</h4><p>(1) 用一个解码网络来分配各个位的权重，将每一位按其权重的大小转换成相应</p>
+<p>的模拟量；</p>
+<p>(2) 将每一位数字量转换成的模拟量相加，即可得到与数字量成正比的总模拟量。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8te24nhgfj30e404275m.jpg" alt="image.png"></p>
+<h3 id="ADC-x2F-DAC输入输出特性曲线"><a href="#ADC-x2F-DAC输入输出特性曲线" class="headerlink" title="ADC&#x2F;DAC输入输出特性曲线"></a>ADC&#x2F;DAC输入输出特性曲线</h3><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8te7p51hcj30mj0g2dm4.jpg" alt="image.png"></p>
+<ul>
+<li>理想无限比特ADC&#x2F;DAC：任意输入模拟量，都可以用数字表示，并恢复为数字模拟输出（斜线）实际是折线或点</li>
+<li>量化误差 A-&gt;D-&gt;A‘的损失</li>
+</ul>
+<h3 id="DAC输入输出特性曲线"><a href="#DAC输入输出特性曲线" class="headerlink" title="DAC输入输出特性曲线"></a>DAC输入输出特性曲线</h3><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tec4nnpjj30m10fmn22.jpg" alt="image.png"></p>
+<ul>
+<li>LSB——least significant byte</li>
+<li>FS——full<ul>
+<li>很多时候认为参考电压就是满幅输出</li>
+</ul>
+</li>
+</ul>
+<h3 id="转换器的量化误差（不可避免）"><a href="#转换器的量化误差（不可避免）" class="headerlink" title="转换器的量化误差（不可避免）"></a>转换器的量化误差（不可避免）</h3><ul>
+<li>A-&gt;D 存在输入模拟量变化而输出数字量不变<ul>
+<li>受量化位数所限</li>
+</ul>
+</li>
+<li>D-&gt;A 输入数字量离散，对应输出模拟量也离散</li>
+<li>V1 V2之间存在误差</li>
+<li>输入模拟量不同，量化误差也不同</li>
+</ul>
+<h3 id="量化噪声"><a href="#量化噪声" class="headerlink" title="量化噪声"></a>量化噪声</h3><blockquote>
+<p>输入模拟量不同，量化误差也不同</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8teh3tc7nj30m40ddae4.jpg" alt="image.png"></p>
+<ul>
+<li>用斜线表示，即无限比特DAC的模拟输出-有限比特DAC的模拟输出</li>
+</ul>
+<h3 id="DAC特性参数"><a href="#DAC特性参数" class="headerlink" title="DAC特性参数"></a>DAC特性参数</h3><ul>
+<li><strong>信噪比</strong><ul>
+<li>量化位数越多，信噪比越高</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8telqpdiwj30me0fntdx.jpg" alt="image.png"></p>
+<ul>
+<li><strong>分辨率</strong><ul>
+<li>LSB</li>
+</ul>
+</li>
+<li><strong>失调误差</strong>（offset error）<img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8teqfd6ylj30an08cjso.jpg" alt="image.png"><ul>
+<li>输入码字全为0时，输出模拟量与理想值之间的差异</li>
+<li>可通过垂直平移特性曲线消除</li>
+<li>一般用LSB表示</li>
+</ul>
+</li>
+<li><strong>增益误差</strong><ul>
+<li>先同一减去失调误差</li>
+<li><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8terzy62oj30ik0afta8.jpg" alt="image.png"></li>
+</ul>
+</li>
+<li><strong>微分非线性</strong>（DNL）</li>
+<li><strong>积分非线性</strong>（INL）</li>
+<li><strong>单调性</strong></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8teva97m9j30m30dbn1w.jpg" alt="image.png"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tewosio2j309b046aav.jpg" alt="image.png"></p>
+<ul>
+<li>其他</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tf1h203oj30kk0dctbj.jpg" alt="image.png"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tfkptvc9j30kf09gtac.jpg" alt="image.png"></p>
+<h3 id="DAC的三大结构"><a href="#DAC的三大结构" class="headerlink" title="DAC的三大结构"></a>DAC的三大结构</h3><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tfmyfu8tj30lw0d7gos.jpg" alt="image.png"></p>
+<h4 id="电阻分压型"><a href="#电阻分压型" class="headerlink" title="电阻分压型"></a>电阻分压型</h4><hr>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tfnhimgjj30ms0e17bo.jpg" alt="image.png"></p>
+<h4 id="电阻网络型"><a href="#电阻网络型" class="headerlink" title="电阻网络型"></a>电阻网络型</h4><hr>
+<p><strong>1. 权电阻网络型</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tfpyms0ej30lu0fc78x.jpg" alt="image.png"></p>
+<p> <strong>基于DAC的任意波形发生器</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tftn99qwj30m00f6jwp.jpg" alt="image.png"></p>
+<p><strong>2.倒T型电阻网络DAC</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tfubcd6sj30lq0dhgqc.jpg" alt="image.png"></p>
+<p>缺点-&gt;优点</p>
+<blockquote>
+<p>好聪明啊这个！</p>
+</blockquote>
+<h4 id="电流舵型"><a href="#电流舵型" class="headerlink" title="电流舵型"></a>电流舵型</h4><hr>
+<p><strong>1. 二进制加权电流舵型DAC</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tg1jjsakj30mh0dhtcw.jpg" alt="image.png"></p>
+<ul>
+<li>直接用电流源而不是电阻</li>
+<li>缺点：<ul>
+<li>电流响应速度不同，产生毛刺</li>
+<li>位数多的话，电流源差距很大，镜像电流源设计不好，宽长比差距大</li>
+</ul>
+</li>
+</ul>
+<p>举例：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tg65hx51j30ho0d8dhi.jpg" alt="image.png"></p>
+<p><strong>2. 温度计码电流舵型</strong></p>
+<p><strong>温度计码</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tg7hybo1j30li0fmq93.jpg" alt="image.png"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tg8n0yprj30mf0fcn2f.jpg" alt="image.png"></p>
+<ul>
+<li>011-&gt;100只要一个开关切换</li>
+</ul>
+<p>举例：<img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tg9zfxvej30j10ejgo7.jpg" alt="image.png"></p>
+<p><strong>3. 分段式电流舵型DAC</strong></p>
+<blockquote>
+<p>兼顾上两者优点</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tgat4b20j30j20fidj2.jpg" alt="image.png"></p>
+<p>举例：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tgc18wh6j30i10bn76m.jpg" alt="image.png"></p>
+<h2 id="ADC-模-x2F-数转换器"><a href="#ADC-模-x2F-数转换器" class="headerlink" title="ADC 模&#x2F;数转换器"></a>ADC 模&#x2F;数转换器</h2><h3 id="ADC研究中的两个问题"><a href="#ADC研究中的两个问题" class="headerlink" title="ADC研究中的两个问题"></a>ADC研究中的两个问题</h3><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8thh457clj30ml0ejwlg.jpg" alt="image.png"></p>
+<ol>
+<li>采样频率<ol>
+<li>见下”奈奎斯特采样定理“</li>
+</ol>
+</li>
+<li>量化位数<img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8thi7rtsbj30mi0c5q8q.jpg" alt="image.png"></li>
+</ol>
+<h3 id="ADC基本架构"><a href="#ADC基本架构" class="headerlink" title="ADC基本架构"></a>ADC基本架构</h3><h4 id="前置滤波器"><a href="#前置滤波器" class="headerlink" title="前置滤波器"></a>前置滤波器</h4><blockquote>
+<p>滤除模拟输入信号中的高频分量，避免混叠</p>
+</blockquote>
+<ul>
+<li>量化器<ul>
+<li>对模拟信号量化</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8th8nckg5j30k206zq3l.jpg" alt="image.png"></p>
+<ul>
+<li>编码器<ul>
+<li>根据需要，将量化结果以特定格式输出数字码</li>
+</ul>
+</li>
+</ul>
+<h4 id="采样保持电路"><a href="#采样保持电路" class="headerlink" title="采样保持电路"></a>采样保持电路</h4><blockquote>
+<p>对模拟输入信号采样并保持（在相应的固定值上），以便后级电路量化处理</p>
+</blockquote>
+<h4 id="频率混叠现象"><a href="#频率混叠现象" class="headerlink" title="频率混叠现象"></a><strong>频率混叠现象</strong></h4><ul>
+<li>奈奎斯特采样定理<ul>
+<li><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8thb97e8dj30md0dmdj2.jpg" alt="image.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="ADC的分类"><a href="#ADC的分类" class="headerlink" title="ADC的分类"></a>ADC的分类</h3><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8thopx1l3j30ln090tb9.jpg" alt="image.png"></p>
+<h3 id="ADC特性参数"><a href="#ADC特性参数" class="headerlink" title="ADC特性参数"></a>ADC特性参数</h3><ul>
+<li><p>分辨率</p>
+<ul>
+<li><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8thq6p39rj30le0940u3.jpg" alt="image.png"></li>
+</ul>
+</li>
+<li><p>失调误差</p>
+<ul>
+<li>输出00……01，实际模拟输入与理想值的偏差</li>
+</ul>
+</li>
+<li><p>增益误差</p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8thrnz8g9j30ly0acju3.jpg" alt="image.png"></p>
+</li>
+<li><p>微分非线性</p>
+</li>
+<li><p>积分非线性</p>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8thslb4e1j30ls0dogp3.jpg" alt="image.png"></p>
+<ul>
+<li>其他</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8thtj7q2bj30kx0dvaeu.jpg" alt="image.png"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8thu1cqnqj30lz0dd0wj.jpg" alt="image.png"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8thwwuv49j30lb09qtby.jpg" alt="image.png"></p>
+<h3 id="SAR-ADC-及-ADC参数表示"><a href="#SAR-ADC-及-ADC参数表示" class="headerlink" title="SAR ADC 及 ADC参数表示"></a>SAR ADC 及 ADC参数表示</h3><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8ti0f6uqej30lg0dcae4.jpg" alt="image.png"></p>
+<ul>
+<li>采样率低，分辨率中到高<ul>
+<li>功耗低，尺寸小</li>
+</ul>
+</li>
+<li>抗混叠前置滤波</li>
+<li>采样保持电路<ul>
+<li>可以嵌入DAC内部</li>
+</ul>
+</li>
+</ul>
+<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><blockquote>
+<p>逐次逼近</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8ti36m580j30lr0cin18.jpg" alt="image.png"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8ti415ppsj30lz0cgagq.jpg" alt="image.png"></p>
+<p>举例：</p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8ti5k3sr0j30mc0cc7aq.jpg" alt="image.png"></p>
+<h4 id="特点及应用场合"><a href="#特点及应用场合" class="headerlink" title="特点及应用场合"></a>特点及应用场合</h4><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8ti6y16rcj30hy0c2gpe.jpg" alt="image.png"></p>
+<ul>
+<li>转换速率低</li>
+<li>精度高</li>
+<li>只用一个比较器</li>
+<li>功率随采样速率改变</li>
+</ul>
+<h4 id="3位-SAR-ADC-仿真电路"><a href="#3位-SAR-ADC-仿真电路" class="headerlink" title="3位 SAR ADC 仿真电路"></a>3位 SAR ADC 仿真电路</h4><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8ti89l001j30kz0d2q9b.jpg" alt="image.png"></p>
+<p><strong>仿真结果</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8ti9dspetj30gf0fdad9.jpg" alt="image.png"></p>
+<h3 id="Flash-ADC（全平行ADC）"><a href="#Flash-ADC（全平行ADC）" class="headerlink" title="Flash ADC（全平行ADC）"></a>Flash ADC（全平行ADC）</h3><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tibjlbxpj30lz0dtdjs.jpg" alt="image.png"></p>
+<ul>
+<li>双相非交叠时钟</li>
+</ul>
+<h4 id="工作原理-1"><a href="#工作原理-1" class="headerlink" title="工作原理"></a>工作原理</h4><p><strong>结构</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tiemdbf4j30mb0cuq7o.jpg" alt="image.png"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tig9ihbuj30aj075wfg.jpg" alt="image.png"></p>
+<p><strong>输入输出</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tigiccmoj30lq0feq8h.jpg" alt="image.png"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tiiv24ldj30i90c8jtd.jpg" alt="image.png"></p>
+<h4 id="比较器行为级模型"><a href="#比较器行为级模型" class="headerlink" title="比较器行为级模型"></a>比较器行为级模型</h4><blockquote>
+<p>行为级：只关心外部输入输出，对内部不关心</p>
+</blockquote>
+<ul>
+<li>非理想因素主要考虑失调电压V<del>OS</del></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tikvf6d8j30id05uabk.jpg" alt="image.png"></p>
+<ul>
+<li>simulink模型<ul>
+<li>没有实际电路，仿真快</li>
+<li>看非理想因素对结果的影响</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tilbrwvkj30le06p755.jpg" alt="image.png"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tiqeva6bj30kv0detbu.jpg" alt="image.png"></p>
+<p>使用matlab仿真</p>
+<p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tiztujs5j30lh0cvn2j.jpg" alt="image.png"></p>
+<ul>
+<li>输出频谱代码另外下载（ADC output spectrum），没跟教材附录一起</li>
+</ul>
+<h3 id="流水线ADC"><a href="#流水线ADC" class="headerlink" title="流水线ADC"></a>流水线ADC</h3><h4 id="数据转换思路"><a href="#数据转换思路" class="headerlink" title="数据转换思路"></a>数据转换思路</h4><p><img src="https://tva1.sinaimg.cn/large/008qZDPcly1h8tj5zt90yj30lh0d5n2j.jpg" alt="image.png"></p>
+<h3 id="∑-Δ"><a href="#∑-Δ" class="headerlink" title="∑-Δ"></a>∑-Δ</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Li Chenrui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/11/24/%E7%94%B5%E5%9F%BA-%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E7%94%B5%E8%B7%AF/">http://example.com/2022/11/24/%E7%94%B5%E5%9F%BA-%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E7%94%B5%E8%B7%AF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/28/DS-01-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">DS_01_最大子列和</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/24/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-%E8%A1%A5%E5%85%85/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">电基_第6章_补充</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/11/19/DS-01-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="DS_01_基本概念"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-19</div><div class="title">DS_01_基本概念</div></div></a></div><div><a href="/2022/11/10/DS-ALGORITHM-ANALYSIS/" title="DS_02_ALGORITHM_ANALYSIS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_02_ALGORITHM_ANALYSIS</div></div></a></div><div><a href="/2022/11/10/DS-03-LINEAR-LISTS/" title="DS_03_LINEAR_LISTS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_03_LINEAR_LISTS</div></div></a></div><div><a href="/2022/11/03/DS-Project2-Hard-VotingTree/" title="DS_Project2_Hard_VotingTree"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-03</div><div class="title">DS_Project2_Hard_VotingTree</div></div></a></div><div><a href="/2022/11/07/DS-GRAPH-ALGORITHMS/" title="DS_GRAPH ALGORITHMS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">DS_GRAPH ALGORITHMS</div></div></a></div><div><a href="/2022/11/07/DS-THE-DISJOINT-SET-ADT/" title="DS_THE DISJOINT SET ADT"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">DS_THE DISJOINT SET ADT</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Li Chenrui</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">54</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B5%E5%9F%BA-%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E7%94%B5%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">电基_ 第3章 _数据转换电路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%87%E6%A0%B7%E4%B8%8E%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">采样与比较器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E6%A0%B7-x2F-%E4%BF%9D%E6%8C%81%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%BC%80%E5%85%B3-%E7%94%B5%E5%AE%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text">采样&#x2F;保持电路：开关+电容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E6%83%B3%E6%83%85%E5%86%B5"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">理想情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NMOS%E6%99%B6%E4%BD%93%E7%AE%A1%E4%BB%A3%E6%9B%BF%E7%90%86%E6%83%B3%E5%BC%80%E5%85%B3"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">NMOS晶体管代替理想开关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%87%E6%A0%B7%E7%9B%B8"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">采样相</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81%E7%9B%B8"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">保持相</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="toc-number">1.1.1.5.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="toc-number">1.1.1.6.</span> <span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E6%A0%B7-x2F-%E4%BF%9D%E6%8C%81%E7%94%B5%E8%B7%AF%EF%BC%9A%E5%BC%80%E5%85%B3-%E7%94%B5%E5%AE%B9-%E8%BF%90%E6%94%BE"><span class="toc-number">1.1.2.</span> <span class="toc-text">采样&#x2F;保持电路：开关+电容+运放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E9%87%87%E6%A0%B7%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.3.</span> <span class="toc-text">奈奎斯特采样原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">1.1.4.</span> <span class="toc-text">比较器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%B5%E5%8E%8B%E6%AF%94%E8%BE%83%E5%99%A8-amp-%E7%94%B5%E6%B5%81%E6%AF%94%E8%BE%83%E5%99%A8"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">电压比较器&amp;电流比较器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%99%A8%E7%94%B5%E8%B7%AF"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">比较器电路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%99%A8%E7%89%B9%E6%80%A7%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">比较器特性参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAC-%E6%95%B0-x2F-%E6%A8%A1%E8%BD%AC%E6%8D%A2%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">DAC 数&#x2F;模转换器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BADAC%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="toc-number">1.2.1.</span> <span class="toc-text">构建DAC的基本思想</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DAC%E7%9A%84%E6%A1%86%E5%9B%BE%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">DAC的框图表示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E5%BB%BADAC%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3-1"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">构建DAC的基本思想</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADC-x2F-DAC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%89%B9%E6%80%A7%E6%9B%B2%E7%BA%BF"><span class="toc-number">1.2.2.</span> <span class="toc-text">ADC&#x2F;DAC输入输出特性曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%89%B9%E6%80%A7%E6%9B%B2%E7%BA%BF"><span class="toc-number">1.2.3.</span> <span class="toc-text">DAC输入输出特性曲线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E5%99%A8%E7%9A%84%E9%87%8F%E5%8C%96%E8%AF%AF%E5%B7%AE%EF%BC%88%E4%B8%8D%E5%8F%AF%E9%81%BF%E5%85%8D%EF%BC%89"><span class="toc-number">1.2.4.</span> <span class="toc-text">转换器的量化误差（不可避免）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8F%E5%8C%96%E5%99%AA%E5%A3%B0"><span class="toc-number">1.2.5.</span> <span class="toc-text">量化噪声</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAC%E7%89%B9%E6%80%A7%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.6.</span> <span class="toc-text">DAC特性参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAC%E7%9A%84%E4%B8%89%E5%A4%A7%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.7.</span> <span class="toc-text">DAC的三大结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%B5%E9%98%BB%E5%88%86%E5%8E%8B%E5%9E%8B"><span class="toc-number">1.2.7.1.</span> <span class="toc-text">电阻分压型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%B5%E9%98%BB%E7%BD%91%E7%BB%9C%E5%9E%8B"><span class="toc-number">1.2.7.2.</span> <span class="toc-text">电阻网络型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%B5%E6%B5%81%E8%88%B5%E5%9E%8B"><span class="toc-number">1.2.7.3.</span> <span class="toc-text">电流舵型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ADC-%E6%A8%A1-x2F-%E6%95%B0%E8%BD%AC%E6%8D%A2%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">ADC 模&#x2F;数转换器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ADC%E7%A0%94%E7%A9%B6%E4%B8%AD%E7%9A%84%E4%B8%A4%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.1.</span> <span class="toc-text">ADC研究中的两个问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADC%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84"><span class="toc-number">1.3.2.</span> <span class="toc-text">ADC基本架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">前置滤波器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%87%E6%A0%B7%E4%BF%9D%E6%8C%81%E7%94%B5%E8%B7%AF"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">采样保持电路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%91%E7%8E%87%E6%B7%B7%E5%8F%A0%E7%8E%B0%E8%B1%A1"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">频率混叠现象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADC%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.3.</span> <span class="toc-text">ADC的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADC%E7%89%B9%E6%80%A7%E5%8F%82%E6%95%B0"><span class="toc-number">1.3.4.</span> <span class="toc-text">ADC特性参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SAR-ADC-%E5%8F%8A-ADC%E5%8F%82%E6%95%B0%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.3.5.</span> <span class="toc-text">SAR ADC 及 ADC参数表示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E7%82%B9%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E5%90%88"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">特点及应用场合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E4%BD%8D-SAR-ADC-%E4%BB%BF%E7%9C%9F%E7%94%B5%E8%B7%AF"><span class="toc-number">1.3.5.3.</span> <span class="toc-text">3位 SAR ADC 仿真电路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flash-ADC%EF%BC%88%E5%85%A8%E5%B9%B3%E8%A1%8CADC%EF%BC%89"><span class="toc-number">1.3.6.</span> <span class="toc-text">Flash ADC（全平行ADC）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86-1"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%99%A8%E8%A1%8C%E4%B8%BA%E7%BA%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.6.2.</span> <span class="toc-text">比较器行为级模型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BFADC"><span class="toc-number">1.3.7.</span> <span class="toc-text">流水线ADC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E6%80%9D%E8%B7%AF"><span class="toc-number">1.3.7.1.</span> <span class="toc-text">数据转换思路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%88%91-%CE%94"><span class="toc-number">1.3.8.</span> <span class="toc-text">∑-Δ</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/05/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-%E7%94%B5%E8%B7%AF%E5%8F%8D%E9%A6%88%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD/" title="电基_第6章_电路反馈类型判断"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="电基_第6章_电路反馈类型判断"/></a><div class="content"><a class="title" href="/2022/12/05/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-%E7%94%B5%E8%B7%AF%E5%8F%8D%E9%A6%88%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD/" title="电基_第6章_电路反馈类型判断">电基_第6章_电路反馈类型判断</a><time datetime="2022-12-05T15:12:24.000Z" title="Created 2022-12-05 23:12:24">2022-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/05/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-CMOS%E6%8E%A8%E6%8C%BD%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/" title="电基_第6章_CMOS推挽放大电路"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="电基_第6章_CMOS推挽放大电路"/></a><div class="content"><a class="title" href="/2022/12/05/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-CMOS%E6%8E%A8%E6%8C%BD%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF/" title="电基_第6章_CMOS推挽放大电路">电基_第6章_CMOS推挽放大电路</a><time datetime="2022-12-05T14:57:08.000Z" title="Created 2022-12-05 22:57:08">2022-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/02/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-CMOS%E4%BA%8C%E7%BA%A7%E8%BF%90%E6%94%BE%E7%94%B5%E8%B7%AF/" title="电基_第6章_CMOS二级运放电路"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="电基_第6章_CMOS二级运放电路"/></a><div class="content"><a class="title" href="/2022/12/02/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-CMOS%E4%BA%8C%E7%BA%A7%E8%BF%90%E6%94%BE%E7%94%B5%E8%B7%AF/" title="电基_第6章_CMOS二级运放电路">电基_第6章_CMOS二级运放电路</a><time datetime="2022-12-02T04:09:42.000Z" title="Created 2022-12-02 12:09:42">2022-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/01/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-MOS%E6%99%B6%E4%BD%93%E7%AE%A1%E5%81%8F%E7%BD%AE%E7%94%B5%E8%B7%AF/" title="电基_第6章_MOS晶体管偏置电路"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="电基_第6章_MOS晶体管偏置电路"/></a><div class="content"><a class="title" href="/2022/12/01/%E7%94%B5%E5%9F%BA-%E7%AC%AC6%E7%AB%A0-MOS%E6%99%B6%E4%BD%93%E7%AE%A1%E5%81%8F%E7%BD%AE%E7%94%B5%E8%B7%AF/" title="电基_第6章_MOS晶体管偏置电路">电基_第6章_MOS晶体管偏置电路</a><time datetime="2022-12-01T04:43:08.000Z" title="Created 2022-12-01 12:43:08">2022-12-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/30/%E7%94%B5%E5%9F%BA-%E7%AC%AC0%E7%AB%A0-%E5%A6%82%E4%BD%95%E4%BB%BF%E7%9C%9F/" title="电基_第0章_如何仿真"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="电基_第0章_如何仿真"/></a><div class="content"><a class="title" href="/2022/11/30/%E7%94%B5%E5%9F%BA-%E7%AC%AC0%E7%AB%A0-%E5%A6%82%E4%BD%95%E4%BB%BF%E7%9C%9F/" title="电基_第0章_如何仿真">电基_第0章_如何仿真</a><time datetime="2022-11-30T13:15:40.000Z" title="Created 2022-11-30 21:15:40">2022-11-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Li Chenrui</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
