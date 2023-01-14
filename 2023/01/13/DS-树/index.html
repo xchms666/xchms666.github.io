@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>DS_树 | MyUniverse</title><meta name="author" content="Li Chenrui"><meta name="copyright" content="Li Chenrui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="DS_树查找（Searching）顺序查找（Sequential Search）  巧妙的是将下标为0处的哨兵的值改成要查的元素，这样就不用判断下标是否越界  二分查找（Binary Search）代码表示 二分查找判定树 ASL：平均成功查找次数  斐波那契查找（黄金分割法查找）算法 二分法每次能有100%的概率能只剩50%的数据，每次剩下的期望为50%，即每次除以2。 而黄金分割的话每次都有0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DS_树">
+<meta property="og:url" content="http://example.com/2023/01/13/DS-%E6%A0%91/index.html">
+<meta property="og:site_name" content="MyUniverse">
+<meta property="og:description" content="DS_树查找（Searching）顺序查找（Sequential Search）  巧妙的是将下标为0处的哨兵的值改成要查的元素，这样就不用判断下标是否越界  二分查找（Binary Search）代码表示 二分查找判定树 ASL：平均成功查找次数  斐波那契查找（黄金分割法查找）算法 二分法每次能有100%的概率能只剩50%的数据，每次剩下的期望为50%，即每次除以2。 而黄金分割的话每次都有0">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2023-01-13T02:12:33.000Z">
+<meta property="article:modified_time" content="2023-01-13T12:03:26.664Z">
+<meta property="article:author" content="Li Chenrui">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/01/13/DS-%E6%A0%91/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DS_树',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-01-13 20:03:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">81</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">21</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MyUniverse</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DS_树</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-01-13T02:12:33.000Z" title="Created 2023-01-13 10:12:33">2023-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-01-13T12:03:26.664Z" title="Updated 2023-01-13 20:03:26">2023-01-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="DS_树"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="DS-树"><a href="#DS-树" class="headerlink" title="DS_树"></a>DS_树</h1><h2 id="查找（Searching）"><a href="#查找（Searching）" class="headerlink" title="查找（Searching）"></a>查找（Searching）</h2><h3 id="顺序查找（Sequential-Search）"><a href="#顺序查找（Sequential-Search）" class="headerlink" title="顺序查找（Sequential Search）"></a>顺序查找（Sequential Search）</h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QxfJb"><img src="https://i.imgtg.com/2023/01/13/QxfJb.md.png" alt="QxfJb.md.png"></a></p>
+<ul>
+<li>巧妙的是将下标为0处的哨兵的值改成要查的元素，这样就不用判断下标是否越界</li>
+</ul>
+<h3 id="二分查找（Binary-Search）"><a href="#二分查找（Binary-Search）" class="headerlink" title="二分查找（Binary Search）"></a>二分查找（Binary Search）</h3><h5 id="代码表示"><a href="#代码表示" class="headerlink" title="代码表示"></a>代码表示</h5><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qxlfl"><img src="https://i.imgtg.com/2023/01/13/Qxlfl.md.png" alt="Qxlfl.md.png"></a></p>
+<h5 id="二分查找判定树"><a href="#二分查找判定树" class="headerlink" title="二分查找判定树"></a>二分查找判定树</h5><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qx2ZB"><img src="https://i.imgtg.com/2023/01/13/Qx2ZB.png" alt="Qx2ZB.png"></a></p>
+<p>ASL：平均成功查找次数</p>
+<blockquote>
+<p>斐波那契查找（黄金分割法查找）算法</p>
+<p>二分法每次能有100%的概率能只剩50%的数据，每次剩下的期望为50%，即每次除以2。</p>
+<p>而黄金分割的话每次都有0.618的概率是0.618，0.382的概率是0.382，每次剩下的期望为0.528，即每次除以1.894。</p>
+</blockquote>
+<h2 id="树（Tree）"><a href="#树（Tree）" class="headerlink" title="树（Tree）"></a>树（Tree）</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QxIHS"><img src="https://i.imgtg.com/2023/01/13/QxIHS.png" alt="QxIHS.png"></a></p>
+<h5 id="树与非树"><a href="#树与非树" class="headerlink" title="树与非树"></a>树与非树</h5><p><img src="C:\Users\ants\AppData\Roaming\Typora\typora-user-images\image-20230113104926143.png" alt="image-20230113104926143"></p>
+<ul>
+<li>树是保证节点连通的最小方式</li>
+</ul>
+<h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzqZt"><img src="https://i.imgtg.com/2023/01/13/QzqZt.png" alt="QzqZt.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qz5cx"><img src="https://i.imgtg.com/2023/01/13/Qz5cx.png" alt="Qz5cx.png"></a></p>
+<ul>
+<li>根结点的层数是1</li>
+</ul>
+<h3 id="树的表示"><a href="#树的表示" class="headerlink" title="树的表示"></a>树的表示</h3><h4 id="儿子-兄弟表示法"><a href="#儿子-兄弟表示法" class="headerlink" title="儿子-兄弟表示法"></a>儿子-兄弟表示法</h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzU7p"><img src="https://i.imgtg.com/2023/01/13/QzU7p.png" alt="QzU7p.png"></a></p>
+<h5 id="转变为二叉树"><a href="#转变为二叉树" class="headerlink" title="转变为二叉树"></a>转变为二叉树</h5><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzWLU"><img src="https://i.imgtg.com/2023/01/13/QzWLU.png" alt="QzWLU.png"></a></p>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzbXY"><img src="https://i.imgtg.com/2023/01/13/QzbXY.md.png" alt="QzbXY.md.png"></a></p>
+<ul>
+<li>二叉树的子树有左右之分</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qzxzv"><img src="https://i.imgtg.com/2023/01/13/Qzxzv.md.png" alt="Qzxzv.md.png"></a></p>
+<ul>
+<li>完全二叉树可以是满二叉树去掉黄色部分</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzzPq"><img src="https://i.imgtg.com/2023/01/13/QzzPq.png" alt="QzzPq.png"></a></p>
+<ul>
+<li>下面的就不是完全二叉树</li>
+</ul>
+<h3 id="重要性质"><a href="#重要性质" class="headerlink" title="重要性质"></a>重要性质</h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QziTr"><img src="https://i.imgtg.com/2023/01/13/QziTr.png" alt="QziTr.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzFlc"><img src="https://i.imgtg.com/2023/01/13/QzFlc.png" alt="QzFlc.png"></a></p>
+<ul>
+<li>因此，m叉树中各类节点的关系为：$$\sum (i-1)n$$<del>i</del> &#x3D; $$n$$<del>0</del></li>
+</ul>
+<h3 id="抽象数据类型定义"><a href="#抽象数据类型定义" class="headerlink" title="抽象数据类型定义"></a>抽象数据类型定义</h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QznvM"><img src="https://i.imgtg.com/2023/01/13/QznvM.png" alt="QznvM.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qz1cG"><img src="https://i.imgtg.com/2023/01/13/Qz1cG.png" alt="Qz1cG.png"></a></p>
+<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><h4 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h4><ul>
+<li>完全二叉树</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzNO1"><img src="https://i.imgtg.com/2023/01/13/QzNO1.png" alt="QzNO1.png"></a></p>
+<ul>
+<li>一般二叉树</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qze7I"><img src="https://i.imgtg.com/2023/01/13/Qze7I.png" alt="Qze7I.png"></a></p>
+<h4 id="链表存储"><a href="#链表存储" class="headerlink" title="链表存储"></a>链表存储</h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzrLD"><img src="https://i.imgtg.com/2023/01/13/QzrLD.png" alt="QzrLD.png"></a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TNode</span> *<span class="title">Position</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> Position BinTree; <span class="comment">/* 二叉树类型 */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TNode</span>&#123;</span> <span class="comment">/* 树结点定义 */</span></span><br><span class="line">	ElementType Data; <span class="comment">/* 结点数据 */</span></span><br><span class="line">	BinTree Left;	 <span class="comment">/* 指向左子树 */</span></span><br><span class="line">	BinTree Right;	<span class="comment">/* 指向右子树 */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><ol>
+<li>先序遍历</li>
+<li>中序遍历</li>
+<li>后序遍历</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzAuF"><img src="https://i.imgtg.com/2023/01/13/QzAuF.png" alt="QzAuF.png"></a></p>
+<h4 id="非递归遍历"><a href="#非递归遍历" class="headerlink" title="非递归遍历"></a>非递归遍历</h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzvPP"><img src="https://i.imgtg.com/2023/01/13/QzvPP.md.png" alt="QzvPP.md.png"></a></p>
+<ul>
+<li>中序改先序-&gt;第一次碰到就print就可以了，因为路径是一样的</li>
+</ul>
+<ol start="4">
+<li>层序遍历<ol>
+<li>队列实现<a target="_blank" rel="noopener" href="https://imgtg.com/image/QhWkv"><img src="https://i.imgtg.com/2023/01/13/QhWkv.md.png" alt="QhWkv.md.png"></a></li>
+</ol>
+</li>
+</ol>
+<h4 id="遍历举例"><a href="#遍历举例" class="headerlink" title="遍历举例"></a>遍历举例</h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qhbpq"><img src="https://i.imgtg.com/2023/01/13/Qhbpq.md.png" alt="Qhbpq.md.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qhz5r"><img src="https://i.imgtg.com/2023/01/13/Qhz5r.md.png" alt="Qhz5r.md.png"></a></p>
+<p><img src="C:\Users\ants\AppData\Roaming\Typora\typora-user-images\image-20230113194344300.png" alt="image-20230113194344300"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Li Chenrui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/01/13/DS-%E6%A0%91/">http://example.com/2023/01/13/DS-%E6%A0%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/14/DS-LINAR-MaximumSubsequenceSum/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">DS_LINAR_MaximumSubsequenceSum</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/12/%E5%8F%98%E7%BE%8E-%E6%9C%89%E6%9D%91%E6%9E%B6%E7%BA%AF/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">变美_有村架纯</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/11/19/DS-01-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="DS_01_基本概念"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-19</div><div class="title">DS_01_基本概念</div></div></a></div><div><a href="/2022/11/10/DS-ALGORITHM-ANALYSIS/" title="DS_02_ALGORITHM_ANALYSIS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_02_ALGORITHM_ANALYSIS</div></div></a></div><div><a href="/2022/11/07/DS-GRAPH-ALGORITHMS/" title="DS_GRAPH ALGORITHMS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">DS_GRAPH ALGORITHMS</div></div></a></div><div><a href="/2022/11/10/DS-03-LINEAR-LISTS/" title="DS_03_LINEAR_LISTS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_03_LINEAR_LISTS</div></div></a></div><div><a href="/2022/11/03/DS-Project2-Hard-VotingTree/" title="DS_Project2_Hard_VotingTree"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-03</div><div class="title">DS_Project2_Hard_VotingTree</div></div></a></div><div><a href="/2022/11/07/DS-THE-DISJOINT-SET-ADT/" title="DS_THE DISJOINT SET ADT"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">DS_THE DISJOINT SET ADT</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Li Chenrui</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">81</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">21</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DS-%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">DS_树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%EF%BC%88Searching%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">查找（Searching）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%EF%BC%88Sequential-Search%EF%BC%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">顺序查找（Sequential Search）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%EF%BC%88Binary-Search%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">二分查找（Binary Search）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.2.0.1.</span> <span class="toc-text">代码表示</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%88%A4%E5%AE%9A%E6%A0%91"><span class="toc-number">1.1.2.0.2.</span> <span class="toc-text">二分查找判定树</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%EF%BC%88Tree%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">树（Tree）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">定义</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%91%E4%B8%8E%E9%9D%9E%E6%A0%91"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text">树与非树</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD"><span class="toc-number">1.2.2.</span> <span class="toc-text">基本术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.2.3.</span> <span class="toc-text">树的表示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%84%BF%E5%AD%90-%E5%85%84%E5%BC%9F%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">儿子-兄弟表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BD%AC%E5%8F%98%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.2.3.1.1.</span> <span class="toc-text">转变为二叉树</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.3.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E6%80%A7%E8%B4%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">重要性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="toc-number">1.3.3.</span> <span class="toc-text">抽象数据类型定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.4.</span> <span class="toc-text">存储结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">顺序存储结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E5%AD%98%E5%82%A8"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">链表存储</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86"><span class="toc-number">1.3.5.</span> <span class="toc-text">遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">非递归遍历</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E4%B8%BE%E4%BE%8B"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">遍历举例</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/14/DS-LINAR-ReversingLinkedList/" title="DS_LINAR_ReversingLinkedList"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DS_LINAR_ReversingLinkedList"/></a><div class="content"><a class="title" href="/2023/01/14/DS-LINAR-ReversingLinkedList/" title="DS_LINAR_ReversingLinkedList">DS_LINAR_ReversingLinkedList</a><time datetime="2023-01-14T06:35:29.000Z" title="Created 2023-01-14 14:35:29">2023-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/14/DS-LINAR-MaximumSubsequenceSum/" title="DS_LINAR_MaximumSubsequenceSum"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DS_LINAR_MaximumSubsequenceSum"/></a><div class="content"><a class="title" href="/2023/01/14/DS-LINAR-MaximumSubsequenceSum/" title="DS_LINAR_MaximumSubsequenceSum">DS_LINAR_MaximumSubsequenceSum</a><time datetime="2023-01-14T05:07:14.000Z" title="Created 2023-01-14 13:07:14">2023-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/13/DS-%E6%A0%91/" title="DS_树"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DS_树"/></a><div class="content"><a class="title" href="/2023/01/13/DS-%E6%A0%91/" title="DS_树">DS_树</a><time datetime="2023-01-13T02:12:33.000Z" title="Created 2023-01-13 10:12:33">2023-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/12/%E5%8F%98%E7%BE%8E-%E6%9C%89%E6%9D%91%E6%9E%B6%E7%BA%AF/" title="变美_有村架纯"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="变美_有村架纯"/></a><div class="content"><a class="title" href="/2023/01/12/%E5%8F%98%E7%BE%8E-%E6%9C%89%E6%9D%91%E6%9E%B6%E7%BA%AF/" title="变美_有村架纯">变美_有村架纯</a><time datetime="2023-01-12T13:21:37.000Z" title="Created 2023-01-12 21:21:37">2023-01-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/12/GRE-%E5%A4%87%E8%80%83/" title="GRE_备考"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GRE_备考"/></a><div class="content"><a class="title" href="/2023/01/12/GRE-%E5%A4%87%E8%80%83/" title="GRE_备考">GRE_备考</a><time datetime="2023-01-12T12:06:52.000Z" title="Created 2023-01-12 20:06:52">2023-01-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Li Chenrui</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
