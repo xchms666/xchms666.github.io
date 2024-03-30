@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波 | MyUniverse</title><meta name="author" content="Li Chenrui"><meta name="copyright" content="Li Chenrui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波3.1 图像增强定义：突出其中某些信息，使得图像更有利于被利用的图像处理方法 目的：1. 改善图像的视觉效果 2. 将图像转换成更适合于人或者机器进行分析处理的形式。 注意：图像增强面向特定的应用，没有通用的理论，应用不同，采用的图像增强方法也不同。 分类：  空间域处理 与 变换域处理 ​    全局处理 与 局部处理  ​    彩色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波">
+<meta property="og:url" content="http://example.com/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/index.html">
+<meta property="og:site_name" content="MyUniverse">
+<meta property="og:description" content="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波3.1 图像增强定义：突出其中某些信息，使得图像更有利于被利用的图像处理方法 目的：1. 改善图像的视觉效果 2. 将图像转换成更适合于人或者机器进行分析处理的形式。 注意：图像增强面向特定的应用，没有通用的理论，应用不同，采用的图像增强方法也不同。 分类：  空间域处理 与 变换域处理 ​    全局处理 与 局部处理  ​    彩色">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2024-03-30T03:11:04.000Z">
+<meta property="article:modified_time" content="2024-03-30T06:12:17.439Z">
+<meta property="article:author" content="Li Chenrui">
+<meta property="article:tag" content="计算机视觉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-30 14:12:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">MyUniverse</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-30T03:11:04.000Z" title="Created 2024-03-30 11:11:04">2024-03-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-03-30T06:12:17.439Z" title="Updated 2024-03-30 14:12:17">2024-03-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="专题笔记-数字图像处理-ch03-灰度变换与空间滤波"><a href="#专题笔记-数字图像处理-ch03-灰度变换与空间滤波" class="headerlink" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"></a>专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</h1><h2 id="3-1-图像增强"><a href="#3-1-图像增强" class="headerlink" title="3.1 图像增强"></a>3.1 图像增强</h2><p><strong>定义</strong>：突出其中某些信息，使得图像更有利于被利用的图像处理方法</p>
+<p><strong>目的</strong>：1. 改善图像的视觉效果 2. 将图像转换成更适合于人或者机器进行分析处理的形式。</p>
+<p><strong>注意</strong>：图像增强面向特定的应用，没有通用的理论，应用不同，采用的图像增强方法也不同。</p>
+<p><strong>分类</strong>：</p>
+<ul>
+<li>空间域处理 与 变换域处理</li>
+<li>​    全局处理 与 局部处理 </li>
+<li>​    彩色图像 与 黑白图像</li>
+</ul>
+<blockquote>
+<p>[!NOTE]</p>
+<p>本章所讨论的所有图像处理技术都是在空间域中实现的。</p>
+</blockquote>
+<h3 id="空间域处理"><a href="#空间域处理" class="headerlink" title="空间域处理"></a>空间域处理</h3><p>分为两类：</p>
+<ul>
+<li>灰度变换<ul>
+<li>在图像&#x3D;&#x3D;单个像素&#x3D;&#x3D;上操作，主要以对比度和阈值处理为目的</li>
+</ul>
+</li>
+<li>空间滤波<ul>
+<li>改善性能的操作，如通过&#x3D;&#x3D;领域处理&#x3D;&#x3D;锐化图像</li>
+<li>当领域大小为1时，滤波成为灰度变换</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-2-基本的灰度变换增强处理"><a href="#3-2-基本的灰度变换增强处理" class="headerlink" title="3.2 基本的灰度变换增强处理"></a>3.2 基本的灰度变换增强处理</h2><h3 id="1-线性变换"><a href="#1-线性变换" class="headerlink" title="1. 线性变换"></a>1. 线性变换</h3><p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330112200.png"></p>
+<p>$$g(x,y)&#x3D;T[f(x,y)]$$​</p>
+<h4 id="线性灰度变换"><a href="#线性灰度变换" class="headerlink" title="线性灰度变换"></a>线性灰度变换</h4><p>其中，<strong>线性灰度变换</strong>可表示为<br>$$<br>g(x,y)&#x3D;\frac{d-c}{b-a}[f(x,y)-a]+c<br>$$<br>通常，图像用8bits表示，最大灰度范围则为[0,255]，希望变换后的最小灰度c为0，最大灰度d为255，则：<br>$$<br>g(x,y)&#x3D;\frac{255}{b-a}[f(x,y)-a]<br>$$<br>这个过程也称<strong>图像拉伸，比例变换</strong>。</p>
+<h4 id="灰度倒置变换——图像求反"><a href="#灰度倒置变换——图像求反" class="headerlink" title="灰度倒置变换——图像求反"></a>灰度倒置变换——图像求反</h4><p>$s&#x3D;L-1-r$ 或者$g(x,y)&#x3D;L-1-f(x,y)$</p>
+<p> <img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330113708.png"></p>
+<h3 id="2-对数变换"><a href="#2-对数变换" class="headerlink" title="2. 对数变换"></a>2. 对数变换</h3><p>$$<br>s&#x3D;clog(1+r)<br>$$</p>
+<p>c为常数，且r&gt;&#x3D;0</p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330113804.png"></p>
+<p>对数变换可用于<strong>压缩像素值较大的图像的动态范围</strong></p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330114223.png"></p>
+<p>原来的图像归一化处理导致亮点太小，进行暗区提亮后视觉效果变好。</p>
+<h4 id="反对数变换（指数变换）"><a href="#反对数变换（指数变换）" class="headerlink" title="反对数变换（指数变换）"></a>反对数变换（指数变换）</h4><p>$$<br>s&#x3D;10^{r&#x2F;c}-1<br>$$</p>
+<p>常见图像的变换曲线</p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330114114.png"></p>
+<h3 id="3-幂律变换（-gamma-变换）"><a href="#3-幂律变换（-gamma-变换）" class="headerlink" title="3. 幂律变换（$\gamma$变换）"></a>3. 幂律变换（$\gamma$变换）</h3><p>$$<br>s&#x3D;cr^{\gamma}<br>$$</p>
+<ul>
+<li><p>具有<strong>局部</strong>动态范围的压缩或者放大功能</p>
+</li>
+<li><p>指数大于1和小于1效果完全相反</p>
+</li>
+<li><p>指数为1时简化成恒等变换</p>
+</li>
+</ul>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330114424.png"></p>
+<p><strong>$\gamma$矫正</strong></p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330114600.png"></p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330114632.png"></p>
+<p><strong>幂律变换例子</strong></p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330114710.png"></p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330114741.png"></p>
+<h3 id="4-分段线性变换"><a href="#4-分段线性变换" class="headerlink" title="4. 分段线性变换"></a>4. 分段线性变换</h3><h4 id="对比度拉伸"><a href="#对比度拉伸" class="headerlink" title="对比度拉伸"></a>对比度拉伸</h4><p>进一步，如果希望变换后灰度范围[a,b]对应到[c,d]，[0,a]对应到c，[b,M<del>f</del>]对应到d，则<br>$$<br>g(x,y)&#x3D;<br> \begin{cases}<br> c,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0\le f(x)&lt;a\<br> \frac{d-c}{b-a}[f(x,y)-a]+c,,,a\le f(x)\le b\<br> d,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,b\le f(x,y)&lt;M_f<br> \end{cases}<br>$$</p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330112655.png"></p>
+<p>通常取c&#x3D;0， d&#x3D;255</p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330113451.png"></p>
+<h4 id="灰度级分层"><a href="#灰度级分层" class="headerlink" title="灰度级分层"></a>灰度级分层</h4><p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330115346.png"></p>
+<p>(b)突出指定灰度，其他灰度降低一级,(c)突出指定灰度，其他灰度不变</p>
+<h4 id="比特平面分层"><a href="#比特平面分层" class="headerlink" title="比特平面分层"></a>比特平面分层</h4><p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330115544.png"></p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330115443.png"></p>
+<h2 id="3-3-直方图处理"><a href="#3-3-直方图处理" class="headerlink" title="3.3 直方图处理"></a>3.3 直方图处理</h2><p>$$<br>p(s_k)&#x3D;\frac{n_k}{n}<br>$$</p>
+<p>s<del>k</del>：图像第k个灰度级， k&#x3D;0，1，……，L-1</p>
+<p>p(s<del>k</del>)：该灰度级在图像上出现的频度</p>
+<p>n<del>k</del>：图像中灰度值为s<del>k</del>的像素个数</p>
+<p>n：图像中的像素总数</p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330130052.png"></p>
+<p><strong>直观感受</strong></p>
+<p>若一幅图像的像素灰度倾向于<strong>占据整个可能的灰度级</strong>，并且<strong>分布均匀</strong>，则该图像会有<strong>高对比度</strong>的外观，并展示灰色调的较大变化。</p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330130149.png"></p>
+<h3 id="直方图均衡"><a href="#直方图均衡" class="headerlink" title="直方图均衡"></a>直方图均衡</h3><p><strong>目标</strong>：</p>
+<p>对图像进行灰度变换，使直方图成为<strong>均匀灰度</strong>分布的图像</p>
+<h4 id="1-连续随机变量的情况"><a href="#1-连续随机变量的情况" class="headerlink" title="1. 连续随机变量的情况"></a><strong>1. 连续随机变量的情况</strong></h4><p>利用概率密度函数的“归一性”</p>
+<p>设原概率密度函数为$p_r(r)$​，其中r表示连续灰度，作灰度映射s&#x3D;T(r) ，则根据概率密度函数的性质，有<br>$$<br>p_s(s)&#x3D;p_r(r)|\frac{dr}{ds}|<br>$$<br>当同时给定目标分布$p_s(s)$时，解此微分方程可得灰度变换函数s&#x3D;T(r) </p>
+<p>若希望$p_s(s)$为均匀分布，则<br>$$<br>p_s(s)&#x3D;\frac{1}{L-1}<br>$$<br>此时满足要求的灰度变换为：<br>$$<br>s&#x3D;T(r)&#x3D;(L-1)\int_0^rp_r(w)dw<br>$$<br>其中$\int_0^rp_r(w)dw$为<strong>累积分布函数CDF</strong></p>
+<h4 id="2-离散灰度情况"><a href="#2-离散灰度情况" class="headerlink" title="2. 离散灰度情况"></a>2. 离散灰度情况</h4><p><strong>方法：</strong>用离散概率值与<strong>求和</strong>处理来代替连续情况下的概率密度函数与积分处理。</p>
+<p>设第k灰度级r<del>k</del>出现概率为p<del>r</del>(r<del>k</del>)&#x3D;n<del>k</del>&#x2F;n此时的累积分布函数（CDF）为<br>$$<br>\sum_{i&#x3D;0}^kp_r(r_i)&#x3D;\sum_{i&#x3D;0}^k\frac{n_i}{n}&#x3D;\hat P_{r}{r\le r_k}<br>$$<br>若变换后灰度范围为[0，L-1]，共L级，则变换函数为<br>$$<br>s_k&#x3D;T(r_k)&#x3D;(L-1)\sum_{i&#x3D;0}^k\frac{n_i}{n}<br>$$<br><strong>例子</strong></p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330132220.png"></p>
+<p><img src="/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/20240330132538.png"></p>
+<h3 id="直方图规定化（直方图指定）"><a href="#直方图规定化（直方图指定）" class="headerlink" title="直方图规定化（直方图指定）"></a>直方图规定化（直方图指定）</h3><p>使得处理后图像的直方图具有规定的形状，不一定是平均分布</p>
+<h4 id="1-连续分布情况"><a href="#1-连续分布情况" class="headerlink" title="1. 连续分布情况"></a>1. 连续分布情况</h4><p>设灰度 $r$ 是一个随机变量, $p_r(r)$ 为原图灰度密度函数, $p_z(z)$​ 为增强后图像的灰度密度函数</p>
+<p>对 $p_r(r)$ 和 $p_z(z)$ 分别作直方图均衡(设 $L$ 为 1 )<br>$$<br>\begin{array}{ll}<br>s&#x3D;T(r)&#x3D;\int_0^r p_r(x) d x &amp; 0 \leq r \leq 1 \<br>v&#x3D;G(z)&#x3D;\int_0^z p_z(x) d x &amp; 0 \leq z \leq 1<br>\end{array}<br>$$<br>因为对原始图像和目标图像都做了直方图均衡化（变成一样的均衡分布），所以 $s, v$ 的密度是相同的, 故 $s&#x3D;v$<br>只要先对 $r$ 作均衡化得 $s$, 由于 $p_z(z)$ 已知, 可求得 $v&#x3D;G(z)$, 故可得$\mathbf{z}&#x3D;\mathbf{G}^{-1}(\mathrm{v})&#x3D;\mathbf{G}^{-1}(\mathrm{r})$<br>思想: 以直方图均衡变换为桥梁, 拓展为直方图规定化</p>
+<h4 id="2-离散分布情况"><a href="#2-离散分布情况" class="headerlink" title="2. 离散分布情况"></a>2. 离散分布情况</h4><p>指定的直方图 $p(z)$ 可用一个可积函数表示</p>
+<p>$p(z)$ 不能表示成可积函数的形式<br>设 $M$ 和 $N$ 分别为原图和直方图指定的灰度级数, 且 $N \leq M$<br>(1) 计算原图的累积直方图<br>$$<br>s_k&#x3D;T\left(\mathbf{r}<em>k\right)&#x3D;\sum</em>{i&#x3D;0}^k p_i\left(\mathbf{r}<em>k\right) \quad \mathbf{k}&#x3D;0,1, \ldots, \mathbf{M}-\mathbf{l}<br>$$<br>(2) 计算能使规定的直方图均衡化的变换<br>$$<br>v_l&#x3D;G\left(z_i\right)&#x3D;\sum</em>{j&#x3D;0}^t p_i\left(z_j\right) \quad \mathbf{l}&#x3D;\mathbf{0}, \mathbf{1}, \ldots, \mathrm{N}-\mathbf{1}<br>$$<br>(3)由于 $\mathrm{s}<em>{\mathrm{k}}$ 和 $\mathrm{v}<em>1$ 都应接近均匀分布, 只要找到 $\mathrm{s}</em>{\mathrm{k}} \approx \mathrm{v}<em>1$ 的 $\mathrm{k}$ 和 $1(\mathrm{k})$, 就可找到 $\mathrm{r}</em>{\mathrm{k}}$ 和 $\mathrm{z}</em>{\mathrm{k}}$ 的对应关系</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xchms666/MyPicture/article_img/20240330141054.png"></p>
+<blockquote>
+<p>[!NOTE]</p>
+<p>没太看明白直方图指定</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Li Chenrui</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/">http://example.com/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">计算机视觉</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Li Chenrui</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.</span> <span class="toc-text">专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA"><span class="toc-number">1.1.</span> <span class="toc-text">3.1 图像增强</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%9F%9F%E5%A4%84%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">空间域处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E5%A2%9E%E5%BC%BA%E5%A4%84%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">3.2 基本的灰度变换增强处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 线性变换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">线性灰度变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%81%B0%E5%BA%A6%E5%80%92%E7%BD%AE%E5%8F%98%E6%8D%A2%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E6%B1%82%E5%8F%8D"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">灰度倒置变换——图像求反</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AF%B9%E6%95%B0%E5%8F%98%E6%8D%A2"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 对数变换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%AF%B9%E6%95%B0%E5%8F%98%E6%8D%A2%EF%BC%88%E6%8C%87%E6%95%B0%E5%8F%98%E6%8D%A2%EF%BC%89"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">反对数变换（指数变换）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B9%82%E5%BE%8B%E5%8F%98%E6%8D%A2%EF%BC%88-gamma-%E5%8F%98%E6%8D%A2%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 幂律变换（$\gamma$变换）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%88%86%E6%AE%B5%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. 分段线性变换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94%E5%BA%A6%E6%8B%89%E4%BC%B8"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">对比度拉伸</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%81%B0%E5%BA%A6%E7%BA%A7%E5%88%86%E5%B1%82"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">灰度级分层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E7%89%B9%E5%B9%B3%E9%9D%A2%E5%88%86%E5%B1%82"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">比特平面分层</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%A4%84%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">3.3 直方图处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1"><span class="toc-number">1.3.1.</span> <span class="toc-text">直方图均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">1. 连续随机变量的情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%A6%BB%E6%95%A3%E7%81%B0%E5%BA%A6%E6%83%85%E5%86%B5"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">2. 离散灰度情况</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%96%B9%E5%9B%BE%E8%A7%84%E5%AE%9A%E5%8C%96%EF%BC%88%E7%9B%B4%E6%96%B9%E5%9B%BE%E6%8C%87%E5%AE%9A%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">直方图规定化（直方图指定）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BF%9E%E7%BB%AD%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">1. 连续分布情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%A6%BB%E6%95%A3%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">2. 离散分布情况</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"/></a><div class="content"><a class="title" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波">专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</a><time datetime="2024-03-30T03:11:04.000Z" title="Created 2024-03-30 11:11:04">2024-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用">技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用</a><time datetime="2024-03-29T09:21:38.000Z" title="Created 2024-03-29 17:21:38">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术博客杂谈"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈">技术博客杂谈</a><time datetime="2024-03-29T09:07:01.000Z" title="Created 2024-03-29 17:07:01">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Daily-24-03-16"/></a><div class="content"><a class="title" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16">Daily-24-03-16</a><time datetime="2024-03-16T00:53:42.000Z" title="Created 2024-03-16 08:53:42">2024-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PTA-甲级-1001"/></a><div class="content"><a class="title" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001">PTA-甲级-1001</a><time datetime="2024-03-15T23:15:54.000Z" title="Created 2024-03-16 07:15:54">2024-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Li Chenrui</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
