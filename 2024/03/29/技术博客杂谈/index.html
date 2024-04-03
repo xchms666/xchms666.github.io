@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>技术博客杂谈 | Cr's Home</title><meta name="author" content="Carrie Lee"><meta name="copyright" content="Carrie Lee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="技术笔记杂谈 [TOC] 为什么写  想提升自己技术方面的语言表达能力 使用费曼学习法，让自己对技术内容掌握得更好 提升知名度（×）  怎么写 分类 笔记类型（categories） 1. 技术日记 目的  记录自己的技术历程，便于自己复盘 看自己慢慢积累的技能树会很有成就感（×）  内容  周期性总结学习内容 选取有价值的点，没必要全部都写 日记形式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术博客杂谈">
+<meta property="og:url" content="http://example.com/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/index.html">
+<meta property="og:site_name" content="Cr&#39;s Home">
+<meta property="og:description" content="技术笔记杂谈 [TOC] 为什么写  想提升自己技术方面的语言表达能力 使用费曼学习法，让自己对技术内容掌握得更好 提升知名度（×）  怎么写 分类 笔记类型（categories） 1. 技术日记 目的  记录自己的技术历程，便于自己复盘 看自己慢慢积累的技能树会很有成就感（×）  内容  周期性总结学习内容 选取有价值的点，没必要全部都写 日记形式">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2024-03-29T09:07:01.000Z">
+<meta property="article:modified_time" content="2024-03-29T09:17:01.658Z">
+<meta property="article:author" content="Carrie Lee">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '技术博客杂谈',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-29 17:17:01'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cr's Home</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">技术博客杂谈</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-29T09:07:01.000Z" title="Created 2024-03-29 17:07:01">2024-03-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-03-29T09:17:01.658Z" title="Updated 2024-03-29 17:17:01">2024-03-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="技术博客杂谈"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="技术笔记杂谈">技术笔记杂谈</h1>
+<p>[TOC]</p>
+<h2 id="为什么写">为什么写</h2>
+<ol type="1">
+<li>想提升自己技术方面的语言表达能力</li>
+<li>使用费曼学习法，让自己对技术内容掌握得更好</li>
+<li>提升知名度（×）</li>
+</ol>
+<h2 id="怎么写">怎么写</h2>
+<h3 id="分类">分类</h3>
+<h4 id="笔记类型categories">笔记类型（categories）</h4>
+<h5 id="技术日记">1. 技术日记</h5>
+<h5 id="目的"><strong>目的</strong></h5>
+<ol type="1">
+<li>记录自己的技术历程，便于自己复盘</li>
+<li>看自己慢慢积累的技能树会很有成就感（×）</li>
+</ol>
+<h5 id="内容"><strong>内容</strong></h5>
+<ol type="1">
+<li>周期性总结学习内容</li>
+<li>选取有价值的点，没必要全部都写</li>
+<li>日记形式</li>
+</ol>
+<h5 id="格式"><strong>格式</strong></h5>
+<p>标题：技术日记+日期+主要内容</p>
+<p>例子：《技术日记 | 240329 | 三级运放分析》</p>
+<h5 id="技术细节">2. 技术细节</h5>
+<h5 id="目的-1"><strong>目的</strong></h5>
+<ol type="1">
+<li>记录一些干货，方便自己复盘</li>
+<li>帮自己梳理思路</li>
+</ol>
+<h5 id="内容-1"><strong>内容</strong></h5>
+<ol type="1">
+<li>对某一技术难点解决的总结</li>
+</ol>
+<h5 id="格式-1"><strong>格式</strong></h5>
+<p>标题：技术细节+类别+主要内容</p>
+<p>例子：《技术细节 | 深度学习 | Batch的选择对训练结果有什么影响？》</p>
+<h5 id="专题笔记">3. 专题笔记</h5>
+<h5 id="目的-2"><strong>目的</strong></h5>
+<ol type="1">
+<li>与技术细节类似</li>
+</ol>
+<h5 id="内容-2"><strong>内容</strong></h5>
+<ol type="1">
+<li>成专题的，一系列的实践经验与实践过程的总结</li>
+<li>也可以是课程的学习笔记</li>
+</ol>
+<h5 id="格式-2"><strong>格式</strong></h5>
+<p>标题：专题笔记+专题标题（课程名）+主要内容（章节）</p>
+<p>例子：《专题笔记 | 动手深度学习 | Lec02 数据处理》</p>
+<h5 id="论文阅读">4. 论文阅读</h5>
+<h5 id="目的-3"><strong>目的</strong></h5>
+<ol type="1">
+<li>提升论文阅读总结能力</li>
+</ol>
+<h5 id="内容-3"><strong>内容</strong></h5>
+<ol type="1">
+<li>论文主要内容</li>
+<li>代码复现等</li>
+</ol>
+<h5 id="格式-3"><strong>格式</strong></h5>
+<p>标题：论文阅读+论文标题</p>
+<p>例子：《论文阅读| **》</p>
+<h4 id="内容技术栈tag">内容/技术栈（tag）</h4>
+<p>嵌入式、图形学、深度学习……</p>
+<h3 id="排版">排版</h3>
+<h4 id="空格">空格</h4>
+<ol type="1">
+<li>行文时，请在中文与英文、中文与数字、英文与数字之间增加空格。例如：</li>
+</ol>
+<ul>
+<li><strong>正确：</strong>Github 于 2007 年 10 月 19 日正式上线。</li>
+<li><strong>错误：</strong>Github于2007年10月19日正式上线。</li>
+</ul>
+<ol type="1">
+<li>一段文字中有超链接的部分，在超链接的前后使用空格。例如：</li>
+</ol>
+<ul>
+<li><strong>正确：</strong>你可以前往 <a
+href="https://link.zhihu.com/?target=https%3A//github.com/torvalds/linux">Linux
+开源仓库</a> 了解详情。</li>
+<li><strong>错误：</strong>你可以前往<a
+href="https://link.zhihu.com/?target=https%3A//github.com/torvalds/linux">Linux
+开源仓库</a>了解详情。</li>
+</ul>
+<ol type="1">
+<li>英文、数字前后接「中文全角标点符号」或「表示单位的角标符号」时，不需要加空格。例如：</li>
+</ol>
+<ul>
+<li><strong>正确：</strong>新 MacBook Pro 有 15% 的 CPU 性能提升。</li>
+<li><strong>错误：</strong>新 MacBook Pro 有 15 % 的 CPU 性能提升。</li>
+<li><strong>正确：</strong>我家的光纤入户宽带有 10Gbps，SSD 一共有
+10TB。</li>
+<li><strong>错误：</strong>我家的光纤入户宽带有 10 Gbps ， SSD 一共有 20
+TB 。</li>
+</ul>
+<ol type="1">
+<li>对于有特殊用法的专有名词，如 4K、1080p、iOS 13
+等，英文和数字之间是否空格<strong>以官方标准为准</strong>。</li>
+<li>每段文字的开头不需要空两格（不需要首行缩进）。</li>
+</ol>
+<h4 id="标点符号">标点符号</h4>
+<ol type="1">
+<li>中文内容引号请使用直角引号「」，而不是弯引号“”。</li>
+</ol>
+<ul>
+<li><strong>推荐：</strong>「同学，『GitHub』的『GitHub
+Actions』服务免费额度是多少？」</li>
+<li><strong>不推荐：</strong>「同学，“GitHub”的“GitHub
+Actions”服务免费额度是多少？」</li>
+</ul>
+<blockquote>
+<p>注意，这一点并无对错，只是推荐与否。实际上，如果所在内容平台的全角弯引号比较美观的话，还是可以使用的。但是知乎的全角弯引号很丑，就不要在知乎用全角弯引号了。</p>
+</blockquote>
+<ol type="1">
+<li>省略号请使用「……
+」标准用法，正确输入方法是<code>shift + 6</code>。不要使用三个句号「。。。」，也不要使用三个英文句点「...」。</li>
+</ol>
+<ul>
+<li><strong>正确：</strong>更多新的技术也随之孕育而生……</li>
+<li><strong>错误：</strong>更多新的技术也随之孕育而生。。。</li>
+<li><strong>错误：</strong>更多新的技术也随之孕育而生...</li>
+</ul>
+<ol type="1">
+<li>不要重复使用标点符号，尤其是在表达强烈情感的时候。例如：</li>
+</ol>
+<ul>
+<li><strong>推荐：</strong>这个提议真棒！我喜欢。</li>
+<li><strong>不推荐：</strong>这个提议真棒！！！我喜欢~~~~</li>
+</ul>
+<h4 id="中文和西文符号">中文和西文符号</h4>
+<ol type="1">
+<li>一般情况下，一个中文句子中出现了英文部分，仍然使用中文标点，即全角符号。例如：</li>
+</ol>
+<ul>
+<li><strong>正确：</strong>我常用的电子设备是 Kindle、iPad
+Pro、iPhone。</li>
+<li><strong>错误：</strong>我常用的电子设备是 Kindle, iPad Pro,
+iPhone.</li>
+<li><strong>正确：</strong>核磁共振成像（NMRI）是什么原理都不知道？JFGI！</li>
+<li><strong>错误：</strong>核磁共振成像 (NMRI) 是什么原理都不知道?
+JFGI!</li>
+</ul>
+<ol type="1">
+<li>如果引用一段完整的英文句子，或是出现在专有名词中的标点，则不需要更改标点符号。例如：</li>
+</ol>
+<ul>
+<li><strong>正确：</strong>乔布斯说「Stay hungry, Stay foolish.」</li>
+<li><strong>错误：</strong>乔布斯说「Stay hungry，Stay foolish。」</li>
+<li><strong>正确：</strong>我最喜欢的手机游戏是《Lifeline: Silent
+Night》。</li>
+<li><strong>错误：</strong>我最喜欢的手机游戏是《Lifeline：Silent
+Night》。</li>
+</ul>
+<h4 id="专有名词">专有名词</h4>
+<ol type="1">
+<li>专有名词使用正确的大小写。例如：</li>
+</ol>
+<ul>
+<li><strong>正确：</strong>使用 GitHub 登录</li>
+<li><strong>错误：</strong>使用 github 登录</li>
+<li><strong>错误：</strong>使用 GITHUB 登录</li>
+<li><strong>错误：</strong>使用 Github 登录</li>
+<li><strong>正确：</strong>我们的客户有 GitHub、Foursquare、Microsoft
+Corporation、Google、Facebook, Inc.。</li>
+<li><strong>错误：</strong>我们的客户有 github、foursquare、microsoft
+corporation、google、facebook, inc.。</li>
+</ul>
+<ol type="1">
+<li>不要使用不地道的缩写。例如：</li>
+</ol>
+<ul>
+<li><strong>正确：</strong>我们需要一位熟悉
+JavaScript、HTML5，至少理解一种框架（如 Backbone.js、AngularJS、React
+等）的前端开发者。</li>
+<li><strong>错误：</strong>我们需要一位熟悉 JS、H5，至少理解一种框架（如
+backbone、angular、RJS 等）的 FED。</li>
+</ul>
+<ol type="1">
+<li>对不常见的缩写进行介绍。例如：</li>
+</ol>
+<ul>
+<li><strong>推荐：</strong>OCR（Optical Character
+Recognition，光学字符识别）</li>
+<li><strong>不推荐：</strong>OCR（光学字符识别，Optical Character
+Recognition）</li>
+<li><strong>错误：</strong>OCR (Optical Character Recognition,
+光学字符识别)</li>
+</ul>
+<h4 id="文字样式">文字样式</h4>
+<ul>
+<li>文字样式的使用可以增加文章的可读性，但是过度使用则会造成排版混乱，因此建议大家正确、克制地为文字添加样式。例如，需要着重显示的部分请使用「加粗」功能，而不要使用「斜体」，更不要使用「加粗
++ 斜体」的组合。</li>
+</ul>
+<h4 id="注明引用来源">注明引用来源</h4>
+<ol type="1">
+<li>文中有使用外站或外部内容的，务必在引用最后部分注明来源。</li>
+<li>若文章为全文翻译，必须在文中注明原作者及原文地址，并添加原文链接。</li>
+</ol>
+<h3 id="维护">维护</h3>
+<p>step1:</p>
+<p>在blog文件的post下hexo new 文章</p>
+<p><img
+src="%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/article_img20240329162613.png" /></p>
+<p>step2：</p>
+<p>写内容</p>
+<p>step3：</p>
+<p>部署到个人博客上</p>
+<p>step4：</p>
+<p>上传到各类博客网站上</p>
+<hr />
+<p>一个测试配图</p>
+<ol type="1">
+<li>链接配图</li>
+</ol>
+<p>第一次显示不了：<img
+src="%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/article_img20240329162137.png" /></p>
+<p>第二次：</p>
+<p><img
+src="%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/20240329171634.png" /></p>
+<ol start="2" type="1">
+<li>直接粘贴（显示不了）</li>
+</ol>
+<figure>
+<img
+src="%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0%E6%9D%82%E8%B0%88/image-20240329162222461-1711700550572-3.png"
+alt="image-20240329162222461" />
+<figcaption aria-hidden="true">image-20240329162222461</figcaption>
+</figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Carrie Lee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/">http://example.com/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/16/Daily-24-03-16/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Daily-24-03-16</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Carrie Lee</div><div class="author-info__description">���·�������������</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0%E6%9D%82%E8%B0%88"><span class="toc-number">1.</span> <span class="toc-text">技术笔记杂谈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99"><span class="toc-number">1.1.</span> <span class="toc-text">为什么写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%86%99"><span class="toc-number">1.2.</span> <span class="toc-text">怎么写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.1.</span> <span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%94%E8%AE%B0%E7%B1%BB%E5%9E%8Bcategories"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">笔记类型（categories）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0"><span class="toc-number">1.2.1.1.1.</span> <span class="toc-text">1. 技术日记</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84"><span class="toc-number">1.2.1.1.2.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E5%AE%B9"><span class="toc-number">1.2.1.1.3.</span> <span class="toc-text">内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.1.1.4.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82"><span class="toc-number">1.2.1.1.5.</span> <span class="toc-text">2. 技术细节</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84-1"><span class="toc-number">1.2.1.1.6.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E5%AE%B9-1"><span class="toc-number">1.2.1.1.7.</span> <span class="toc-text">内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-1"><span class="toc-number">1.2.1.1.8.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0"><span class="toc-number">1.2.1.1.9.</span> <span class="toc-text">3. 专题笔记</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84-2"><span class="toc-number">1.2.1.1.10.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E5%AE%B9-2"><span class="toc-number">1.2.1.1.11.</span> <span class="toc-text">内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-2"><span class="toc-number">1.2.1.1.12.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB"><span class="toc-number">1.2.1.1.13.</span> <span class="toc-text">4. 论文阅读</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84-3"><span class="toc-number">1.2.1.1.14.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E5%AE%B9-3"><span class="toc-number">1.2.1.1.15.</span> <span class="toc-text">内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F-3"><span class="toc-number">1.2.1.1.16.</span> <span class="toc-text">格式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E6%8A%80%E6%9C%AF%E6%A0%88tag"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">内容&#x2F;技术栈（tag）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E7%89%88"><span class="toc-number">1.2.2.</span> <span class="toc-text">排版</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A9%BA%E6%A0%BC"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">空格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">标点符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E5%92%8C%E8%A5%BF%E6%96%87%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">中文和西文符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%93%E6%9C%89%E5%90%8D%E8%AF%8D"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">专有名词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E6%A0%B7%E5%BC%8F"><span class="toc-number">1.2.2.5.</span> <span class="toc-text">文字样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%98%8E%E5%BC%95%E7%94%A8%E6%9D%A5%E6%BA%90"><span class="toc-number">1.2.2.6.</span> <span class="toc-text">注明引用来源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4"><span class="toc-number">1.2.3.</span> <span class="toc-text">维护</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"/></a><div class="content"><a class="title" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波">专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</a><time datetime="2024-03-30T03:11:04.000Z" title="Created 2024-03-30 11:11:04">2024-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用">技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用</a><time datetime="2024-03-29T09:21:38.000Z" title="Created 2024-03-29 17:21:38">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术博客杂谈"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈">技术博客杂谈</a><time datetime="2024-03-29T09:07:01.000Z" title="Created 2024-03-29 17:07:01">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Daily-24-03-16"/></a><div class="content"><a class="title" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16">Daily-24-03-16</a><time datetime="2024-03-16T00:53:42.000Z" title="Created 2024-03-16 08:53:42">2024-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PTA-甲级-1001"/></a><div class="content"><a class="title" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001">PTA-甲级-1001</a><time datetime="2024-03-15T23:15:54.000Z" title="Created 2024-03-16 07:15:54">2024-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Carrie Lee</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

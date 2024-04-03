@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>汇编_HW01 | Cr's Home</title><meta name="author" content="Carrie Lee"><meta name="copyright" content="Carrie Lee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="汇编程序设计_HW01 题目描述 请在数据段中定义以下2个数组: s db 100 dup(0) t db 100 dup(0) 代码段中实现以下功能: 输入一行字符(敲回车结束输入)并保存到数组s中, 其中回车转化成ASCII码00h保存到数组中, 再把s中的每个元素逐个取出判断: (1) 若元素为小写字母则把它转化成大写并保存到数组t中; (2) 若元素为空格则丢弃该元素,不要保">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编_HW01">
+<meta property="og:url" content="http://example.com/2022/10/31/%E6%B1%87%E7%BC%96_HW01/index.html">
+<meta property="og:site_name" content="Cr&#39;s Home">
+<meta property="og:description" content="汇编程序设计_HW01 题目描述 请在数据段中定义以下2个数组: s db 100 dup(0) t db 100 dup(0) 代码段中实现以下功能: 输入一行字符(敲回车结束输入)并保存到数组s中, 其中回车转化成ASCII码00h保存到数组中, 再把s中的每个元素逐个取出判断: (1) 若元素为小写字母则把它转化成大写并保存到数组t中; (2) 若元素为空格则丢弃该元素,不要保">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-10-31T15:35:46.000Z">
+<meta property="article:modified_time" content="2022-11-02T14:24:45.487Z">
+<meta property="article:author" content="Carrie Lee">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/10/31/%E6%B1%87%E7%BC%96_HW01/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '汇编_HW01',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-02 22:24:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cr's Home</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">汇编_HW01</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-10-31T15:35:46.000Z" title="Created 2022-10-31 23:35:46">2022-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-11-02T14:24:45.487Z" title="Updated 2022-11-02 22:24:45">2022-11-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B1%87%E7%BC%96/">汇编</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="汇编_HW01"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="汇编程序设计_hw01">汇编程序设计_HW01</h1>
+<h2 id="题目描述">题目描述</h2>
+<p><strong>请在数据段中定义以下2个数组:</strong> s db 100 dup(0) t db
+100 dup(0) <strong>代码段中实现以下功能:</strong>
+输入一行字符(敲回车结束输入)并保存到数组s中,
+其中回车转化成ASCII码00h保存到数组中, 再把s中的每个元素逐个取出判断: (1)
+若元素为小写字母则把它转化成大写并保存到数组t中; (2)
+若元素为空格则丢弃该元素,不要保存到t中; (3)
+若元素为其它字符则原样保存到t中; 最后输出t中的全部元素再输出回车换行。
+<strong>提示:</strong> (1) 可以循环调用int
+21h的01h功能实现一行字符的输入,完成输入后应输出回车及换行; (2)
+可以循环调用int 21h的02h功能实现一行字符的输出; (3)
+数组s和t的下标可以分别用寄存器SI、DI表示;</p>
+<h2 id="题解">题解</h2>
+<ul>
+<li>这道题考察了最基本的汇编指令使用以及对于编程过程的理解，难度较低，课上好好听就能写出来</li>
+<li>小白已经给我们提供了数组定义，直接赋值到data
+segement即可；输入输出也提供了函数参考，直接上中断大全，查看定义调用即可
+<a target="_blank" rel="noopener" href="http://cc.zju.edu.cn/bhh/intr/int.htm">中断大全</a></li>
+<li>简化来看这个题目，要我们实现的主要流程就是：循环读入，存到数组中
+-&gt; 读到sentinel后，终止读入 -&gt; 遍历数组s，逐个取出，依据条件判断
+-&gt; 存入数组t中</li>
+<li>其中需要注意：
+<ul>
+<li>使用寄存器的时候一定要明确其大小，是16位的还是32位的</li>
+<li>小写字母和大写字母在ASCII码表中的顺序不要搞反了！！！</li>
+<li>有很多跳转和循环，在这过程中不要自己把自己弄糊涂了，把label写清楚</li>
+</ul></li>
+</ul>
+<h2 id="代码实现">代码实现</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode asm"><code class="sourceCode fasm"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">;把字符数组中的元素逐个取出并输出</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">data</span> segment</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>s <span class="dt">db</span> <span class="dv">100</span> dup<span class="op">(</span><span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>t <span class="dt">db</span> <span class="dv">100</span> dup<span class="op">(</span><span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">data</span> ends</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>code segment</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>assume <span class="kw">cs</span><span class="op">:</span>code<span class="op">,</span> <span class="kw">ds</span><span class="op">:</span>data</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">main:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ax</span><span class="op">,</span> data</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ds</span><span class="op">,</span> <span class="kw">ax</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">bx</span><span class="op">,</span> <span class="dv">0</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">SI</span><span class="op">,</span> <span class="dv">0</span><span class="co">;用于存放数组s的下标</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">DI</span><span class="op">,</span> <span class="dv">0</span><span class="co">;用于存放数组t的下标</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">input_next:</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ah</span><span class="op">,</span> <span class="bn">01h</span><span class="co">; 调用21h函数的01子函数，读入标准输入的字符</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>   <span class="bu">int</span> <span class="bn">21h</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> s<span class="op">[</span><span class="kw">SI</span><span class="op">],</span> <span class="kw">al</span><span class="co">; 读入的返回值存放到al寄存器中，将其存入数组s中</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>   <span class="bu">add</span> <span class="kw">SI</span><span class="op">,</span> <span class="dv">1</span><span class="co">; 下标+1</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cmp</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">0</span><span class="bn">D</span><span class="er">h</span><span class="co">; 若读到回车</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>   <span class="cf">je</span> input_done <span class="co">; 输入结束</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jmp</span> input_next<span class="co">; 循环读入</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">input_done:</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="bn">00h</span><span class="co">; 将回车转化为00h</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> s<span class="op">[</span><span class="kw">SI</span><span class="op">],</span> <span class="kw">al</span><span class="co">; 存入数组s中</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ah</span><span class="op">,</span> <span class="dv">2</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">dl</span><span class="op">,</span> <span class="dv">0</span><span class="bn">D</span><span class="er">h</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>   <span class="bu">int</span> <span class="bn">21h</span><span class="co">; 输出回车</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ah</span><span class="op">,</span> <span class="dv">2</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">dl</span><span class="op">,</span> <span class="dv">0</span><span class="er">Ah</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>   <span class="bu">int</span> <span class="bn">21h</span><span class="co">; 输出换行</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">SI</span><span class="op">,</span> <span class="dv">0</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">store_next_start:</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">cl</span><span class="op">,</span> s<span class="op">[</span><span class="kw">SI</span><span class="op">]</span><span class="co">; 将数组s中元素存入CL中，便于转换大小写</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cmp</span> <span class="kw">cl</span><span class="op">,</span> <span class="bn">00h</span><span class="co">; 若读到回车</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>   <span class="cf">je</span>  store_done<span class="co">; 读入结束</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">store_space:</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cmp</span> <span class="kw">cl</span><span class="op">,</span> <span class="st">&#39; &#39;</span><span class="co">; 若读到空格</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>   <span class="cf">je</span>  store_delete_space<span class="co">; 删除空格</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jmp</span> store_alphbet</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">store_delete_space:</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>   <span class="bu">add</span> <span class="kw">SI</span><span class="op">,</span> <span class="dv">1</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jmp</span> store_next_start</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">store_alphbet:</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cmp</span> <span class="kw">cl</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="co">; 与字符a比较</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jge</span> store_alphbet_next<span class="co">; ASCII大于a则继续与z比较</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jmp</span> store_next</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">store_alphbet_next:</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cmp</span> <span class="kw">cl</span><span class="op">,</span> <span class="st">&#39;z&#39;</span><span class="co">; 与字符z比较</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jle</span> store_alphbet_done<span class="co">; 若小于z则进行小写转大写</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jmp</span> store_next<span class="co">; 若不是小写字母，直接读入</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">store_alphbet_done:</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>   <span class="bu">sub</span> <span class="kw">cl</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="op">-</span><span class="st">&#39;A&#39;</span><span class="co">; 转为大写</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">store_next:</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> t<span class="op">[</span><span class="kw">DI</span><span class="op">],</span> <span class="kw">cl</span><span class="co">; 存入数组t中</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>   <span class="bu">add</span> <span class="kw">DI</span><span class="op">,</span> <span class="dv">1</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>   <span class="bu">add</span> <span class="kw">SI</span><span class="op">,</span> <span class="dv">1</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jmp</span> store_next_start</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">store_done:</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">DI</span><span class="op">,</span> <span class="dv">0</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">output_next:</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">dl</span><span class="op">,</span> t<span class="op">[</span><span class="kw">DI</span><span class="op">]</span><span class="co">; 将数组t的元素存入dl中输出</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cmp</span> <span class="kw">dl</span><span class="op">,</span> <span class="bn">00h</span><span class="co">; 若为00h</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>   <span class="cf">je</span> output_done<span class="co">; 结束输出</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ah</span><span class="op">,</span> <span class="dv">2</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>   <span class="bu">int</span> <span class="bn">21h</span><span class="co">; 输出DL中的字符</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>   <span class="bu">add</span> <span class="kw">DI</span><span class="op">,</span> <span class="dv">1</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jmp</span> output_next</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="fu">output_done:</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ah</span><span class="op">,</span> <span class="dv">2</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">dl</span><span class="op">,</span> <span class="dv">0</span><span class="bn">D</span><span class="er">h</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>   <span class="bu">int</span> <span class="bn">21h</span><span class="co">; 输出回车</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ah</span><span class="op">,</span> <span class="dv">2</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">dl</span><span class="op">,</span> <span class="dv">0</span><span class="er">Ah</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>   <span class="bu">int</span> <span class="bn">21h</span><span class="co">; 输出换行</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">exit:</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ah</span><span class="op">,</span> <span class="dv">4</span><span class="er">Ch</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>   <span class="bu">int</span> <span class="bn">21h</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>code ends</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="pp">end</span> main</span></code></pre></div>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Carrie Lee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/10/31/%E6%B1%87%E7%BC%96_HW01/">http://example.com/2022/10/31/%E6%B1%87%E7%BC%96_HW01/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%A2%98%E8%A7%A3/">题解</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/01/Q-A/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Q&amp;A</div></div></a></div><div class="next-post pull-right"><a href="/2022/10/31/%E6%B1%87%E7%BC%96_02_16%E4%BD%8D32%E4%BD%8D%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E6%AD%A5%E9%AA%A4/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">汇编_02_16位32位汇编语言编程步骤</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/12/15/DS-GRAPH-StronglyConnectedComponents/" title="DS_Graph_Strongly Connected Components"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-15</div><div class="title">DS_Graph_Strongly Connected Components</div></div></a></div><div><a href="/2023/01/15/DS-HEAP&STACK-PopSequence/" title="DS_HEAP&amp;STACK_PopSequence"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-15</div><div class="title">DS_HEAP&amp;STACK_PopSequence</div></div></a></div><div><a href="/2022/12/25/DS-HEAP-SATCK-Add-Two-Polynomials/" title="DS_HEAP&amp;SATCK_Add Two Polynomials"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-25</div><div class="title">DS_HEAP&amp;SATCK_Add Two Polynomials</div></div></a></div><div><a href="/2022/12/25/DS-HEAP-SATCK-Two-Stacks-in-One-Array/" title="DS_HEAP&amp;SATCK_Two Stacks in One Array"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-25</div><div class="title">DS_HEAP&amp;SATCK_Two Stacks in One Array</div></div></a></div><div><a href="/2023/01/19/DS-HEAP-STACK-EvaluatePostfixExpression/" title="DS_HEAP&amp;STACK_EvaluatePostfixExpression"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-19</div><div class="title">DS_HEAP&amp;STACK_EvaluatePostfixExpression</div></div></a></div><div><a href="/2023/01/19/DS-LIST-ReverseLinkedList/" title="DS_LIST_ReverseLinkedList"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-19</div><div class="title">DS_LIST_ReverseLinkedList</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Carrie Lee</div><div class="author-info__description">���·�������������</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1_hw01"><span class="toc-number">1.</span> <span class="toc-text">汇编程序设计_HW01</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text">题解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"/></a><div class="content"><a class="title" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波">专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</a><time datetime="2024-03-30T03:11:04.000Z" title="Created 2024-03-30 11:11:04">2024-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用">技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用</a><time datetime="2024-03-29T09:21:38.000Z" title="Created 2024-03-29 17:21:38">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术博客杂谈"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈">技术博客杂谈</a><time datetime="2024-03-29T09:07:01.000Z" title="Created 2024-03-29 17:07:01">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Daily-24-03-16"/></a><div class="content"><a class="title" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16">Daily-24-03-16</a><time datetime="2024-03-16T00:53:42.000Z" title="Created 2024-03-16 08:53:42">2024-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PTA-甲级-1001"/></a><div class="content"><a class="title" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001">PTA-甲级-1001</a><time datetime="2024-03-15T23:15:54.000Z" title="Created 2024-03-16 07:15:54">2024-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Carrie Lee</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>DS_HEAP&amp;STACK_EvaluatePostfixExpression | Cr's Home</title><meta name="author" content="Carrie Lee"><meta name="copyright" content="Carrie Lee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="DS_HEAP&amp;STACK_EvaluatePostfixExpression  1:00-h  Description Write a program to evaluate a postfix expression. You only have to handle four kinds of operators: +, -, x, and &#x2F;. Format of fun">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DS_HEAP&amp;STACK_EvaluatePostfixExpression">
+<meta property="og:url" content="http://example.com/2023/01/19/DS-HEAP-STACK-EvaluatePostfixExpression/index.html">
+<meta property="og:site_name" content="Cr&#39;s Home">
+<meta property="og:description" content="DS_HEAP&amp;STACK_EvaluatePostfixExpression  1:00-h  Description Write a program to evaluate a postfix expression. You only have to handle four kinds of operators: +, -, x, and &#x2F;. Format of fun">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2023-01-19T04:58:46.000Z">
+<meta property="article:modified_time" content="2023-01-21T11:26:54.565Z">
+<meta property="article:author" content="Carrie Lee">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="stack">
+<meta property="article:tag" content="postfix">
+<meta property="article:tag" content="calculator">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/01/19/DS-HEAP-STACK-EvaluatePostfixExpression/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DS_HEAP&STACK_EvaluatePostfixExpression',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-01-21 19:26:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cr's Home</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DS_HEAP&amp;STACK_EvaluatePostfixExpression</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-01-19T04:58:46.000Z" title="Created 2023-01-19 12:58:46">2023-01-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-01-21T11:26:54.565Z" title="Updated 2023-01-21 19:26:54">2023-01-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="DS_HEAP&amp;STACK_EvaluatePostfixExpression"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
+id="ds_heapstack_evaluatepostfixexpression">DS_HEAP&amp;STACK_EvaluatePostfixExpression</h1>
+<blockquote>
+<p>1:00-h</p>
+</blockquote>
+<h2 id="description">Description</h2>
+<p>Write a program to evaluate a postfix expression. You only have to
+handle four kinds of operators: +, -, x, and /.</p>
+<h3 id="format-of-functions">Format of functions:</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ElementType EvalPostfix<span class="op">(</span> <span class="dt">char</span> <span class="op">*</span>expr <span class="op">);</span></span></code></pre></div>
+<p>where <code>expr</code> points to a string that stores the postfix
+expression. It is guaranteed that there is exactly one space between any
+two operators or operands. The function <code>EvalPostfix</code> is
+supposed to return the value of the expression. If it is not a legal
+postfix expression, <code>EvalPostfix</code> must return a special value
+<code>Infinity</code> which is defined by the judge program.</p>
+<h3 id="sample-program-of-judge">Sample program of judge:</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="dt">double</span> ElementType<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#define Infinity </span><span class="fl">1e8</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">#define Max_Expr </span><span class="dv">30</span><span class="pp">   </span><span class="co">/* max size of expression */</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>ElementType EvalPostfix<span class="op">(</span> <span class="dt">char</span> <span class="op">*</span>expr <span class="op">);</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    ElementType v<span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> expr<span class="op">[</span>Max_Expr<span class="op">];</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    gets<span class="op">(</span>expr<span class="op">);</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> EvalPostfix<span class="op">(</span> expr <span class="op">);</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span> v <span class="op">&lt;</span> Infinity <span class="op">)</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> v<span class="op">);</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;ERROR</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">/* Your function will be put here */</span></span></code></pre></div>
+<h3 id="sample-input-1">Sample Input 1:</h3>
+<pre class="in"><code>11 -2 5.5 * + 23 7 / -</code></pre>
+<h3 id="sample-output-1">Sample Output 1:</h3>
+<pre class="out"><code>-3.285714</code></pre>
+<h3 id="sample-input-2">Sample Input 2:</h3>
+<pre><code>11 -2 5.5 * + 23 0 / -</code></pre>
+<h3 id="sample-output-2">Sample Output 2:</h3>
+<pre><code>ERROR</code></pre>
+<h3 id="sample-input-3">Sample Input 3:</h3>
+<pre><code>11 -2 5.5 * + 23 7 / - *</code></pre>
+<h3 id="sample-output-3">Sample Output 3:</h3>
+<pre><code>ERROR</code></pre>
+<h3
+id="special-thanks-to-sirou-zhu-朱思柔-for-providing-a-valuable-test-case.">Special
+thanks to Sirou Zhu (朱思柔) for providing a valuable test case.</h3>
+<p>代码长度限制</p>
+<p>16 KB</p>
+<p>时间限制</p>
+<p>400 ms</p>
+<p>内存限制</p>
+<p>64 MB</p>
+<h2 id="analyse">Analyse</h2>
+<p>注意</p>
+<ol type="1">
+<li>运算错误时，返回Infinity</li>
+<li>max size of expression is 30</li>
+<li>读入的是字符数组，而返回值是double，注意数字的从字符到整型的转换</li>
+</ol>
+<p>还是比较简单的题目，建立好数据结构stack以及push pop
+的操作，然后遇到数字就push，遇到操作符就pop两个数字出来运算，再将结果push回去。</p>
+<p>不过这个是否legal的判断我目前只想到除数为0的情况可以判断，要是比如运算符或运算数少了，这种就有点麻烦耶</p>
+<h2 id="gains">Gains</h2>
+<h3 id="knowledge">Knowledge</h3>
+<h4 id="gets的用法">gets的用法</h4>
+<p>函数原型</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp"># include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> <span class="op">*</span>gets<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>str<span class="op">);</span></span></code></pre></div>
+<ol type="1">
+<li>参数类型为 char* 型，即 str 可以是一个字符指针变量名，也可以是一个<a
+target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=字符数组&amp;spm=1001.2101.3001.7020">字符数组</a>名。</li>
+<li>它读取整行输入，直至遇到换行符，然后<strong>丢弃换行符</strong>，储存其余字符，并在其末尾添加一个空字符使其成为一个字符串。</li>
+</ol>
+<h4 id="switch的用法">switch的用法</h4>
+<p>在C中NULL是强制类型转换为void *的0</p>
+<h3 id="notice">Notice</h3>
+<h2 id="process">Process</h2>
+<ul>
+<li>这应该是基本的逻辑都错了</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QuR31"><img
+src="https://i.imgtg.com/2023/01/19/QuR31.md.png"
+alt="QuR31.md.png" /></a></p>
+<ul>
+<li>零输出是怎么做到的TATAAAAAAAAAAAAAT</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QuDtD"><img
+src="https://i.imgtg.com/2023/01/19/QuDtD.png"
+alt="QuDtD.png" /></a></p>
+<ul>
+<li>不调不知道，一调吓一跳。原来double类型存成char真的是一点点存的，小数点，负号都单独存的/(ㄒoㄒ)/~~</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QuEW6"><img
+src="https://i.imgtg.com/2023/01/19/QuEW6.png"
+alt="QuEW6.png" /></a></p>
+<ul>
+<li>这样使用为什么不行呢？——这里pEnd指针没有初始化就使用了！！！</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qul2S"><img
+src="https://i.imgtg.com/2023/01/19/Qul2S.png"
+alt="Qul2S.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QujbN"><img
+src="https://i.imgtg.com/2023/01/19/QujbN.png"
+alt="QujbN.png" /></a></p>
+<ul>
+<li>这答案一会对一会错的捏——这里有个case
+的break忘记了，就把运算符的ascii码当作运算数push进栈里面了</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SByaU"><img
+src="https://i.imgtg.com/2023/01/21/SByaU.md.png"
+alt="SByaU.md.png" /></a></p>
+<p>不行这个题我有点晕乎乎的了，缓几天再来！！！</p>
+<h2 id="reference">Reference</h2>
+<ol type="1">
+<li><p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/wowocpp/article/details/119888876?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167410521516800217041735%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=167410521516800217041735&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-119888876-null-null.142%5Ev71%5Einsert_chatgpt,201%5Ev4%5Eadd_ask&amp;utm_term=gets&amp;spm=1018.2226.3001.4187">gets的用法</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/hunzhizi/article/details/106440589?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167410521516800217041735%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=167410521516800217041735&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-106440589-null-null.142%5Ev71%5Einsert_chatgpt,201%5Ev4%5Eadd_ask&amp;utm_term=gets&amp;spm=1018.2226.3001.4187">C语言中gets_s(),gets(),fgets（）函数的比较</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44949135/article/details/115174682?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=c%E8%AF%AD%E8%A8%80switch%E7%9A%84%E7%94%A8%E6%B3%95&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-115174682.142%5Ev71%5Einsert_chatgpt,201%5Ev4%5Eadd_ask&amp;spm=1018.2226.3001.4187">switch的用法</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_20222919/article/details/122975526?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167411012116782429737664%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=167411012116782429737664&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-2-122975526-null-null.142%5Ev71%5Einsert_chatgpt,201%5Ev4%5Eadd_ask&amp;utm_term=%E5%AD%97%E7%AC%A6%E8%BD%AC%E6%8D%A2%E6%88%90%E6%B5%AE%E7%82%B9%E6%95%B0&amp;spm=1018.2226.3001.4187">字符串转浮点函数</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42031299/article/details/115707605?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167411418916782427465432%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=167411418916782427465432&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-115707605-null-null.142%5Ev71%5Einsert_chatgpt,201%5Ev4%5Eadd_ask&amp;utm_term=null&amp;spm=1018.2226.3001.4187">NULL</a></p></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Carrie Lee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/01/19/DS-HEAP-STACK-EvaluatePostfixExpression/">http://example.com/2023/01/19/DS-HEAP-STACK-EvaluatePostfixExpression/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%A2%98%E8%A7%A3/">题解</a><a class="post-meta__tags" href="/tags/stack/">stack</a><a class="post-meta__tags" href="/tags/postfix/">postfix</a><a class="post-meta__tags" href="/tags/calculator/">calculator</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/21/%E8%8B%B1%E8%AF%AD-AmericanAccentTraining/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">英语_AmericanAccentTraining</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/19/DS-LIST-ReverseLinkedList/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">DS_LIST_ReverseLinkedList</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/12/15/DS-GRAPH-StronglyConnectedComponents/" title="DS_Graph_Strongly Connected Components"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-15</div><div class="title">DS_Graph_Strongly Connected Components</div></div></a></div><div><a href="/2023/01/15/DS-HEAP&STACK-PopSequence/" title="DS_HEAP&amp;STACK_PopSequence"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-15</div><div class="title">DS_HEAP&amp;STACK_PopSequence</div></div></a></div><div><a href="/2022/12/25/DS-HEAP-SATCK-Add-Two-Polynomials/" title="DS_HEAP&amp;SATCK_Add Two Polynomials"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-25</div><div class="title">DS_HEAP&amp;SATCK_Add Two Polynomials</div></div></a></div><div><a href="/2022/12/25/DS-HEAP-SATCK-Two-Stacks-in-One-Array/" title="DS_HEAP&amp;SATCK_Two Stacks in One Array"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-25</div><div class="title">DS_HEAP&amp;SATCK_Two Stacks in One Array</div></div></a></div><div><a href="/2023/01/19/DS-LIST-ReverseLinkedList/" title="DS_LIST_ReverseLinkedList"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-19</div><div class="title">DS_LIST_ReverseLinkedList</div></div></a></div><div><a href="/2023/01/14/DS-LIST-ReversingLinkedList/" title="DS_LIST_ReversingLinkedList"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-14</div><div class="title">DS_LIST_ReversingLinkedList</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Carrie Lee</div><div class="author-info__description">���·�������������</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ds_heapstack_evaluatepostfixexpression"><span class="toc-number">1.</span> <span class="toc-text">DS_HEAP&amp;STACK_EvaluatePostfixExpression</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#description"><span class="toc-number">1.1.</span> <span class="toc-text">Description</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#format-of-functions"><span class="toc-number">1.1.1.</span> <span class="toc-text">Format of functions:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sample-program-of-judge"><span class="toc-number">1.1.2.</span> <span class="toc-text">Sample program of judge:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sample-input-1"><span class="toc-number">1.1.3.</span> <span class="toc-text">Sample Input 1:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sample-output-1"><span class="toc-number">1.1.4.</span> <span class="toc-text">Sample Output 1:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sample-input-2"><span class="toc-number">1.1.5.</span> <span class="toc-text">Sample Input 2:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sample-output-2"><span class="toc-number">1.1.6.</span> <span class="toc-text">Sample Output 2:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sample-input-3"><span class="toc-number">1.1.7.</span> <span class="toc-text">Sample Input 3:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sample-output-3"><span class="toc-number">1.1.8.</span> <span class="toc-text">Sample Output 3:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#special-thanks-to-sirou-zhu-%E6%9C%B1%E6%80%9D%E6%9F%94-for-providing-a-valuable-test-case."><span class="toc-number">1.1.9.</span> <span class="toc-text">Special
+thanks to Sirou Zhu (朱思柔) for providing a valuable test case.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#analyse"><span class="toc-number">1.2.</span> <span class="toc-text">Analyse</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gains"><span class="toc-number">1.3.</span> <span class="toc-text">Gains</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#knowledge"><span class="toc-number">1.3.1.</span> <span class="toc-text">Knowledge</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#gets%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">gets的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#switch%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">switch的用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#notice"><span class="toc-number">1.3.2.</span> <span class="toc-text">Notice</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#process"><span class="toc-number">1.4.</span> <span class="toc-text">Process</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-number">1.5.</span> <span class="toc-text">Reference</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"/></a><div class="content"><a class="title" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波">专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</a><time datetime="2024-03-30T03:11:04.000Z" title="Created 2024-03-30 11:11:04">2024-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用">技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用</a><time datetime="2024-03-29T09:21:38.000Z" title="Created 2024-03-29 17:21:38">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术博客杂谈"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈">技术博客杂谈</a><time datetime="2024-03-29T09:07:01.000Z" title="Created 2024-03-29 17:07:01">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Daily-24-03-16"/></a><div class="content"><a class="title" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16">Daily-24-03-16</a><time datetime="2024-03-16T00:53:42.000Z" title="Created 2024-03-16 08:53:42">2024-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PTA-甲级-1001"/></a><div class="content"><a class="title" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001">PTA-甲级-1001</a><time datetime="2024-03-15T23:15:54.000Z" title="Created 2024-03-16 07:15:54">2024-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Carrie Lee</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

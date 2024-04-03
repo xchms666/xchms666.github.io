@@ -1,0 +1,337 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>DS | Cr's Home</title><meta name="author" content="Carrie Lee"><meta name="copyright" content="Carrie Lee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="6.1 最短路径 抽象 在网络中，两个不同顶点之间的所有路径中，边的权值之和最小的那一条路径  shortest path source源点 destination  问题分类  单源最短路问题：从某固定源点出发，求其到所有其他顶点的最短路径  无权图 有权图  多源最短路问题：任意两个顶点之间的最短路径  无权图的单源最短路算法  按照非递减的顺序，从一个固">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DS">
+<meta property="og:url" content="http://example.com/2022/11/21/DS_06_%E5%9B%BE_%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/index.html">
+<meta property="og:site_name" content="Cr&#39;s Home">
+<meta property="og:description" content="6.1 最短路径 抽象 在网络中，两个不同顶点之间的所有路径中，边的权值之和最小的那一条路径  shortest path source源点 destination  问题分类  单源最短路问题：从某固定源点出发，求其到所有其他顶点的最短路径  无权图 有权图  多源最短路问题：任意两个顶点之间的最短路径  无权图的单源最短路算法  按照非递减的顺序，从一个固">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-11-21T00:04:08.000Z">
+<meta property="article:modified_time" content="2022-11-28T01:04:50.734Z">
+<meta property="article:author" content="Carrie Lee">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/11/21/DS_06_%E5%9B%BE_%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DS',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-28 09:04:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cr's Home</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DS</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-11-21T00:04:08.000Z" title="Created 2022-11-21 08:04:08">2022-11-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-11-28T01:04:50.734Z" title="Updated 2022-11-28 09:04:50">2022-11-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="DS"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="最短路径">6.1 最短路径</h1>
+<h2 id="抽象">抽象</h2>
+<p>在网络中，两个不同顶点之间的所有路径中，边的权值之和最小的那一条路径</p>
+<ul>
+<li>shortest path</li>
+<li>source源点</li>
+<li>destination</li>
+</ul>
+<h2 id="问题分类">问题分类</h2>
+<ul>
+<li>单源最短路问题：从某固定源点出发，求其到所有其他顶点的最短路径
+<ul>
+<li>无权图</li>
+<li>有权图</li>
+</ul></li>
+<li>多源最短路问题：任意两个顶点之间的最短路径</li>
+</ul>
+<h2 id="无权图的单源最短路算法">无权图的单源最短路算法</h2>
+<blockquote>
+<p>按照非递减的顺序，从一个固定源点，找出到各个顶点的最短路</p>
+<p>最短：经过的顶点最少</p>
+</blockquote>
+<figure>
+<img
+src="https://tva1.sinaimg.cn/large/008qZDPcly1h8cfkvgv1wj30d004o74z.jpg"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<ul>
+<li>路径增长在上一步的基础生成</li>
+<li>不重复遍历顶点</li>
+</ul>
+<h3 id="代码实现">代码实现</h3>
+<figure>
+<img
+src="https://tva1.sinaimg.cn/large/008qZDPcly1h8cfrjq2stj30io0aptbl.jpg"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h4 id="时间复杂度">时间复杂度</h4>
+<p>每个顶点被dequeue和enqueue了一次，每条边被遍历了一次</p>
+<p>2*v+e</p>
+<h4 id="源代码">源代码</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* 邻接表存储 - 无权图的单源最短路算法 */</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">/* dist[]和path[]全部初始化为-1 */</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>void Unweighted <span class="op">(</span> LGraph Graph<span class="op">,</span> int dist<span class="op">[],</span> int path<span class="op">[],</span> Vertex S <span class="op">)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    Queue Q<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    Vertex V<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    PtrToAdjVNode W<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> CreateQueue<span class="op">(</span> Graph<span class="op">-&gt;</span>Nv <span class="op">);</span> <span class="co">/* 创建空队列, MaxSize为外部定义的常数 */</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    dist<span class="op">[</span>S<span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">/* 初始化源点 */</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    AddQ <span class="op">(</span>Q<span class="op">,</span> S<span class="op">);</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    while<span class="op">(</span> <span class="op">!</span>IsEmpty<span class="op">(</span>Q<span class="op">)</span> <span class="op">)&#123;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        V <span class="op">=</span> DeleteQ<span class="op">(</span>Q<span class="op">);</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        for <span class="op">(</span> W<span class="op">=</span>Graph<span class="op">-&gt;</span>G<span class="op">[</span>V<span class="op">].</span>FirstEdge<span class="op">;</span> W<span class="op">;</span> W<span class="op">=</span>W<span class="op">-&gt;</span>Next <span class="op">)</span> <span class="co">/* 对V的每个邻接点W-&gt;AdjV */</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            if <span class="op">(</span> dist<span class="op">[</span>W<span class="op">-&gt;</span>AdjV<span class="op">]==-</span><span class="dv">1</span> <span class="op">)</span> <span class="op">&#123;</span> <span class="co">/* 若W-&gt;AdjV未被访问过 */</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                dist<span class="op">[</span>W<span class="op">-&gt;</span>AdjV<span class="op">]</span> <span class="op">=</span> dist<span class="op">[</span>V<span class="op">]+</span><span class="dv">1</span><span class="op">;</span> <span class="co">/* W-&gt;AdjV到S的距离更新 */</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                path<span class="op">[</span>W<span class="op">-&gt;</span>AdjV<span class="op">]</span> <span class="op">=</span> V<span class="op">;</span> <span class="co">/* 将V记录在S到W-&gt;AdjV的路径上 */</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                AddQ<span class="op">(</span>Q<span class="op">,</span> W<span class="op">-&gt;</span>AdjV<span class="op">);</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span> <span class="co">/* while结束*/</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h2 id="有权图的单源最短路算法">有权图的单源最短路算法</h2>
+<blockquote>
+<p><strong>负值圈</strong>——后续不考虑</p>
+<figure>
+<img
+src="https://tva1.sinaimg.cn/large/008qZDPcly1h8cfywlhdmj30co04igmj.jpg"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>在圈上走无穷多次时，“花销最小”</p>
+</blockquote>
+<h3 id="dijkstra算法">Dijkstra算法</h3>
+<ul>
+<li>令S={源点s + 已经确定了最短路径的顶点V<sub>i</sub>}[?]</li>
+</ul>
+<figure>
+<img
+src="https://tva1.sinaimg.cn/large/008qZDPcly1h8cg7bkxxtj30j40a0tcm.jpg"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h4 id="伪代码">伪代码</h4>
+<figure>
+<img
+src="https://tva1.sinaimg.cn/large/008qZDPcly1h8cgdpkh6yj30ha09c0uy.jpg"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<ul>
+<li>时间复杂度取决于第一句红线怎么实现</li>
+</ul>
+<p><img
+src="https://tva1.sinaimg.cn/large/008qZDPcly1h8cgips3fmj30ib08zdi1.jpg"
+alt="image.png" />[?]</p>
+<h4 id="实现过程">实现过程</h4>
+<figure>
+<img
+src="https://tva1.sinaimg.cn/large/008qZDPcly1h8chli9phxj30j809r0v9.jpg"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h4 id="源代码-1">源代码</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* 邻接矩阵存储 - 有权图的单源最短路算法 */</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Vertex FindMinDist<span class="op">(</span> MGraph Graph<span class="op">,</span> int dist<span class="op">[],</span> int collected<span class="op">[]</span> <span class="op">)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span> <span class="co">/* 返回未被收录顶点中dist最小者 */</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    Vertex MinV<span class="op">,</span> V<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    int MinDist <span class="op">=</span> INFINITY<span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    for <span class="op">(</span>V<span class="op">=</span><span class="dv">0</span><span class="op">;</span> V<span class="op">&lt;</span>Graph<span class="op">-&gt;</span>Nv<span class="op">;</span> V<span class="op">++)</span> <span class="op">&#123;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        if <span class="op">(</span> collected<span class="op">[</span>V<span class="op">]==</span>false <span class="op">&amp;&amp;</span> dist<span class="op">[</span>V<span class="op">]&lt;</span>MinDist<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="co">/* 若V未被收录，且dist[V]更小 */</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            MinDist <span class="op">=</span> dist<span class="op">[</span>V<span class="op">];</span> <span class="co">/* 更新最小距离 */</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            MinV <span class="op">=</span> V<span class="op">;</span> <span class="co">/* 更新对应顶点 */</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    if <span class="op">(</span>MinDist <span class="op">&lt;</span> INFINITY<span class="op">)</span> <span class="co">/* 若找到最小dist */</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        return MinV<span class="op">;</span> <span class="co">/* 返回对应的顶点下标 */</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    else return ERROR<span class="op">;</span>  <span class="co">/* 若这样的顶点不存在，返回错误标记 */</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>bool Dijkstra<span class="op">(</span> MGraph Graph<span class="op">,</span> int dist<span class="op">[],</span> int path<span class="op">[],</span> Vertex S <span class="op">)</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    int collected<span class="op">[</span>MaxVertexNum<span class="op">];</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    Vertex V<span class="op">,</span> W<span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* 初始化：此处默认邻接矩阵中不存在的边用INFINITY表示 */</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    for <span class="op">(</span> V<span class="op">=</span><span class="dv">0</span><span class="op">;</span> V<span class="op">&lt;</span>Graph<span class="op">-&gt;</span>Nv<span class="op">;</span> V<span class="op">++</span> <span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        dist<span class="op">[</span>V<span class="op">]</span> <span class="op">=</span> Graph<span class="op">-&gt;</span>G<span class="op">[</span>S<span class="op">][</span>V<span class="op">];</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        if <span class="op">(</span> dist<span class="op">[</span>V<span class="op">]&lt;</span>INFINITY <span class="op">)</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>            path<span class="op">[</span>V<span class="op">]</span> <span class="op">=</span> S<span class="op">;</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        else</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>            path<span class="op">[</span>V<span class="op">]</span> <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        collected<span class="op">[</span>V<span class="op">]</span> <span class="op">=</span> false<span class="op">;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* 先将起点收入集合 */</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    dist<span class="op">[</span>S<span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    collected<span class="op">[</span>S<span class="op">]</span> <span class="op">=</span> true<span class="op">;</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    while <span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>        <span class="co">/* V = 未被收录顶点中dist最小者 */</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        V <span class="op">=</span> FindMinDist<span class="op">(</span> Graph<span class="op">,</span> dist<span class="op">,</span> collected <span class="op">);</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        if <span class="op">(</span> V<span class="op">==</span>ERROR <span class="op">)</span> <span class="co">/* 若这样的V不存在 */</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>            break<span class="op">;</span>      <span class="co">/* 算法结束 */</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        collected<span class="op">[</span>V<span class="op">]</span> <span class="op">=</span> true<span class="op">;</span>  <span class="co">/* 收录V */</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        for<span class="op">(</span> W<span class="op">=</span><span class="dv">0</span><span class="op">;</span> W<span class="op">&lt;</span>Graph<span class="op">-&gt;</span>Nv<span class="op">;</span> W<span class="op">++</span> <span class="op">)</span> <span class="co">/* 对图中的每个顶点W */</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>            <span class="co">/* 若W是V的邻接点并且未被收录 */</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>            if <span class="op">(</span> collected<span class="op">[</span>W<span class="op">]==</span>false <span class="op">&amp;&amp;</span> Graph<span class="op">-&gt;</span>G<span class="op">[</span>V<span class="op">][</span>W<span class="op">]&lt;</span>INFINITY <span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>                if <span class="op">(</span> Graph<span class="op">-&gt;</span>G<span class="op">[</span>V<span class="op">][</span>W<span class="op">]&lt;</span><span class="dv">0</span> <span class="op">)</span> <span class="co">/* 若有负边 */</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>                    return false<span class="op">;</span> <span class="co">/* 不能正确解决，返回错误标记 */</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>                <span class="co">/* 若收录V使得dist[W]变小 */</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>                if <span class="op">(</span> dist<span class="op">[</span>V<span class="op">]+</span>Graph<span class="op">-&gt;</span>G<span class="op">[</span>V<span class="op">][</span>W<span class="op">]</span> <span class="op">&lt;</span> dist<span class="op">[</span>W<span class="op">]</span> <span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>                    dist<span class="op">[</span>W<span class="op">]</span> <span class="op">=</span> dist<span class="op">[</span>V<span class="op">]+</span>Graph<span class="op">-&gt;</span>G<span class="op">[</span>V<span class="op">][</span>W<span class="op">];</span> <span class="co">/* 更新dist[W] */</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>                    path<span class="op">[</span>W<span class="op">]</span> <span class="op">=</span> V<span class="op">;</span> <span class="co">/* 更新S到W的路径 */</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>                <span class="op">&#125;</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span> <span class="co">/* while结束*/</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    return true<span class="op">;</span> <span class="co">/* 算法执行完毕，返回正确标记 */</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h2 id="多源最短路算法">多源最短路算法</h2>
+<h3 id="floyd算法">Floyd算法</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* 邻接矩阵存储 - 多源最短路算法 */</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>bool Floyd<span class="op">(</span> MGraph Graph<span class="op">,</span> WeightType D<span class="op">[][</span>MaxVertexNum<span class="op">],</span> Vertex path<span class="op">[][</span>MaxVertexNum<span class="op">]</span> <span class="op">)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    Vertex i<span class="op">,</span> j<span class="op">,</span> k<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* 初始化 */</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    for <span class="op">(</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span>Graph<span class="op">-&gt;</span>Nv<span class="op">;</span> i<span class="op">++</span> <span class="op">)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        for<span class="op">(</span> j<span class="op">=</span><span class="dv">0</span><span class="op">;</span> j<span class="op">&lt;</span>Graph<span class="op">-&gt;</span>Nv<span class="op">;</span> j<span class="op">++</span> <span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            D<span class="op">[</span>i<span class="op">][</span>j<span class="op">]</span> <span class="op">=</span> Graph<span class="op">-&gt;</span>G<span class="op">[</span>i<span class="op">][</span>j<span class="op">];</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            path<span class="op">[</span>i<span class="op">][</span>j<span class="op">]</span> <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    for<span class="op">(</span> k<span class="op">=</span><span class="dv">0</span><span class="op">;</span> k<span class="op">&lt;</span>Graph<span class="op">-&gt;</span>Nv<span class="op">;</span> k<span class="op">++</span> <span class="op">)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        for<span class="op">(</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span>Graph<span class="op">-&gt;</span>Nv<span class="op">;</span> i<span class="op">++</span> <span class="op">)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            for<span class="op">(</span> j<span class="op">=</span><span class="dv">0</span><span class="op">;</span> j<span class="op">&lt;</span>Graph<span class="op">-&gt;</span>Nv<span class="op">;</span> j<span class="op">++</span> <span class="op">)</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                if<span class="op">(</span> D<span class="op">[</span>i<span class="op">][</span>k<span class="op">]</span> <span class="op">+</span> D<span class="op">[</span>k<span class="op">][</span>j<span class="op">]</span> <span class="op">&lt;</span> D<span class="op">[</span>i<span class="op">][</span>j<span class="op">]</span> <span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                    D<span class="op">[</span>i<span class="op">][</span>j<span class="op">]</span> <span class="op">=</span> D<span class="op">[</span>i<span class="op">][</span>k<span class="op">]</span> <span class="op">+</span> D<span class="op">[</span>k<span class="op">][</span>j<span class="op">];</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                    if <span class="op">(</span> i<span class="op">==</span>j <span class="op">&amp;&amp;</span> D<span class="op">[</span>i<span class="op">][</span>j<span class="op">]&lt;</span><span class="dv">0</span> <span class="op">)</span> <span class="co">/* 若发现负值圈 */</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                        return false<span class="op">;</span> <span class="co">/* 不能正确解决，返回错误标记 */</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                    path<span class="op">[</span>i<span class="op">][</span>j<span class="op">]</span> <span class="op">=</span> k<span class="op">;</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                <span class="op">&#125;</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    return true<span class="op">;</span> <span class="co">/* 算法执行完毕，返回正确标记 */</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h2 id="例子">例子</h2>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Carrie Lee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/11/21/DS_06_%E5%9B%BE_%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/">http://example.com/2022/11/21/DS_06_%E5%9B%BE_%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/21/%E5%85%B3%E4%BA%8E%E5%B0%91%E5%B9%B4%E5%92%8C%E6%88%90%E7%86%9F/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">关于少年和成熟</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/20/CET-6-Reference/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">CET-6 Reference</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/11/19/DS-01-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="DS_01_基本概念"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-19</div><div class="title">DS_01_基本概念</div></div></a></div><div><a href="/2022/11/10/DS-03-LINEAR-LISTS/" title="DS_03_LINEAR_LISTS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_03_LINEAR_LISTS</div></div></a></div><div><a href="/2022/11/10/DS-ALGORITHM-ANALYSIS/" title="DS_02_ALGORITHM_ANALYSIS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_02_ALGORITHM_ANALYSIS</div></div></a></div><div><a href="/2022/11/07/DS-GRAPH-ALGORITHMS/" title="DS_GRAPH ALGORITHMS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">DS_GRAPH ALGORITHMS</div></div></a></div><div><a href="/2023/02/05/DS-GRAPH/" title="DS_GRAPH"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-05</div><div class="title">DS_GRAPH</div></div></a></div><div><a href="/2023/02/06/DS-LIST/" title="DS_LIST"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-06</div><div class="title">DS_LIST</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Carrie Lee</div><div class="author-info__description">���·�������������</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">1.</span> <span class="toc-text">6.1 最短路径</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1"><span class="toc-number">1.1.</span> <span class="toc-text">抽象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">问题分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E6%9D%83%E5%9B%BE%E7%9A%84%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">无权图的单源最短路算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.1.</span> <span class="toc-text">代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">源代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E6%9D%83%E5%9B%BE%E7%9A%84%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">有权图的单源最短路算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dijkstra%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.1.</span> <span class="toc-text">Dijkstra算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">伪代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">实现过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81-1"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">源代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95"><span class="toc-number">1.5.</span> <span class="toc-text">多源最短路算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#floyd%E7%AE%97%E6%B3%95"><span class="toc-number">1.5.1.</span> <span class="toc-text">Floyd算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">1.6.</span> <span class="toc-text">例子</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"/></a><div class="content"><a class="title" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波">专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</a><time datetime="2024-03-30T03:11:04.000Z" title="Created 2024-03-30 11:11:04">2024-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用">技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用</a><time datetime="2024-03-29T09:21:38.000Z" title="Created 2024-03-29 17:21:38">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术博客杂谈"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈">技术博客杂谈</a><time datetime="2024-03-29T09:07:01.000Z" title="Created 2024-03-29 17:07:01">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Daily-24-03-16"/></a><div class="content"><a class="title" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16">Daily-24-03-16</a><time datetime="2024-03-16T00:53:42.000Z" title="Created 2024-03-16 08:53:42">2024-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PTA-甲级-1001"/></a><div class="content"><a class="title" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001">PTA-甲级-1001</a><time datetime="2024-03-15T23:15:54.000Z" title="Created 2024-03-16 07:15:54">2024-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Carrie Lee</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
