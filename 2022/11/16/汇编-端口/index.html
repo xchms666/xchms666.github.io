@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>汇编_端口 | Cr's Home</title><meta name="author" content="Carrie Lee"><meta name="copyright" content="Carrie Lee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="端口 CPU &lt;-&gt; 端口(port) &lt;-&gt; I&#x2F;O设备  端口编号就是端口地址。端口地址的范围是：[0000h, 0FFFFh]，共65536个端口。  60h端口——CPU与键盘之间可以建立通讯  in al, 60h; 从端口60h读取一个字节并存放到AL中  70h及71h端口——与cmos内部的时钟有关 70h管理地址，71h管理数据">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>汇编_端口 | Cr's Home</title><meta name="author" content="Carrie Lee"><meta name="copyright" content="Carrie Lee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="端口CPU &lt;-&gt; 端口(port)  &lt;-&gt; I&#x2F;O设备  端口编号就是端口地址。端口地址的范围是：[0000h, 0FFFFh]，共65536个端口。  60h端口——CPU与键盘之间可以建立通讯 in al, 60h; 从端口60h读取一个字节并存放到AL中  70h及71h端口——与cmos内部的时钟有关70h管理地址，71h管理数据  其中cmos中的地址4、2、">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编_端口">
 <meta property="og:url" content="http://example.com/2022/11/16/%E6%B1%87%E7%BC%96-%E7%AB%AF%E5%8F%A3/index.html">
 <meta property="og:site_name" content="Cr&#39;s Home">
-<meta property="og:description" content="端口 CPU &lt;-&gt; 端口(port) &lt;-&gt; I&#x2F;O设备  端口编号就是端口地址。端口地址的范围是：[0000h, 0FFFFh]，共65536个端口。  60h端口——CPU与键盘之间可以建立通讯  in al, 60h; 从端口60h读取一个字节并存放到AL中  70h及71h端口——与cmos内部的时钟有关 70h管理地址，71h管理数据">
+<meta property="og:description" content="端口CPU &lt;-&gt; 端口(port)  &lt;-&gt; I&#x2F;O设备  端口编号就是端口地址。端口地址的范围是：[0000h, 0FFFFh]，共65536个端口。  60h端口——CPU与键盘之间可以建立通讯 in al, 60h; 从端口60h读取一个字节并存放到AL中  70h及71h端口——与cmos内部的时钟有关70h管理地址，71h管理数据  其中cmos中的地址4、2、">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
 <meta property="article:published_time" content="2022-11-16T12:31:01.000Z">
@@ -142,281 +142,278 @@
       }
     }
     detectApple()
-    })(window)</script><!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cr's Home</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">汇编_端口</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-11-16T12:31:01.000Z" title="Created 2022-11-16 20:31:01">2022-11-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-11-16T13:29:02.724Z" title="Updated 2022-11-16 21:29:02">2022-11-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B1%87%E7%BC%96/">汇编</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="汇编_端口"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="端口">端口</span></h1>
-<p><strong>CPU &lt;-&gt; 端口(port) &lt;-&gt; I/O设备</strong></p>
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cr's Home</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">汇编_端口</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-11-16T12:31:01.000Z" title="Created 2022-11-16 20:31:01">2022-11-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-11-16T13:29:02.724Z" title="Updated 2022-11-16 21:29:02">2022-11-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B1%87%E7%BC%96/">汇编</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="汇编_端口"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="端口">端口</span></h1><p><strong>CPU &lt;-&gt; 端口(port)  &lt;-&gt; I/O设备</strong></p>
 <ul>
-<li>端口编号就是端口地址。端口地址的范围是：[0000h,
-0FFFFh]，共65536个端口。</li>
+<li>端口编号就是端口地址。端口地址的范围是：[0000h, 0FFFFh]，共65536个端口。</li>
 </ul>
-<h3><span id="60h端口cpu与键盘之间可以建立通讯">60h端口——CPU与键盘之间可以建立通讯</span></h3>
-<ul>
+<h3><span id="60h端口cpu与键盘之间可以建立通讯">60h端口——CPU与键盘之间可以建立通讯</span></h3><ul>
 <li>in al, 60h; 从端口60h读取一个字节并存放到AL中</li>
 </ul>
-<h3><span id="70h及71h端口与cmos内部的时钟有关">70h及71h端口——与cmos内部的时钟有关</span></h3>
-<p>70h管理地址，71h管理数据</p>
+<h3><span id="70h及71h端口与cmos内部的时钟有关">70h及71h端口——与cmos内部的时钟有关</span></h3><p>70h管理地址，71h管理数据</p>
 <ul>
 <li>其中cmos中的地址4、2、0中分别保存了当前的时、分、秒，并且格式均为BCD码。</li>
 <li>台式机的开机密码储存在cmos中，由一个钮扣电池供电；笔记本的开机密码存储在安全芯片中，不需要电</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">; written by blackwhite</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">2</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">out</span> <span class="bn">70h</span><span class="op">,</span> <span class="kw">al</span><span class="co">; 只能是al寄存器</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">in</span> <span class="kw">al</span><span class="op">,</span> <span class="bn">71h</span><span class="co">; 读取cmos中2号单元的值</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">; written by blackwhite</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">4</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">out</span> <span class="bn">70h</span><span class="op">,</span> <span class="kw">al</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="bn">23h</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">out</span> <span class="bn">71h</span><span class="op">,</span> <span class="kw">al</span><span class="co">; 把cmos4号单元即小时的值改成23点</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">; written by blackwhite</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">2</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">out</span> <span class="bn">70h</span><span class="op">,</span> <span class="kw">al</span><span class="co">; 只能是al寄存器</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="bn">11h</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">out</span> <span class="bn">71h</span><span class="op">,</span> <span class="kw">al</span><span class="co">; 把11h写入cmos的2号寄存单元</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">; written by blackwhite</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">data</span> segment</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>current_time <span class="dt">db</span> <span class="st">&quot;00:00:00&quot;</span><span class="op">,</span> <span class="dv">0</span><span class="bn">D</span><span class="er">h</span><span class="op">,</span> <span class="dv">0</span><span class="er">Ah</span><span class="op">,</span> <span class="st">&quot;$&quot;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">data</span> ends</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>code segment</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>assume <span class="kw">cs</span><span class="op">:</span>code<span class="op">,</span> <span class="kw">ds</span><span class="op">:</span>data</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">main:</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ax</span><span class="op">,</span> data</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ds</span><span class="op">,</span> <span class="kw">ax</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">4</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">70h</span><span class="op">,</span><span class="kw">al</span><span class="co">; index hour</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>   <span class="bu">in</span> <span class="kw">al</span><span class="op">,</span><span class="bn">71h</span> <span class="co">; AL=hour(e.g. 19h means 19 pm.)</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>   <span class="cf">call</span> convert<span class="co">; AL=&#39;1&#39;, AH=&#39;9&#39;</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="dt">word</span> <span class="dt">ptr</span> current_time<span class="op">[</span><span class="dv">0</span><span class="op">],</span><span class="kw">ax</span><span class="co">; 利用小端规则，使得存入正好是19h相当于下面两句</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>   <span class="co">;mov current_time[0], al</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>   <span class="co">;mov current_time[1], ah</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span><span class="dv">2</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">70h</span><span class="op">,</span><span class="kw">al</span><span class="co">; index minute</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>   <span class="bu">in</span>  <span class="kw">al</span><span class="op">,</span><span class="bn">71h</span><span class="co">; AL=minute</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>   <span class="cf">call</span> convert</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="dt">word</span> <span class="dt">ptr</span> current_time<span class="op">[</span><span class="dv">3</span><span class="op">],</span><span class="kw">ax</span><span class="co">;</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>   <span class="co">;mov current_time[3], al</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>   <span class="co">;mov current_time[4], ah</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span><span class="dv">0</span>  <span class="co">; index second</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">70h</span><span class="op">,</span><span class="kw">al</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>   <span class="bu">in</span>  <span class="kw">al</span><span class="op">,</span><span class="bn">71h</span><span class="co">; AL=second</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>   <span class="cf">call</span> convert</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="dt">word</span> <span class="dt">ptr</span> current_time<span class="op">[</span><span class="dv">6</span><span class="op">],</span><span class="kw">ax</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ah</span><span class="op">,</span> <span class="dv">9</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">dx</span><span class="op">,</span> offset current_time</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>   <span class="bu">int</span> <span class="bn">21h</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ah</span><span class="op">,</span> <span class="dv">4</span><span class="er">Ch</span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>   <span class="bu">int</span> <span class="bn">21h</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co">;---------Convert----------------</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co">;Input:AL=hour or minute or second</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co">;      format:e.g. hour   15h means 3 pm.</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co">;                  second 56h means 56s</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co">;Output: (e.g. AL=56h)</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co">;     AL=&#39;5&#39;</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="co">;     AH=&#39;6&#39;</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co">;     AL和AH既是input也是output</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="fu">convert:</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="bu">push</span> <span class="kw">cx</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">mov</span> <span class="kw">ah</span><span class="op">,</span><span class="kw">al</span> <span class="co">; e.g. assume AL=56h</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="bu">and</span> <span class="kw">ah</span><span class="op">,</span><span class="dv">0</span><span class="er">Fh</span><span class="co">; AH=06h</span></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">mov</span> <span class="kw">cl</span><span class="op">,</span><span class="dv">4</span></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="bu">shr</span> <span class="kw">al</span><span class="op">,</span><span class="kw">cl</span> <span class="co">; AL=05h</span></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">; shr:shift right右移</span></span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    <span class="bu">add</span> <span class="kw">ah</span><span class="op">,</span> <span class="st">&#39;0&#39;</span><span class="co">; AH=&#39;6&#39;</span></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    <span class="bu">add</span> <span class="kw">al</span><span class="op">,</span> <span class="st">&#39;0&#39;</span><span class="co">; AL=&#39;5&#39;</span></span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="bu">pop</span>  <span class="kw">cx</span></span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ret</span></span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="co">;---------End of Convert---------</span></span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>code ends</span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="pp">end</span> main</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">; written by blackwhite</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>NOTE_1  <span class="op">=</span>  <span class="dv">440</span> <span class="co">; 音调频率</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>NOTE_2  <span class="op">=</span>  <span class="dv">495</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>NOTE_3  <span class="op">=</span>  <span class="dv">550</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>NOTE_4  <span class="op">=</span>  <span class="dv">587</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>NOTE_5  <span class="op">=</span>  <span class="dv">660</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>NOTE_6  <span class="op">=</span>  <span class="dv">733</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>NOTE_7  <span class="op">=</span>  <span class="dv">825</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>ONE_BEEP  <span class="op">=</span>  <span class="dv">600</span> <span class="co">; 一拍延时600ms</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>HALF_BEEP <span class="op">=</span>  <span class="dv">300</span> <span class="co">; 半拍延时300ms</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">data</span> segment</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>ticks <span class="dt">dw</span> <span class="dv">0</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>music <span class="dt">dw</span>  NOTE_5<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_3<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">*</span><span class="dv">2</span><span class="op">,</span> ONE_BEEP<span class="op">*</span><span class="dv">2</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_6<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">*</span><span class="dv">2</span><span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> ONE_BEEP<span class="op">*</span><span class="dv">2</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_2<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_3<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_2<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_2<span class="op">,</span> ONE_BEEP<span class="op">*</span><span class="dv">4</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_3<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">*</span><span class="dv">2</span><span class="op">,</span> HALF_BEEP<span class="op">*</span><span class="dv">3</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_7<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_6<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">*</span><span class="dv">2</span><span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> ONE_BEEP<span class="op">*</span><span class="dv">2</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_2<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_3<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_4<span class="op">,</span> HALF_BEEP<span class="op">*</span><span class="dv">3</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_7<span class="op">/</span><span class="dv">2</span><span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">,</span> ONE_BEEP<span class="op">*</span><span class="dv">4</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_6<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">*</span><span class="dv">2</span><span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">*</span><span class="dv">2</span><span class="op">,</span> ONE_BEEP<span class="op">*</span><span class="dv">2</span></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_7<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_6<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_7<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">*</span><span class="dv">2</span><span class="op">,</span> ONE_BEEP<span class="op">*</span><span class="dv">2</span></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_6<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_7<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">*</span><span class="dv">2</span><span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_6<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_6<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_3<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_2<span class="op">,</span> ONE_BEEP<span class="op">*</span><span class="dv">4</span></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_3<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">*</span><span class="dv">2</span><span class="op">,</span> HALF_BEEP<span class="op">*</span><span class="dv">3</span></span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_7<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_6<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">*</span><span class="dv">2</span><span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> ONE_BEEP<span class="op">*</span><span class="dv">2</span></span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_5<span class="op">,</span> ONE_BEEP</span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_2<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_3<span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_4<span class="op">,</span> HALF_BEEP<span class="op">*</span><span class="dv">3</span></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_7<span class="op">/</span><span class="dv">2</span><span class="op">,</span> HALF_BEEP</span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  NOTE_1<span class="op">,</span> ONE_BEEP<span class="op">*</span><span class="dv">3</span></span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span>  <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span></span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="bu">data</span> ends</span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>code segment</span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>assume <span class="kw">cs</span><span class="op">:</span>code<span class="op">,</span> <span class="kw">ds</span><span class="op">:</span>data<span class="op">,</span> <span class="kw">ss</span><span class="op">:</span>stk</span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="fu">main:</span></span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ax</span><span class="op">,</span> data</span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ds</span><span class="op">,</span> <span class="kw">ax</span></span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>   <span class="bu">xor</span> <span class="kw">ax</span><span class="op">,</span> <span class="kw">ax</span></span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">es</span><span class="op">,</span> <span class="kw">ax</span></span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">bx</span><span class="op">,</span> <span class="dv">8</span><span class="op">*</span><span class="dv">4</span></span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ax</span><span class="op">,</span> <span class="kw">es</span><span class="op">:[</span><span class="kw">bx</span><span class="op">]</span></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">dx</span><span class="op">,</span> <span class="kw">es</span><span class="op">:[</span><span class="kw">bx</span><span class="op">+</span><span class="dv">2</span><span class="op">]</span>   <span class="co">; 取int 8h的中断向量</span></span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">cs</span><span class="op">:</span>old_int8h<span class="op">[</span><span class="dv">0</span><span class="op">],</span> <span class="kw">ax</span></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">cs</span><span class="op">:</span>old_int8h<span class="op">[</span><span class="dv">2</span><span class="op">],</span> <span class="kw">dx</span><span class="co">; 保存int 8h的中断向量</span></span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cli</span></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="dt">word</span> <span class="dt">ptr</span> <span class="kw">es</span><span class="op">:[</span><span class="kw">bx</span><span class="op">],</span> offset int_8h</span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">es</span><span class="op">:[</span><span class="kw">bx</span><span class="op">+</span><span class="dv">2</span><span class="op">],</span> <span class="kw">cs</span>   <span class="co">; 修改int 8h的中断向量</span></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="bn">36h</span></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">43h</span><span class="op">,</span> <span class="kw">al</span></span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">dx</span><span class="op">,</span> <span class="bn">0012h</span></span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ax</span><span class="op">,</span> <span class="dv">34</span><span class="bn">D</span><span class="er">Ch</span>       <span class="co">; DX:AX=1193180</span></span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">cx</span><span class="op">,</span> <span class="dv">1000</span></span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>   <span class="bu">div</span> <span class="kw">cx</span>              <span class="co">; AX=1193180/1000</span></span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">40h</span><span class="op">,</span> <span class="kw">al</span></span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="kw">ah</span></span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">40h</span><span class="op">,</span> <span class="kw">al</span>         <span class="co">; 设置时钟振荡频率为1000次/秒</span></span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>   <span class="bu">sti</span></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">si</span><span class="op">,</span> offset music</span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cld</span></span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="fu">again:</span></span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>   <span class="bu">lodsw</span></span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>   <span class="bu">test</span> <span class="kw">ax</span><span class="op">,</span> <span class="kw">ax</span></span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jz</span> done</span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>   <span class="cf">call</span> frequency</span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>   <span class="bu">lodsw</span></span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>   <span class="cf">call</span> delay</span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jmp</span> again</span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="fu">done:</span></span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cli</span></span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ax</span><span class="op">,</span> <span class="kw">cs</span><span class="op">:</span>old_int8h<span class="op">[</span><span class="dv">0</span><span class="op">]</span></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">dx</span><span class="op">,</span> <span class="kw">cs</span><span class="op">:</span>old_int8h<span class="op">[</span><span class="dv">2</span><span class="op">]</span></span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">es</span><span class="op">:[</span><span class="kw">bx</span><span class="op">],</span> <span class="kw">ax</span></span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">es</span><span class="op">:[</span><span class="kw">bx</span><span class="op">+</span><span class="dv">2</span><span class="op">],</span> <span class="kw">dx</span>   <span class="co">; 恢复int 8h的中断向量</span></span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="bn">36h</span></span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">43h</span><span class="op">,</span> <span class="kw">al</span></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">0</span></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">40h</span><span class="op">,</span> <span class="kw">al</span></span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">0</span></span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">40h</span><span class="op">,</span> <span class="kw">al</span>         <span class="co">; 恢复时钟振荡频率为1193180/65536=18.2次/秒</span></span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>   <span class="bu">sti</span></span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ah</span><span class="op">,</span> <span class="dv">4</span><span class="er">Ch</span></span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>   <span class="bu">int</span> <span class="bn">21h</span></span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="fu">frequency:</span></span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>   <span class="bu">push</span> <span class="kw">cx</span></span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>   <span class="bu">push</span> <span class="kw">dx</span></span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">cx</span><span class="op">,</span> <span class="kw">ax</span>   <span class="co">; CX=frequency</span></span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">dx</span><span class="op">,</span> <span class="bn">0012h</span></span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ax</span><span class="op">,</span> <span class="dv">34</span><span class="bn">D</span><span class="er">Ch</span><span class="co">; DX:AX=1193180</span></span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>   <span class="bu">div</span> <span class="kw">cx</span>       <span class="co">; AX=1193180/frequency</span></span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>                <span class="co">; 设ax = 100</span></span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>                <span class="co">; 每1/1193180倒计数一次</span></span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>   <span class="bu">pop</span> <span class="kw">dx</span></span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>   <span class="bu">pop</span> <span class="kw">cx</span></span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cli</span></span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>   <span class="bu">push</span> <span class="kw">ax</span></span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">0</span><span class="er">B6h</span></span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">43h</span><span class="op">,</span> <span class="kw">al</span></span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>   <span class="bu">pop</span> <span class="kw">ax</span></span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">42h</span><span class="op">,</span> <span class="kw">al</span> <span class="co">; n的低8位</span></span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">al</span><span class="op">,</span> <span class="kw">ah</span></span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">42h</span><span class="op">,</span> <span class="kw">al</span> <span class="co">; n的高8位 </span></span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>               <span class="co">; 每隔n个tick产生一次振荡</span></span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>               <span class="co">; 振荡频率=1193180/n (次/秒)</span></span>
-<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>   <span class="bu">sti</span></span>
-<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>   <span class="cf">ret</span></span>
-<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a><span class="fu">delay:</span></span>
-<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>   <span class="bu">push</span> <span class="kw">ax</span></span>
-<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cli</span></span>
-<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>   <span class="bu">in</span> <span class="kw">al</span><span class="op">,</span> <span class="bn">61h</span></span>
-<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a>   <span class="bu">or</span> <span class="kw">al</span><span class="op">,</span> <span class="dv">3</span></span>
-<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">61h</span><span class="op">,</span> <span class="kw">al</span><span class="co">; 开喇叭</span></span>
-<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>   <span class="bu">sti</span></span>
-<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a>   <span class="bu">pop</span> <span class="kw">ax</span></span>
-<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="op">[</span>ticks<span class="op">],</span> <span class="kw">ax</span></span>
-<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a><span class="fu">wait_this_delay:</span></span>
-<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cmp</span> <span class="op">[</span>ticks<span class="op">],</span> <span class="dv">0</span></span>
-<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jne</span> wait_this_delay</span>
-<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cli</span></span>
-<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a>   <span class="bu">in</span> <span class="kw">al</span><span class="op">,</span> <span class="bn">61h</span></span>
-<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a>   <span class="bu">and</span> <span class="kw">al</span><span class="op">,</span> <span class="op">not</span> <span class="dv">3</span></span>
-<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>   <span class="bu">out</span> <span class="bn">61h</span><span class="op">,</span> <span class="kw">al</span><span class="co">; 关喇叭</span></span>
-<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a>   <span class="bu">sti</span></span>
-<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a>   <span class="cf">ret</span></span>
-<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a><span class="fu">int_8h:</span></span>
-<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a>   <span class="bu">push</span> <span class="kw">ax</span></span>
-<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a>   <span class="bu">push</span> <span class="kw">ds</span></span>
-<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ax</span><span class="op">,</span> data</span>
-<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a>   <span class="bu">mov</span> <span class="kw">ds</span><span class="op">,</span> <span class="kw">ax</span></span>
-<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a>   <span class="bu">cmp</span> <span class="op">[</span>ticks<span class="op">],</span> <span class="dv">0</span></span>
-<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a>   <span class="cf">je</span> skip</span>
-<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a>   <span class="bu">dec</span> <span class="op">[</span>ticks<span class="op">]</span></span>
-<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a><span class="fu">skip:</span></span>
-<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a>   <span class="bu">pop</span> <span class="kw">ds</span></span>
-<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a>   <span class="bu">pop</span> <span class="kw">ax</span></span>
-<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a>   <span class="cf">jmp</span> <span class="dt">dword</span> <span class="dt">ptr</span> <span class="kw">cs</span><span class="op">:[</span>old_int8h<span class="op">]</span></span>
-<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a>old_int8h <span class="dt">dw</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span></span>
-<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a>code ends</span>
-<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a>stk segment stack</span>
-<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a><span class="dt">dw</span> <span class="bn">100h</span> dup<span class="op">(</span><span class="dv">0</span><span class="op">)</span></span>
-<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a>stk ends</span>
-<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a><span class="pp">end</span> main</span></code></pre></div>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Carrie Lee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/11/16/%E6%B1%87%E7%BC%96-%E7%AB%AF%E5%8F%A3/">http://example.com/2022/11/16/%E6%B1%87%E7%BC%96-%E7%AB%AF%E5%8F%A3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/17/%E7%94%B5%E5%9F%BA_%E7%AC%AC2%E7%AB%A0_%E4%B8%80%E9%98%B6%E6%9C%89%E6%BA%90RC%E6%BB%A4%E6%B3%A2%E5%99%A8/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">电基_第2章_有源滤波电路</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/16/%E6%B1%87%E7%BC%96-%E6%A0%87%E5%BF%97%E6%8E%A7%E5%88%B6/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">汇编_控制位</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/11/19/DS-01-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="DS_01_基本概念"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-19</div><div class="title">DS_01_基本概念</div></div></a></div><div><a href="/2022/11/10/DS-03-LINEAR-LISTS/" title="DS_03_LINEAR_LISTS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_03_LINEAR_LISTS</div></div></a></div><div><a href="/2022/11/10/DS-ALGORITHM-ANALYSIS/" title="DS_02_ALGORITHM_ANALYSIS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_02_ALGORITHM_ANALYSIS</div></div></a></div><div><a href="/2022/11/07/DS-GRAPH-ALGORITHMS/" title="DS_GRAPH ALGORITHMS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">DS_GRAPH ALGORITHMS</div></div></a></div><div><a href="/2023/02/05/DS-GRAPH/" title="DS_GRAPH"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-05</div><div class="title">DS_GRAPH</div></div></a></div><div><a href="/2023/02/05/DS-SORTING/" title="DS_SORTING"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-05</div><div class="title">DS_SORTING</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Carrie Lee</div><div class="author-info__description">���·�������������</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">端口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.0.1.</span> <span class="toc-text">60h端口——CPU与键盘之间可以建立通讯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.0.2.</span> <span class="toc-text">70h及71h端口——与cmos内部的时钟有关</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"/></a><div class="content"><a class="title" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波">专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</a><time datetime="2024-03-30T03:11:04.000Z" title="Created 2024-03-30 11:11:04">2024-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用">技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用</a><time datetime="2024-03-29T09:21:38.000Z" title="Created 2024-03-29 17:21:38">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术博客杂谈"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈">技术博客杂谈</a><time datetime="2024-03-29T09:07:01.000Z" title="Created 2024-03-29 17:07:01">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Daily-24-03-16"/></a><div class="content"><a class="title" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16">Daily-24-03-16</a><time datetime="2024-03-16T00:53:42.000Z" title="Created 2024-03-16 08:53:42">2024-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PTA-甲级-1001"/></a><div class="content"><a class="title" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001">PTA-甲级-1001</a><time datetime="2024-03-15T23:15:54.000Z" title="Created 2024-03-16 07:15:54">2024-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Carrie Lee</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+<pre><code class="lang-asm">; written by blackwhite
+mov al, 2
+out 70h, al; 只能是al寄存器
+in al, 71h; 读取cmos中2号单元的值
+</code></pre>
+<pre><code class="lang-asm">; written by blackwhite
+mov al, 4
+out 70h, al
+mov al, 23h
+out 71h, al; 把cmos4号单元即小时的值改成23点
+</code></pre>
+<pre><code class="lang-asm">; written by blackwhite
+mov al, 2
+out 70h, al; 只能是al寄存器
+mov al, 11h
+out 71h, al; 把11h写入cmos的2号寄存单元
+</code></pre>
+<pre><code class="lang-asm">; written by blackwhite
+data segment
+current_time db &quot;00:00:00&quot;, 0Dh, 0Ah, &quot;$&quot;
+data ends
+code segment
+assume cs:code, ds:data
+main:
+   mov ax, data
+   mov ds, ax
+   mov al, 4
+   out 70h,al; index hour
+   in al,71h ; AL=hour(e.g. 19h means 19 pm.)
+   call convert; AL=&#39;1&#39;, AH=&#39;9&#39;
+   mov word ptr current_time[0],ax; 利用小端规则，使得存入正好是19h相当于下面两句
+   ;mov current_time[0], al
+   ;mov current_time[1], ah
+   mov al,2
+   out 70h,al; index minute
+   in  al,71h; AL=minute
+   call convert
+   mov word ptr current_time[3],ax;
+   ;mov current_time[3], al
+   ;mov current_time[4], ah
+   mov al,0  ; index second
+   out 70h,al
+   in  al,71h; AL=second
+   call convert
+   mov word ptr current_time[6],ax
+   mov ah, 9
+   mov dx, offset current_time
+   int 21h
+   mov ah, 4Ch
+   int 21h
+;---------Convert----------------
+;Input:AL=hour or minute or second
+;      format:e.g. hour   15h means 3 pm.
+;                  second 56h means 56s
+;Output: (e.g. AL=56h)
+;     AL=&#39;5&#39;
+;     AH=&#39;6&#39;
+;     AL和AH既是input也是output
+convert:
+    push cx
+    mov ah,al ; e.g. assume AL=56h
+    and ah,0Fh; AH=06h
+    mov cl,4
+    shr al,cl ; AL=05h
+    ; shr:shift right右移
+    add ah, &#39;0&#39;; AH=&#39;6&#39;
+    add al, &#39;0&#39;; AL=&#39;5&#39;
+    pop  cx
+    ret
+;---------End of Convert---------
+code ends
+end main
+</code></pre>
+<pre><code class="lang-asm">; written by blackwhite
+NOTE_1  =  440 ; 音调频率
+NOTE_2  =  495
+NOTE_3  =  550
+NOTE_4  =  587
+NOTE_5  =  660
+NOTE_6  =  733
+NOTE_7  =  825
+
+ONE_BEEP  =  600 ; 一拍延时600ms
+HALF_BEEP =  300 ; 半拍延时300ms
+
+data segment
+ticks dw 0
+music dw  NOTE_5, ONE_BEEP
+dw  NOTE_3, HALF_BEEP
+dw  NOTE_5, HALF_BEEP
+dw  NOTE_1*2, ONE_BEEP*2
+dw  NOTE_6, ONE_BEEP
+dw  NOTE_1*2, ONE_BEEP
+dw  NOTE_5, ONE_BEEP*2
+dw  NOTE_5, ONE_BEEP
+dw  NOTE_1, HALF_BEEP
+dw  NOTE_2, HALF_BEEP
+dw  NOTE_3, ONE_BEEP
+dw  NOTE_2, HALF_BEEP
+dw  NOTE_1, HALF_BEEP
+dw  NOTE_2, ONE_BEEP*4
+dw  NOTE_5, ONE_BEEP
+dw  NOTE_3, HALF_BEEP
+dw  NOTE_5, HALF_BEEP
+dw  NOTE_1*2, HALF_BEEP*3
+dw  NOTE_7, HALF_BEEP
+dw  NOTE_6, ONE_BEEP
+dw  NOTE_1*2, ONE_BEEP
+dw  NOTE_5, ONE_BEEP*2
+dw  NOTE_5, ONE_BEEP
+dw  NOTE_2, HALF_BEEP
+dw  NOTE_3, HALF_BEEP
+dw  NOTE_4, HALF_BEEP*3
+dw  NOTE_7/2, HALF_BEEP
+dw  NOTE_1, ONE_BEEP*4
+dw  NOTE_6, ONE_BEEP
+dw  NOTE_1*2, ONE_BEEP
+dw  NOTE_1*2, ONE_BEEP*2
+dw  NOTE_7, ONE_BEEP
+dw  NOTE_6, HALF_BEEP
+dw  NOTE_7, HALF_BEEP
+dw  NOTE_1*2, ONE_BEEP*2
+dw  NOTE_6, HALF_BEEP
+dw  NOTE_7, HALF_BEEP
+dw  NOTE_1*2, HALF_BEEP
+dw  NOTE_6, HALF_BEEP
+dw  NOTE_6, HALF_BEEP
+dw  NOTE_5, HALF_BEEP
+dw  NOTE_3, HALF_BEEP
+dw  NOTE_1, HALF_BEEP
+dw  NOTE_2, ONE_BEEP*4
+dw  NOTE_5, ONE_BEEP
+dw  NOTE_3, HALF_BEEP
+dw  NOTE_5, HALF_BEEP
+dw  NOTE_1*2, HALF_BEEP*3
+dw  NOTE_7, HALF_BEEP
+dw  NOTE_6, ONE_BEEP
+dw  NOTE_1*2, ONE_BEEP
+dw  NOTE_5, ONE_BEEP*2
+dw  NOTE_5, ONE_BEEP
+dw  NOTE_2, HALF_BEEP
+dw  NOTE_3, HALF_BEEP
+dw  NOTE_4, HALF_BEEP*3
+dw  NOTE_7/2, HALF_BEEP
+dw  NOTE_1, ONE_BEEP*3
+dw  0, 0
+data ends
+
+code segment
+assume cs:code, ds:data, ss:stk
+main:
+   mov ax, data
+   mov ds, ax
+   xor ax, ax
+   mov es, ax
+   mov bx, 8*4
+   mov ax, es:[bx]
+   mov dx, es:[bx+2]   ; 取int 8h的中断向量
+   mov cs:old_int8h[0], ax
+   mov cs:old_int8h[2], dx; 保存int 8h的中断向量
+   cli
+   mov word ptr es:[bx], offset int_8h
+   mov es:[bx+2], cs   ; 修改int 8h的中断向量
+   mov al, 36h
+   out 43h, al
+   mov dx, 0012h
+   mov ax, 34DCh       ; DX:AX=1193180
+   mov cx, 1000
+   div cx              ; AX=1193180/1000
+   out 40h, al
+   mov al, ah
+   out 40h, al         ; 设置时钟振荡频率为1000次/秒
+   sti
+   mov si, offset music
+   cld
+again:
+   lodsw
+   test ax, ax
+   jz done
+   call frequency
+   lodsw
+   call delay
+   jmp again
+done:
+   cli
+   mov ax, cs:old_int8h[0]
+   mov dx, cs:old_int8h[2]
+   mov es:[bx], ax
+   mov es:[bx+2], dx   ; 恢复int 8h的中断向量
+   mov al, 36h
+   out 43h, al
+   mov al, 0
+   out 40h, al
+   mov al, 0
+   out 40h, al         ; 恢复时钟振荡频率为1193180/65536=18.2次/秒
+   sti
+   mov ah, 4Ch
+   int 21h
+
+frequency:
+   push cx
+   push dx
+   mov cx, ax   ; CX=frequency
+   mov dx, 0012h
+   mov ax, 34DCh; DX:AX=1193180
+   div cx       ; AX=1193180/frequency
+                   ; 设ax = 100
+                   ; 每1/1193180倒计数一次
+   pop dx
+   pop cx
+   cli
+   push ax
+   mov al, 0B6h
+   out 43h, al
+   pop ax
+   out 42h, al ; n的低8位
+   mov al, ah
+   out 42h, al ; n的高8位 
+               ; 每隔n个tick产生一次振荡
+               ; 振荡频率=1193180/n (次/秒)
+   sti
+   ret
+
+delay:
+   push ax
+   cli
+   in al, 61h
+   or al, 3
+   out 61h, al; 开喇叭
+   sti
+   pop ax
+   mov [ticks], ax
+wait_this_delay:
+   cmp [ticks], 0
+   jne wait_this_delay
+   cli
+   in al, 61h
+   and al, not 3
+   out 61h, al; 关喇叭
+   sti
+   ret
+
+int_8h:
+   push ax
+   push ds
+   mov ax, data
+   mov ds, ax
+   cmp [ticks], 0
+   je skip
+   dec [ticks]
+skip:
+   pop ds
+   pop ax
+   jmp dword ptr cs:[old_int8h]
+old_int8h dw 0, 0
+code ends
+
+stk segment stack
+dw 100h dup(0)
+stk ends
+end main
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Carrie Lee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/11/16/%E6%B1%87%E7%BC%96-%E7%AB%AF%E5%8F%A3/">http://example.com/2022/11/16/%E6%B1%87%E7%BC%96-%E7%AB%AF%E5%8F%A3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/17/%E7%94%B5%E5%9F%BA_%E7%AC%AC2%E7%AB%A0_%E4%B8%80%E9%98%B6%E6%9C%89%E6%BA%90RC%E6%BB%A4%E6%B3%A2%E5%99%A8/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">电基_第2章_有源滤波电路</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/16/%E6%B1%87%E7%BC%96-%E6%A0%87%E5%BF%97%E6%8E%A7%E5%88%B6/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">汇编_控制位</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/11/19/DS-01-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="DS_01_基本概念"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-19</div><div class="title">DS_01_基本概念</div></div></a></div><div><a href="/2022/11/10/DS-03-LINEAR-LISTS/" title="DS_03_LINEAR_LISTS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_03_LINEAR_LISTS</div></div></a></div><div><a href="/2022/11/10/DS-ALGORITHM-ANALYSIS/" title="DS_02_ALGORITHM_ANALYSIS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_02_ALGORITHM_ANALYSIS</div></div></a></div><div><a href="/2022/11/07/DS-GRAPH-ALGORITHMS/" title="DS_GRAPH ALGORITHMS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">DS_GRAPH ALGORITHMS</div></div></a></div><div><a href="/2023/02/05/DS-GRAPH/" title="DS_GRAPH"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-05</div><div class="title">DS_GRAPH</div></div></a></div><div><a href="/2023/02/06/DS-LIST/" title="DS_LIST"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-06</div><div class="title">DS_LIST</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Carrie Lee</div><div class="author-info__description">���·�������������</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">端口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.0.1.</span> <span class="toc-text">60h端口——CPU与键盘之间可以建立通讯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.0.2.</span> <span class="toc-text">70h及71h端口——与cmos内部的时钟有关</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"/></a><div class="content"><a class="title" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波">专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</a><time datetime="2024-03-30T03:11:04.000Z" title="Created 2024-03-30 11:11:04">2024-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用">技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用</a><time datetime="2024-03-29T09:21:38.000Z" title="Created 2024-03-29 17:21:38">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术博客杂谈"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈">技术博客杂谈</a><time datetime="2024-03-29T09:07:01.000Z" title="Created 2024-03-29 17:07:01">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Daily-24-03-16"/></a><div class="content"><a class="title" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16">Daily-24-03-16</a><time datetime="2024-03-16T00:53:42.000Z" title="Created 2024-03-16 08:53:42">2024-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PTA-甲级-1001"/></a><div class="content"><a class="title" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001">PTA-甲级-1001</a><time datetime="2024-03-15T23:15:54.000Z" title="Created 2024-03-16 07:15:54">2024-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Carrie Lee</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

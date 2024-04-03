@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>DS_TREE | Cr's Home</title><meta name="author" content="Carrie Lee"><meta name="copyright" content="Carrie Lee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="DS_Tree 查找（Searching） 顺序查找（Sequential Search）   巧妙的是将下标为0处的哨兵的值改成要查的元素，这样就不用判断下标是否越界  二分查找（Binary Search） 代码表示  二分查找判定树  ASL：平均成功查找次数  斐波那契查找（黄金分割法查找）算法 二分法每次能有100%的概率能只剩50%的数据，每次剩下的期望为">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>DS_TREE | Cr's Home</title><meta name="author" content="Carrie Lee"><meta name="copyright" content="Carrie Lee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="DS_Tree查找（Searching）顺序查找（Sequential Search）  巧妙的是将下标为0处的哨兵的值改成要查的元素，这样就不用判断下标是否越界  二分查找（Binary Search）代码表示 二分查找判定树 ASL：平均成功查找次数  斐波那契查找（黄金分割法查找）算法 二分法每次能有100%的概率能只剩50%的数据，每次剩下的期望为50%，即每次除以2。 而黄金分割的话每次">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DS_TREE">
 <meta property="og:url" content="http://example.com/2023/01/13/DS-TREE/index.html">
 <meta property="og:site_name" content="Cr&#39;s Home">
-<meta property="og:description" content="DS_Tree 查找（Searching） 顺序查找（Sequential Search）   巧妙的是将下标为0处的哨兵的值改成要查的元素，这样就不用判断下标是否越界  二分查找（Binary Search） 代码表示  二分查找判定树  ASL：平均成功查找次数  斐波那契查找（黄金分割法查找）算法 二分法每次能有100%的概率能只剩50%的数据，每次剩下的期望为">
+<meta property="og:description" content="DS_Tree查找（Searching）顺序查找（Sequential Search）  巧妙的是将下标为0处的哨兵的值改成要查的元素，这样就不用判断下标是否越界  二分查找（Binary Search）代码表示 二分查找判定树 ASL：平均成功查找次数  斐波那契查找（黄金分割法查找）算法 二分法每次能有100%的概率能只剩50%的数据，每次剩下的期望为50%，即每次除以2。 而黄金分割的话每次">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
 <meta property="article:published_time" content="2023-01-13T02:12:33.000Z">
@@ -11,8 +11,8 @@
 <meta property="article:author" content="Carrie Lee">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="树">
-<meta property="article:tag" content="尾递归">
 <meta property="article:tag" content="递归">
+<meta property="article:tag" content="尾递归">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/01/13/DS-TREE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
@@ -145,53 +145,31 @@
       }
     }
     detectApple()
-    })(window)</script><!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cr's Home</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DS_TREE</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-01-13T02:12:33.000Z" title="Created 2023-01-13 10:12:33">2023-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-02-07T09:29:14.820Z" title="Updated 2023-02-07 17:29:14">2023-02-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="DS_TREE"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="ds_tree">DS_Tree</span></h1>
-<h2><span id="查找searching">查找（Searching）</span></h2>
-<h3><span id="顺序查找sequential-search">顺序查找（Sequential Search）</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QxfJb"><img src="https://i.imgtg.com/2023/01/13/QxfJb.md.png" alt="QxfJb.md.png"></a></p>
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cr's Home</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DS_TREE</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-01-13T02:12:33.000Z" title="Created 2023-01-13 10:12:33">2023-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-02-07T09:29:14.820Z" title="Updated 2023-02-07 17:29:14">2023-02-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="DS_TREE"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><span id="ds_tree">DS_Tree</span></h1><h2><span id="查找searching">查找（Searching）</span></h2><h3><span id="顺序查找sequential-search">顺序查找（Sequential Search）</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QxfJb"><img src="https://i.imgtg.com/2023/01/13/QxfJb.md.png" alt="QxfJb.md.png"></a></p>
 <ul>
 <li>巧妙的是将下标为0处的哨兵的值改成要查的元素，这样就不用判断下标是否越界</li>
 </ul>
-<h3><span id="二分查找binary-search">二分查找（Binary Search）</span></h3>
-<h5><span id="代码表示">代码表示</span></h5>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qxlfl"><img src="https://i.imgtg.com/2023/01/13/Qxlfl.md.png" alt="Qxlfl.md.png"></a></p>
-<h5><span id="二分查找判定树">二分查找判定树</span></h5>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qx2ZB"><img src="https://i.imgtg.com/2023/01/13/Qx2ZB.png" alt="Qx2ZB.png"></a></p>
+<h3><span id="二分查找binary-search">二分查找（Binary Search）</span></h3><h5><span id="代码表示">代码表示</span></h5><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qxlfl"><img src="https://i.imgtg.com/2023/01/13/Qxlfl.md.png" alt="Qxlfl.md.png"></a></p>
+<h5><span id="二分查找判定树">二分查找判定树</span></h5><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qx2ZB"><img src="https://i.imgtg.com/2023/01/13/Qx2ZB.png" alt="Qx2ZB.png"></a></p>
 <p>ASL：平均成功查找次数</p>
 <blockquote>
 <p>斐波那契查找（黄金分割法查找）算法</p>
 <p>二分法每次能有100%的概率能只剩50%的数据，每次剩下的期望为50%，即每次除以2。</p>
 <p>而黄金分割的话每次都有0.618的概率是0.618，0.382的概率是0.382，每次剩下的期望为0.528，即每次除以1.894。</p>
 </blockquote>
-<h2><span id="树tree">树（Tree）</span></h2>
-<h3><span id="定义">定义</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QxIHS"><img src="https://i.imgtg.com/2023/01/13/QxIHS.png" alt="QxIHS.png"></a></p>
-<h5><span id="树与非树">树与非树</span></h5>
-<figure>
-<img src="C:\Users\ants\AppData\Roaming\Typora\typora-user-images\image-20230113104926143.png" alt="image-20230113104926143">
-<figcaption aria-hidden="true">image-20230113104926143</figcaption>
-</figure>
+<h2><span id="树tree">树（Tree）</span></h2><h3><span id="定义">定义</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QxIHS"><img src="https://i.imgtg.com/2023/01/13/QxIHS.png" alt="QxIHS.png"></a></p>
+<h5><span id="树与非树">树与非树</span></h5><p><img src="C:\Users\ants\AppData\Roaming\Typora\typora-user-images\image-20230113104926143.png" alt="image-20230113104926143"></p>
 <ul>
 <li>树是保证节点连通的最小方式</li>
 </ul>
-<h3><span id="基本术语">基本术语</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzqZt"><img src="https://i.imgtg.com/2023/01/13/QzqZt.png" alt="QzqZt.png"></a></p>
+<h3><span id="基本术语">基本术语</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzqZt"><img src="https://i.imgtg.com/2023/01/13/QzqZt.png" alt="QzqZt.png"></a></p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qz5cx"><img src="https://i.imgtg.com/2023/01/13/Qz5cx.png" alt="Qz5cx.png"></a></p>
 <ul>
 <li>根结点的层数是1</li>
 </ul>
-<h3><span id="树的表示">树的表示</span></h3>
-<h4><span id="儿子-兄弟表示法">儿子-兄弟表示法</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzU7p"><img src="https://i.imgtg.com/2023/01/13/QzU7p.png" alt="QzU7p.png"></a></p>
-<h5><span id="转变为二叉树">转变为二叉树</span></h5>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzWLU"><img src="https://i.imgtg.com/2023/01/13/QzWLU.png" alt="QzWLU.png"></a></p>
-<h2><span id="二叉树">二叉树</span></h2>
-<h3><span id="定义">定义</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzbXY"><img src="https://i.imgtg.com/2023/01/13/QzbXY.md.png" alt="QzbXY.md.png"></a></p>
+<h3><span id="树的表示">树的表示</span></h3><h4><span id="儿子-兄弟表示法">儿子-兄弟表示法</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzU7p"><img src="https://i.imgtg.com/2023/01/13/QzU7p.png" alt="QzU7p.png"></a></p>
+<h5><span id="转变为二叉树">转变为二叉树</span></h5><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzWLU"><img src="https://i.imgtg.com/2023/01/13/QzWLU.png" alt="QzWLU.png"></a></p>
+<h2><span id="二叉树">二叉树</span></h2><h3><span id="定义">定义</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzbXY"><img src="https://i.imgtg.com/2023/01/13/QzbXY.md.png" alt="QzbXY.md.png"></a></p>
 <ul>
 <li>二叉树的子树有左右之分</li>
 </ul>
@@ -203,20 +181,15 @@
 <ul>
 <li>下面的就不是完全二叉树</li>
 </ul>
-<h3><span id="重要性质">重要性质</span></h3>
-<p>n<sub>0</sub> = n<sub>2</sub>+1</p>
+<h3><span id="重要性质">重要性质</span></h3><p>n~0~ = n~2~+1</p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QziTr"><img src="https://i.imgtg.com/2023/01/13/QziTr.png" alt="QziTr.png"></a></p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzFlc"><img src="https://i.imgtg.com/2023/01/13/QzFlc.png" alt="QzFlc.png"></a></p>
 <ul>
-<li>因此，m叉树中各类节点的关系为：<span class="math display">\[\sum
-(i-1)n\]</span><sub>i</sub> = <span class="math display">\[n\]</span><sub>0</sub></li>
+<li>因此，m叉树中各类节点的关系为：<script type="math/tex">\sum (i-1)n</script>~i~ = <script type="math/tex">n</script>~0~</li>
 </ul>
-<h3><span id="抽象数据类型定义">抽象数据类型定义</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QznvM"><img src="https://i.imgtg.com/2023/01/13/QznvM.png" alt="QznvM.png"></a></p>
+<h3><span id="抽象数据类型定义">抽象数据类型定义</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QznvM"><img src="https://i.imgtg.com/2023/01/13/QznvM.png" alt="QznvM.png"></a></p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qz1cG"><img src="https://i.imgtg.com/2023/01/13/Qz1cG.png" alt="Qz1cG.png"></a></p>
-<h3><span id="存储结构">存储结构</span></h3>
-<h4><span id="顺序存储结构">顺序存储结构</span></h4>
-<ul>
+<h3><span id="存储结构">存储结构</span></h3><h4><span id="顺序存储结构">顺序存储结构</span></h4><ul>
 <li>完全二叉树</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzNO1"><img src="https://i.imgtg.com/2023/01/13/QzNO1.png" alt="QzNO1.png"></a></p>
@@ -224,46 +197,39 @@
 <li>一般二叉树</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qze7I"><img src="https://i.imgtg.com/2023/01/13/Qze7I.png" alt="Qze7I.png"></a></p>
-<h4><span id="链表存储">链表存储</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzrLD"><img src="https://i.imgtg.com/2023/01/13/QzrLD.png" alt="QzrLD.png"></a></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> TNode <span class="op">*</span>Position<span class="op">;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> Position BinTree<span class="op">;</span> <span class="co">/* 二叉树类型 */</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> TNode<span class="op">&#123;</span> <span class="co">/* 树结点定义 */</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    ElementType Data<span class="op">;</span> <span class="co">/* 结点数据 */</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    BinTree Left<span class="op">;</span>    <span class="co">/* 指向左子树 */</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    BinTree Right<span class="op">;</span>  <span class="co">/* 指向右子树 */</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;;</span></span></code></pre></div>
-<h3><span id="遍历">遍历</span></h3>
-<ol type="1">
+<h4><span id="链表存储">链表存储</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzrLD"><img src="https://i.imgtg.com/2023/01/13/QzrLD.png" alt="QzrLD.png"></a></p>
+<pre><code class="lang-c">typedef struct TNode *Position;
+typedef Position BinTree; /* 二叉树类型 */
+struct TNode&#123; /* 树结点定义 */
+    ElementType Data; /* 结点数据 */
+    BinTree Left;     /* 指向左子树 */
+    BinTree Right;    /* 指向右子树 */
+&#125;;
+</code></pre>
+<h3><span id="遍历">遍历</span></h3><ol>
 <li>先序遍历</li>
 <li>中序遍历</li>
 <li>后序遍历</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzAuF"><img src="https://i.imgtg.com/2023/01/13/QzAuF.png" alt="QzAuF.png"></a></p>
-<h4><span id="非递归遍历">非递归遍历</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzvPP"><img src="https://i.imgtg.com/2023/01/13/QzvPP.md.png" alt="QzvPP.md.png"></a></p>
+<h4><span id="非递归遍历">非递归遍历</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/QzvPP"><img src="https://i.imgtg.com/2023/01/13/QzvPP.md.png" alt="QzvPP.md.png"></a></p>
 <ul>
 <li>中序改先序-&gt;第一次碰到就print就可以了，因为路径是一样的</li>
 </ul>
-<ol start="4" type="1">
-<li>层序遍历
-<ol type="1">
+<ol>
+<li>层序遍历<ol>
 <li>队列实现<a target="_blank" rel="noopener" href="https://imgtg.com/image/QhWkv"><img src="https://i.imgtg.com/2023/01/13/QhWkv.md.png" alt="QhWkv.md.png"></a></li>
-</ol></li>
 </ol>
-<h4><span id="遍历举例">遍历举例</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qhbpq"><img src="https://i.imgtg.com/2023/01/13/Qhbpq.md.png" alt="Qhbpq.md.png"></a></p>
+</li>
+</ol>
+<h4><span id="遍历举例">遍历举例</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qhbpq"><img src="https://i.imgtg.com/2023/01/13/Qhbpq.md.png" alt="Qhbpq.md.png"></a></p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/Qhz5r"><img src="https://i.imgtg.com/2023/01/13/Qhz5r.md.png" alt="Qhz5r.md.png"></a></p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/04WAl"><img src="https://i.imgtg.com/2023/02/04/04WAl.md.png" alt="04WAl.md.png"></a></p>
-<h2><span id></span></h2>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/03huB"><img src="https://i.imgtg.com/2023/02/07/03huB.png" alt="03huB.png"></a></p>
+<h2><span id> </span></h2><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/03huB"><img src="https://i.imgtg.com/2023/02/07/03huB.png" alt="03huB.png"></a></p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/03AcC"><img src="https://i.imgtg.com/2023/02/07/03AcC.png" alt="03AcC.png"></a></p>
-<h2><span id="二叉搜索树">二叉搜索树</span></h2>
-<h3><span id="定义">定义</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/0uKWS"><img src="https://i.imgtg.com/2023/02/07/0uKWS.png" alt="0uKWS.png"></a></p>
+<h2><span id="二叉搜索树">二叉搜索树</span></h2><h3><span id="定义">定义</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/0uKWS"><img src="https://i.imgtg.com/2023/02/07/0uKWS.png" alt="0uKWS.png"></a></p>
 <p>左&lt;中&lt;右</p>
-<h3><span id="find函数">Find函数</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S7Y1g"><img src="https://i.imgtg.com/2023/01/24/S7Y1g.png" alt="S7Y1g.png"></a></p>
+<h3><span id="find函数">Find函数</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S7Y1g"><img src="https://i.imgtg.com/2023/01/24/S7Y1g.png" alt="S7Y1g.png"></a></p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S7fHB"><img src="https://i.imgtg.com/2023/01/24/S7fHB.png" alt="S7fHB.png"></a></p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/0uvsC"><img src="https://i.imgtg.com/2023/02/07/0uvsC.png" alt="0uvsC.png"></a></p>
 <ul>
@@ -271,199 +237,165 @@
 </ul>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S7l8s"><img src="https://i.imgtg.com/2023/01/24/S7l8s.png" alt="S7l8s.png"></a></p>
 <p>想错了，应该是中序遍历的最后一个节结点</p>
-<h3><span id="insert">Insert</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S7jxK"><img src="https://i.imgtg.com/2023/01/24/S7jxK.md.png" alt="S7jxK.md.png"></a></p>
-<h3><span id="delete">Delete</span></h3>
-<ul>
+<h3><span id="insert">Insert</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S7jxK"><img src="https://i.imgtg.com/2023/01/24/S7jxK.md.png" alt="S7jxK.md.png"></a></p>
+<h3><span id="delete">Delete</span></h3><ul>
 <li>leaf node : reset its parent link to NULL</li>
 <li>1 degree node : replace the node by its single child</li>
-<li>2 degree node :
-<ul>
-<li>Replace the node by the largest one in its left subtree or the
-smallest one in its right subtree.</li>
+<li>2 degree node : <ul>
+<li>Replace the node by the largest one in its left subtree or the smallest one in its right subtree.</li>
 <li>Delete the replacing node from the subtree.</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/0umri"><img src="https://i.imgtg.com/2023/02/07/0umri.png" alt="0umri.png"></a></p>
-<h3><span id="average-case-analysis">Average-Case Analysis</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/03aXG"><img src="https://i.imgtg.com/2023/02/07/03aXG.png" alt="03aXG.png"></a></p>
-<h2><span id="平衡二叉树是二叉搜索树fds不考">平衡二叉树（是二叉搜索树！！！）(FDS不考)</span></h2>
-<p>BF(T) = HL-HR</p>
-<h3><span id="平衡二叉树avl树">平衡二叉树（AVL树）</span></h3>
-<ul>
+<h3><span id="average-case-analysis">Average-Case Analysis</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/03aXG"><img src="https://i.imgtg.com/2023/02/07/03aXG.png" alt="03aXG.png"></a></p>
+<h2><span id="平衡二叉树是二叉搜索树fds不考">平衡二叉树（是二叉搜索树！！！）(FDS不考)</span></h2><p>BF(T) = HL-HR</p>
+<h3><span id="平衡二叉树avl树">平衡二叉树（AVL树）</span></h3><ul>
 <li>空树</li>
 <li>任意节点|BF(T)|≤1</li>
 </ul>
-<h4><span id="最小节点数">最小节点数</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S72Ja"><img src="https://i.imgtg.com/2023/01/24/S72Ja.png" alt="S72Ja.png"></a></p>
+<h4><span id="最小节点数">最小节点数</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S72Ja"><img src="https://i.imgtg.com/2023/01/24/S72Ja.png" alt="S72Ja.png"></a></p>
 <p>与斐波那契数列的关系</p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S7XBN"><img src="https://i.imgtg.com/2023/01/24/S7XBN.md.png" alt="S7XBN.md.png"></a></p>
-<h3><span id="平衡二叉树的调整">平衡二叉树的调整</span></h3>
-<h4><span id="rr旋转">RR旋转</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S7CMi"><img src="https://i.imgtg.com/2023/01/24/S7CMi.md.png" alt="S7CMi.md.png"></a></p>
-<h4><span id="ll旋转">LL旋转</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S7w1X"><img src="https://i.imgtg.com/2023/01/24/S7w1X.md.png" alt="S7w1X.md.png"></a></p>
-<h4><span id="lr旋转">LR旋转</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNMHt"><img src="https://i.imgtg.com/2023/01/24/SNMHt.md.png" alt="SNMHt.md.png"></a></p>
-<h4><span id="rl旋转">RL旋转</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNOXx"><img src="https://i.imgtg.com/2023/01/24/SNOXx.md.png" alt="SNOXx.md.png"></a></p>
-<h4><span id="example是否同一二叉搜索树">example：是否同一二叉搜索树</span></h4>
-<h4><span id="解题思路">解题思路</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNKOb"><img src="https://i.imgtg.com/2023/01/24/SNKOb.md.png" alt="SNKOb.md.png"></a></p>
-<ol start="3" type="1">
+<h3><span id="平衡二叉树的调整">平衡二叉树的调整</span></h3><h4><span id="rr旋转">RR旋转</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S7CMi"><img src="https://i.imgtg.com/2023/01/24/S7CMi.md.png" alt="S7CMi.md.png"></a></p>
+<h4><span id="ll旋转">LL旋转</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/S7w1X"><img src="https://i.imgtg.com/2023/01/24/S7w1X.md.png" alt="S7w1X.md.png"></a></p>
+<h4><span id="lr旋转">LR旋转</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNMHt"><img src="https://i.imgtg.com/2023/01/24/SNMHt.md.png" alt="SNMHt.md.png"></a></p>
+<h4><span id="rl旋转">RL旋转</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNOXx"><img src="https://i.imgtg.com/2023/01/24/SNOXx.md.png" alt="SNOXx.md.png"></a></p>
+<h4><span id="example是否同一二叉搜索树">example：是否同一二叉搜索树</span></h4><h4><span id="解题思路">解题思路</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNKOb"><img src="https://i.imgtg.com/2023/01/24/SNKOb.md.png" alt="SNKOb.md.png"></a></p>
+<ol>
 <li>建一棵树，再判别其他序列是否与该树一致</li>
 </ol>
-<h2><span id="堆">堆</span></h2>
-<h3><span id="特性">特性</span></h3>
-<ul>
-<li><p>优先队列</p></li>
-<li><p>根节点最大/最小</p></li>
-<li><p>完全二叉树</p></li>
-<li><p>从根结点到任意结点路径的有序性</p></li>
-<li><p>0号2位置放置哨兵-——最大值或最小值</p></li>
-<li><p>数组表示</p></li>
+<h2><span id="堆">堆</span></h2><h3><span id="特性">特性</span></h3><ul>
+<li><p>优先队列</p>
+</li>
+<li><p>根节点最大/最小</p>
+</li>
+<li><p>完全二叉树</p>
+</li>
+<li><p>从根结点到任意结点路径的有序性</p>
+</li>
+<li>0号2位置放置哨兵-——最大值或最小值</li>
+<li>数组表示</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/03cR1"><img src="https://i.imgtg.com/2023/02/07/03cR1.png" alt="03cR1.png"></a></p>
-<h3><span id="初始化">初始化</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/03VUD"><img src="https://i.imgtg.com/2023/02/07/03VUD.png" alt="03VUD.png"></a></p>
-<h3><span id="插入">插入</span></h3>
-<p>插在末尾，向前调整</p>
+<h3><span id="初始化">初始化</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/03VUD"><img src="https://i.imgtg.com/2023/02/07/03VUD.png" alt="03VUD.png"></a></p>
+<h3><span id="插入">插入</span></h3><p>插在末尾，向前调整</p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/03fd6"><img src="https://i.imgtg.com/2023/02/07/03fd6.png" alt="03fd6.png"></a></p>
-<h3><span id="删除">删除</span></h3>
-<p>只删除根的位置</p>
+<h3><span id="删除">删除</span></h3><p>只删除根的位置</p>
 <p>将末尾换到根，向下调整</p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/036Ig"><img src="https://i.imgtg.com/2023/02/07/036Ig.png" alt="036Ig.png"></a></p>
-<h3><span id="建堆">建堆</span></h3>
-<ol type="1">
+<h3><span id="建堆">建堆</span></h3><ol>
 <li>先将N个元素按顺序存入，先满足完全二叉树的结构特性</li>
-<li>再调整各结点位置，以满足最大堆的有序特性
-<ol type="1">
+<li>再调整各结点位置，以满足最大堆的有序特性<ol>
 <li>从最后一个有儿子的结点开始调成堆</li>
 <li>不断向上调整（类似删除操作）</li>
-</ol></li>
 </ol>
-<h2><span id="哈夫曼树与哈夫曼编码">哈夫曼树与哈夫曼编码</span></h2>
-<h3><span id="定义">定义</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNRTS"><img src="https://i.imgtg.com/2023/01/24/SNRTS.png" alt="SNRTS.png"></a></p>
-<h3><span id="哈夫曼树">哈夫曼树</span></h3>
-<ul>
+</li>
+</ol>
+<h2><span id="哈夫曼树与哈夫曼编码">哈夫曼树与哈夫曼编码</span></h2><h3><span id="定义">定义</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNRTS"><img src="https://i.imgtg.com/2023/01/24/SNRTS.png" alt="SNRTS.png"></a></p>
+<h3><span id="哈夫曼树">哈夫曼树</span></h3><ul>
 <li>每次把权值最小的两个结点合并</li>
 <li>新结点的权值就两结点权值之和</li>
 <li>再从剩下的里面找最小的两个</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNtvN"><img src="https://i.imgtg.com/2023/01/24/SNtvN.md.png" alt="SNtvN.md.png"></a></p>
-<h3><span id="特点">特点</span></h3>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNHOL"><img src="https://i.imgtg.com/2023/01/24/SNHOL.md.png" alt="SNHOL.md.png"></a></p>
-<h3><span id="哈夫曼编码">哈夫曼编码</span></h3>
-<ul>
-<li>避免二义性
-<ul>
+<h3><span id="特点">特点</span></h3><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNHOL"><img src="https://i.imgtg.com/2023/01/24/SNHOL.md.png" alt="SNHOL.md.png"></a></p>
+<h3><span id="哈夫曼编码">哈夫曼编码</span></h3><ul>
+<li>避免二义性<ul>
 <li>任何字符的编码都不是另一字符编码的前缀</li>
-</ul></li>
 </ul>
-<h4><span id="二叉树用于编码">二叉树用于编码</span></h4>
-<ul>
-<li>避免二义性
-<ul>
+</li>
+</ul>
+<h4><span id="二叉树用于编码">二叉树用于编码</span></h4><ul>
+<li>避免二义性<ul>
 <li>所有编码都在叶节点上</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNLNi"><img src="https://i.imgtg.com/2023/01/24/SNLNi.md.png" alt="SNLNi.md.png"></a></p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNELX"><img src="https://i.imgtg.com/2023/01/24/SNELX.png" alt="SNELX.png"></a></p>
 <p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SNGut"><img src="https://i.imgtg.com/2023/01/24/SNGut.md.png" alt="SNGut.md.png"></a></p>
-<h2><span id="集合的表示">集合的表示</span></h2>
-<h3><span id="集合运算">集合运算</span></h3>
-<h4><span id="查找">查找</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SYsHv"><img src="https://i.imgtg.com/2023/01/28/SYsHv.png" alt="SYsHv.png"></a></p>
-<h4><span id="并">并</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SYVXq"><img src="https://i.imgtg.com/2023/01/28/SYVXq.png" alt="SYVXq.png"></a></p>
+<h2><span id="集合的表示">集合的表示</span></h2><h3><span id="集合运算">集合运算</span></h3><h4><span id="查找">查找</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SYsHv"><img src="https://i.imgtg.com/2023/01/28/SYsHv.png" alt="SYsHv.png"></a></p>
+<h4><span id="并">并</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SYVXq"><img src="https://i.imgtg.com/2023/01/28/SYVXq.png" alt="SYVXq.png"></a></p>
 <ul>
 <li>改善，将小并到大中去</li>
 </ul>
-<h2><span id="例子">例子</span></h2>
-<h3><span id="file-transfer">FILE TRANSFER</span></h3>
-<h4><span id="按秩归并对uion的改进">按秩归并——对Uion的改进</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SfqTB"><img src="https://i.imgtg.com/2023/01/28/SfqTB.png" alt="SfqTB.png"></a></p>
+<h2><span id="例子">例子</span></h2><h3><span id="file-transfer">FILE TRANSFER</span></h3><h4><span id="按秩归并对uion的改进">按秩归并——对Uion的改进</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SfqTB"><img src="https://i.imgtg.com/2023/01/28/SfqTB.png" alt="SfqTB.png"></a></p>
 <p>树越长越高，退化成单链表</p>
-<h5><span id="高度">高度</span></h5>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SfBcK"><img src="https://i.imgtg.com/2023/01/28/SfBcK.md.png" alt="SfBcK.md.png"></a></p>
-<h5><span id="规模">规模</span></h5>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SfUOa"><img src="https://i.imgtg.com/2023/01/28/SfUOa.md.png" alt="SfUOa.md.png"></a></p>
-<h4><span id="路径压缩对find的改进">路径压缩——对Find的改进</span></h4>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SfHu6"><img src="https://i.imgtg.com/2023/01/28/SfHu6.png" alt="SfHu6.png"></a></p>
-<h5><span id="时间复杂度">时间复杂度</span></h5>
-<p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SfGRb"><img src="https://i.imgtg.com/2023/01/28/SfGRb.png" alt="SfGRb.png"></a></p>
-<h2><span id="补充">补充</span></h2>
-<h3><span id="尾递归与普通递归">尾递归与普通递归</span></h3>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40539125/article/details/88043983">参考博客</a></p>
+<h5><span id="高度">高度</span></h5><p> <a target="_blank" rel="noopener" href="https://imgtg.com/image/SfBcK"><img src="https://i.imgtg.com/2023/01/28/SfBcK.md.png" alt="SfBcK.md.png"></a></p>
+<h5><span id="规模">规模</span></h5><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SfUOa"><img src="https://i.imgtg.com/2023/01/28/SfUOa.md.png" alt="SfUOa.md.png"></a></p>
+<h4><span id="路径压缩对find的改进">路径压缩——对Find的改进</span></h4><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SfHu6"><img src="https://i.imgtg.com/2023/01/28/SfHu6.png" alt="SfHu6.png"></a></p>
+<h5><span id="时间复杂度">时间复杂度</span></h5><p><a target="_blank" rel="noopener" href="https://imgtg.com/image/SfGRb"><img src="https://i.imgtg.com/2023/01/28/SfGRb.png" alt="SfGRb.png"></a></p>
+<h2><span id="补充">补充</span></h2><h3><span id="尾递归与普通递归">尾递归与普通递归</span></h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40539125/article/details/88043983">参考博客</a></p>
 <p><strong>尾递归的判断标准是函数运行最后一步是否调用自身，而不是是否在函数的最后一行调用自身。</strong></p>
 <ul>
 <li>非尾递归，下一个函数结束以后此函数还有后续，所以必须保存本身的环境以供处理返回值。</li>
 <li>尾递归，进入下一个函数不再需要上一个函数的环境了，得出结果以后直接返回。</li>
 </ul>
 <p>普通递归实现阶加函数</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> recsum<span class="op">(</span><span class="dt">int</span> n<span class="op">)</span> <span class="op">&#123;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>n <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span><span class="op">(</span>n <span class="op">==</span> <span class="dv">0</span> <span class="op">||</span> n <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> n <span class="op">+</span> recsum<span class="op">(</span>n <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>recsum<span class="op">(</span><span class="dv">5</span><span class="op">)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">+</span> recsum<span class="op">(</span><span class="dv">4</span><span class="op">)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">+</span> <span class="op">(</span><span class="dv">4</span> <span class="op">+</span> recsum<span class="op">(</span><span class="dv">3</span><span class="op">))</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">+</span> <span class="op">(</span><span class="dv">4</span> <span class="op">+</span> <span class="op">(</span><span class="dv">3</span> <span class="op">+</span> recsum<span class="op">(</span><span class="dv">2</span><span class="op">)))</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">+</span> <span class="op">(</span><span class="dv">4</span> <span class="op">+</span> <span class="op">(</span><span class="dv">3</span> <span class="op">+</span> <span class="op">(</span><span class="dv">2</span> <span class="op">+</span> recsum<span class="op">(</span><span class="dv">1</span><span class="op">))))</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">+</span> <span class="op">(</span><span class="dv">4</span> <span class="op">+</span> <span class="op">(</span><span class="dv">3</span> <span class="op">+</span> <span class="op">(</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span><span class="op">)))</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">+</span> <span class="op">(</span><span class="dv">4</span> <span class="op">+</span> <span class="op">(</span><span class="dv">3</span> <span class="op">+</span> <span class="dv">3</span><span class="op">))</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">+</span> <span class="op">(</span><span class="dv">4</span> <span class="op">+</span> <span class="dv">6</span><span class="op">)</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="op">+</span> <span class="dv">10</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="dv">15</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<pre><code class="lang-c">int recsum(int n) &#123;
+    if (n &lt; 0)
+        return 0;
+    else if(n == 0 || n == 1)
+        return 1;
+    else
+        return n + recsum(n - 1);
+&#125;
+</code></pre>
+<pre><code class="lang-c">recsum(5)
+5 + recsum(4)
+5 + (4 + recsum(3))
+5 + (4 + (3 + recsum(2)))
+5 + (4 + (3 + (2 + recsum(1))))
+5 + (4 + (3 + (2 + 1)))
+5 + (4 + (3 + 3))
+5 + (4 + 6)
+5 + 10
+15
+</code></pre>
 <p>尾递归</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> tailrecsum<span class="op">(</span><span class="dt">int</span> n<span class="op">,</span> <span class="dt">int</span> res<span class="op">=</span><span class="dv">0</span><span class="op">)</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>n <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span><span class="op">(</span>n <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> res<span class="op">;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> tailrecsum<span class="op">(</span>n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> n <span class="op">+</span> res<span class="op">);</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tailrecsum<span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>tailrecsum<span class="op">(</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>tailrecsum<span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">9</span><span class="op">)</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>tailrecsum<span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">12</span><span class="op">)</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>tailrecsum<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">14</span><span class="op">)</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>tailrecsum<span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">15</span><span class="op">)</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="dv">15</span></span></code></pre></div>
+<pre><code class="lang-c">int tailrecsum(int n, int res=0)
+&#123;
+    if (n &lt; 0)
+        return 0;
+    else if(n == 0)
+        return res;
+    else
+        return tailrecsum(n - 1, n + res);
+&#125;
+</code></pre>
+<pre><code class="lang-c">tailrecsum(5, 0)
+tailrecsum(4, 5)
+tailrecsum(3, 9)
+tailrecsum(2, 12)
+tailrecsum(1, 14)
+tailrecsum(0, 15)
+15
+</code></pre>
 <p>使用尾递归可以带来一个好处：<strong>因为进入最后一步后不再需要参考外层函数（caller）的信息，因此没必要保存外层函数的stack，递归需要用的stack只有目前这层函数的，因此避免了栈溢出风险</strong></p>
 <p>因此尾递归很容易改成循环</p>
-<h3><span id="尾递归">尾递归</span></h3>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52828510/article/details/119994158">参考博客</a></p>
+<h3><span id="尾递归">尾递归</span></h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52828510/article/details/119994158">参考博客</a></p>
 <p>如果一个函数中所有递归形式的调用都出现在函数的末尾，我们称这个递归函数是尾递归的。当递归调用是整个函数体中最后执行的语句且它的返回值不属于表达式的一部分时，这个递归调用就是尾递归。尾递归函数的特点是在回归过程中不用做任何操作，这个特性很重要，因为大多数现代的编译器会利用这种特点自动生成优化的代码。</p>
-<h4><span id="11-原理">1.1 原理</span></h4>
-<p>当编译器检测到一个函数调用是尾递归的时候，它就覆盖当前的活动记录而不是在栈中去创建一个新的。编译器可以做到这点，因为递归调用是当前活跃期内最后一条待执行的语句，于是当这个调用返回时栈帧中并没有其他事情可做，因此也就没有保存栈帧的必要了。<strong>通过覆盖当前的栈帧而不是在其之上重新添加一个</strong>，这样所使用的栈空间就大大缩减了，这使得实际的运行效率会变得更高。</p>
-<h4><span id="12-实例">1.2 实例</span></h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">int</span> factorial<span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span> n<span class="op">)</span>        <span class="co">// 阶乘的非尾递归形式（又叫线性递归）</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span><span class="op">(</span>n <span class="op">=</span> <span class="dv">0</span> <span class="op">||</span> n <span class="op">=</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> n <span class="op">*</span> factorial<span class="op">(</span>n <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h4><span id="11-原理">1.1 原理</span></h4><p>当编译器检测到一个函数调用是尾递归的时候，它就覆盖当前的活动记录而不是在栈中去创建一个新的。编译器可以做到这点，因为递归调用是当前活跃期内最后一条待执行的语句，于是当这个调用返回时栈帧中并没有其他事情可做，因此也就没有保存栈帧的必要了。<strong>通过覆盖当前的栈帧而不是在其之上重新添加一个</strong>，这样所使用的栈空间就大大缩减了，这使得实际的运行效率会变得更高。</p>
+<h4><span id="12-实例">1.2 实例</span></h4><pre><code class="lang-c">unsigned int factorial(unsigned int n)        // 阶乘的非尾递归形式（又叫线性递归）
+&#123;
+    if(n = 0 || n = 1)
+        return 1;
+    else
+        return n * factorial(n - 1);
+&#125;
+</code></pre>
 <p>尾递归形式</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">int</span> factorial<span class="op">(</span><span class="dt">unsigned</span> <span class="dt">int</span> n<span class="op">,</span> <span class="dt">unsigned</span> <span class="dt">int</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">)</span>        <span class="co">// 阶乘的尾递归形式</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span><span class="op">(</span>n <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span><span class="op">(</span>n <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> a<span class="op">;</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> factorial<span class="op">(</span>n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> a <span class="op">*</span> n<span class="op">);</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
-<h3><span id="为什么按规模归并与路径压缩配合使用更方便">为什么按规模归并与路径压缩配合使用更方便？</span></h3>
-<p>在用了路径压缩之后，整棵树会变矮，这给给我们带了一个好处，那就是如果我每次都要遍历最底下未寻找过的结点，对一棵不用按秩归并处理的树来说，需要O(N2)的时间复杂度，对于用按秩归并的树来说，需要O(Nlog2N)的时间复杂度。而如果我们做了路径压缩，很有可能在做Find操作时所需要的时间复杂度为O(1)。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Carrie Lee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/01/13/DS-TREE/">http://example.com/2023/01/13/DS-TREE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E6%A0%91/">树</a><a class="post-meta__tags" href="/tags/%E5%B0%BE%E9%80%92%E5%BD%92/">尾递归</a><a class="post-meta__tags" href="/tags/%E9%80%92%E5%BD%92/">递归</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/14/DS-LIST-MaximumSubsequenceSum/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">DS_LIST_MaximumSubsequenceSum</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/12/%E5%8F%98%E7%BE%8E-%E6%9C%89%E6%9D%91%E6%9E%B6%E7%BA%AF/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">变美_有村架纯</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/11/19/DS-01-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="DS_01_基本概念"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-19</div><div class="title">DS_01_基本概念</div></div></a></div><div><a href="/2022/11/10/DS-03-LINEAR-LISTS/" title="DS_03_LINEAR_LISTS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_03_LINEAR_LISTS</div></div></a></div><div><a href="/2022/11/10/DS-ALGORITHM-ANALYSIS/" title="DS_02_ALGORITHM_ANALYSIS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_02_ALGORITHM_ANALYSIS</div></div></a></div><div><a href="/2022/11/07/DS-GRAPH-ALGORITHMS/" title="DS_GRAPH ALGORITHMS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">DS_GRAPH ALGORITHMS</div></div></a></div><div><a href="/2023/02/05/DS-GRAPH/" title="DS_GRAPH"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-05</div><div class="title">DS_GRAPH</div></div></a></div><div><a href="/2023/02/05/DS-SORTING/" title="DS_SORTING"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-05</div><div class="title">DS_SORTING</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Carrie Lee</div><div class="author-info__description">���·�������������</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">DS_Tree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">查找（Searching）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.1.</span> <span class="toc-text">顺序查找（Sequential Search）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.2.</span> <span class="toc-text">二分查找（Binary Search）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.1.2.0.1.</span> <span class="toc-text">代码表示</span></a></li><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.1.2.0.2.</span> <span class="toc-text">二分查找判定树</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">树（Tree）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.1.</span> <span class="toc-text">定义</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text">树与非树</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.2.</span> <span class="toc-text">基本术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.3.</span> <span class="toc-text">树的表示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">儿子-兄弟表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.2.3.1.1.</span> <span class="toc-text">转变为二叉树</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.2.</span> <span class="toc-text">重要性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.3.</span> <span class="toc-text">抽象数据类型定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.4.</span> <span class="toc-text">存储结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">顺序存储结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">链表存储</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.5.</span> <span class="toc-text">遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">非递归遍历</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">遍历举例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.5.</span> <span class="toc-text">二叉搜索树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.2.</span> <span class="toc-text">Find函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.3.</span> <span class="toc-text">Insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.4.</span> <span class="toc-text">Delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.5.</span> <span class="toc-text">Average-Case Analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.6.</span> <span class="toc-text">平衡二叉树（是二叉搜索树！！！）(FDS不考)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.6.1.</span> <span class="toc-text">平衡二叉树（AVL树）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">最小节点数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.6.2.</span> <span class="toc-text">平衡二叉树的调整</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">RR旋转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">LL旋转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">LR旋转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">RL旋转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.5.</span> <span class="toc-text">example：是否同一二叉搜索树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.6.</span> <span class="toc-text">解题思路</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.7.</span> <span class="toc-text">堆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.1.</span> <span class="toc-text">特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.3.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.4.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.5.</span> <span class="toc-text">建堆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.8.</span> <span class="toc-text">哈夫曼树与哈夫曼编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.8.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.8.2.</span> <span class="toc-text">哈夫曼树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.8.3.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.8.4.</span> <span class="toc-text">哈夫曼编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.8.4.1.</span> <span class="toc-text">二叉树用于编码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.9.</span> <span class="toc-text">集合的表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.9.1.</span> <span class="toc-text">集合运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.9.1.1.</span> <span class="toc-text">查找</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.9.1.2.</span> <span class="toc-text">并</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.10.</span> <span class="toc-text">例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.10.1.</span> <span class="toc-text">FILE TRANSFER</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.10.1.1.</span> <span class="toc-text">按秩归并——对Uion的改进</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.10.1.1.1.</span> <span class="toc-text">高度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.10.1.1.2.</span> <span class="toc-text">规模</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.10.1.2.</span> <span class="toc-text">路径压缩——对Find的改进</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.10.1.2.1.</span> <span class="toc-text">时间复杂度</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.11.</span> <span class="toc-text">补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.11.1.</span> <span class="toc-text">尾递归与普通递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.11.2.</span> <span class="toc-text">尾递归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.11.2.1.</span> <span class="toc-text">1.1 原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.11.2.2.</span> <span class="toc-text">1.2 实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.11.3.</span> <span class="toc-text">为什么按规模归并与路径压缩配合使用更方便？</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"/></a><div class="content"><a class="title" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波">专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</a><time datetime="2024-03-30T03:11:04.000Z" title="Created 2024-03-30 11:11:04">2024-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用">技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用</a><time datetime="2024-03-29T09:21:38.000Z" title="Created 2024-03-29 17:21:38">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术博客杂谈"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈">技术博客杂谈</a><time datetime="2024-03-29T09:07:01.000Z" title="Created 2024-03-29 17:07:01">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Daily-24-03-16"/></a><div class="content"><a class="title" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16">Daily-24-03-16</a><time datetime="2024-03-16T00:53:42.000Z" title="Created 2024-03-16 08:53:42">2024-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PTA-甲级-1001"/></a><div class="content"><a class="title" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001">PTA-甲级-1001</a><time datetime="2024-03-15T23:15:54.000Z" title="Created 2024-03-16 07:15:54">2024-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Carrie Lee</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+<pre><code class="lang-c">unsigned int factorial(unsigned int n, unsigned int a = 1)        // 阶乘的尾递归形式
+&#123;
+    if(n == 0)
+        return 1;
+
+    if(n == 1)
+        return a;
+    else
+        return factorial(n - 1, a * n);
+&#125;
+</code></pre>
+<h3><span id="为什么按规模归并与路径压缩配合使用更方便">为什么按规模归并与路径压缩配合使用更方便？</span></h3><p>在用了路径压缩之后，整棵树会变矮，这给给我们带了一个好处，那就是如果我每次都要遍历最底下未寻找过的结点，对一棵不用按秩归并处理的树来说，需要O(N2)的时间复杂度，对于用按秩归并的树来说，需要O(Nlog2N)的时间复杂度。而如果我们做了路径压缩，很有可能在做Find操作时所需要的时间复杂度为O(1)。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Carrie Lee</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/01/13/DS-TREE/">http://example.com/2023/01/13/DS-TREE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E6%A0%91/">树</a><a class="post-meta__tags" href="/tags/%E9%80%92%E5%BD%92/">递归</a><a class="post-meta__tags" href="/tags/%E5%B0%BE%E9%80%92%E5%BD%92/">尾递归</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/14/DS-LIST-MaximumSubsequenceSum/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">DS_LIST_MaximumSubsequenceSum</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/12/%E5%8F%98%E7%BE%8E-%E6%9C%89%E6%9D%91%E6%9E%B6%E7%BA%AF/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">变美_有村架纯</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/11/19/DS-01-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="DS_01_基本概念"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-19</div><div class="title">DS_01_基本概念</div></div></a></div><div><a href="/2022/11/10/DS-03-LINEAR-LISTS/" title="DS_03_LINEAR_LISTS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_03_LINEAR_LISTS</div></div></a></div><div><a href="/2022/11/10/DS-ALGORITHM-ANALYSIS/" title="DS_02_ALGORITHM_ANALYSIS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-10</div><div class="title">DS_02_ALGORITHM_ANALYSIS</div></div></a></div><div><a href="/2022/11/07/DS-GRAPH-ALGORITHMS/" title="DS_GRAPH ALGORITHMS"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-07</div><div class="title">DS_GRAPH ALGORITHMS</div></div></a></div><div><a href="/2023/02/05/DS-GRAPH/" title="DS_GRAPH"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-05</div><div class="title">DS_GRAPH</div></div></a></div><div><a href="/2023/02/06/DS-LIST/" title="DS_LIST"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-06</div><div class="title">DS_LIST</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Carrie Lee</div><div class="author-info__description">���·�������������</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">27</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">DS_Tree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">查找（Searching）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.1.</span> <span class="toc-text">顺序查找（Sequential Search）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.2.</span> <span class="toc-text">二分查找（Binary Search）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.1.2.0.1.</span> <span class="toc-text">代码表示</span></a></li><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.1.2.0.2.</span> <span class="toc-text">二分查找判定树</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">树（Tree）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.1.</span> <span class="toc-text">定义</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text">树与非树</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.2.</span> <span class="toc-text">基本术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.3.</span> <span class="toc-text">树的表示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">儿子-兄弟表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.2.3.1.1.</span> <span class="toc-text">转变为二叉树</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.2.</span> <span class="toc-text">重要性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.3.</span> <span class="toc-text">抽象数据类型定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.4.</span> <span class="toc-text">存储结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">顺序存储结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">链表存储</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.5.</span> <span class="toc-text">遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">非递归遍历</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">遍历举例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.5.</span> <span class="toc-text">二叉搜索树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.2.</span> <span class="toc-text">Find函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.3.</span> <span class="toc-text">Insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.4.</span> <span class="toc-text">Delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.5.</span> <span class="toc-text">Average-Case Analysis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.6.</span> <span class="toc-text">平衡二叉树（是二叉搜索树！！！）(FDS不考)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.6.1.</span> <span class="toc-text">平衡二叉树（AVL树）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">最小节点数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.6.2.</span> <span class="toc-text">平衡二叉树的调整</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">RR旋转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">LL旋转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">LR旋转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">RL旋转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.5.</span> <span class="toc-text">example：是否同一二叉搜索树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.6.2.6.</span> <span class="toc-text">解题思路</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.7.</span> <span class="toc-text">堆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.1.</span> <span class="toc-text">特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.3.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.4.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.7.5.</span> <span class="toc-text">建堆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.8.</span> <span class="toc-text">哈夫曼树与哈夫曼编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.8.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.8.2.</span> <span class="toc-text">哈夫曼树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.8.3.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.8.4.</span> <span class="toc-text">哈夫曼编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.8.4.1.</span> <span class="toc-text">二叉树用于编码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.9.</span> <span class="toc-text">集合的表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.9.1.</span> <span class="toc-text">集合运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.9.1.1.</span> <span class="toc-text">查找</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.9.1.2.</span> <span class="toc-text">并</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.10.</span> <span class="toc-text">例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.10.1.</span> <span class="toc-text">FILE TRANSFER</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.10.1.1.</span> <span class="toc-text">按秩归并——对Uion的改进</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.10.1.1.1.</span> <span class="toc-text">高度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.10.1.1.2.</span> <span class="toc-text">规模</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.10.1.2.</span> <span class="toc-text">路径压缩——对Find的改进</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">1.10.1.2.1.</span> <span class="toc-text">时间复杂度</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.11.</span> <span class="toc-text">补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.11.1.</span> <span class="toc-text">尾递归与普通递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.11.2.</span> <span class="toc-text">尾递归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.11.2.1.</span> <span class="toc-text">1.1 原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.11.2.2.</span> <span class="toc-text">1.2 实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.11.3.</span> <span class="toc-text">为什么按规模归并与路径压缩配合使用更方便？</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波"/></a><div class="content"><a class="title" href="/2024/03/30/%E4%B8%93%E9%A2%98%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-ch03-%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E4%B8%8E%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2/" title="专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波">专题笔记 | 数字图像处理 | ch03 灰度变换与空间滤波</a><time datetime="2024-03-30T03:11:04.000Z" title="Created 2024-03-30 11:11:04">2024-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E6%97%A5%E8%AE%B0-240329-%E4%B8%89%E8%BF%90%E6%94%BE%E4%BB%AA%E8%A1%A8%E6%94%BE%E5%A4%A7%E5%99%A8-hexo%E4%BD%BF%E7%94%A8/" title="技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用">技术日记 | 240329 | 三运放仪表放大器 &amp; hexo使用</a><time datetime="2024-03-29T09:21:38.000Z" title="Created 2024-03-29 17:21:38">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="技术博客杂谈"/></a><div class="content"><a class="title" href="/2024/03/29/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/" title="技术博客杂谈">技术博客杂谈</a><time datetime="2024-03-29T09:07:01.000Z" title="Created 2024-03-29 17:07:01">2024-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Daily-24-03-16"/></a><div class="content"><a class="title" href="/2024/03/16/Daily-24-03-16/" title="Daily-24-03-16">Daily-24-03-16</a><time datetime="2024-03-16T00:53:42.000Z" title="Created 2024-03-16 08:53:42">2024-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PTA-甲级-1001"/></a><div class="content"><a class="title" href="/2024/03/16/PTA-%E7%94%B2%E7%BA%A7-1001/" title="PTA-甲级-1001">PTA-甲级-1001</a><time datetime="2024-03-15T23:15:54.000Z" title="Created 2024-03-16 07:15:54">2024-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Carrie Lee</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
